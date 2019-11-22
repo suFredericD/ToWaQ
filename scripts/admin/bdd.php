@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   fonctions BdD
  *   Date mise en oeuvre :   11/11/2019
- *          Dernière MàJ :   13/11/2019
+ *          Dernière MàJ :   22/11/2019
  **************************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 

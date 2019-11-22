@@ -8,13 +8,14 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page principale du jeu
  *   Date mise en oeuvre :   12/11/2019
- *          Dernière MàJ :   13/11/2019
+ *          Dernière MàJ :   22/11/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 require("../scripts/admin/variables.php");                          // Variables globales du site
 require("../scripts/admin/bdd.php");                                // Gestion des accès base de donnée
 require("../scripts/classes/page.php");                             // Script de définition de la classe 'Page'
 require("../scripts/paging/htmlPaging.php");                        // Script de pagination html
+require("../scripts/paging/mainView.php");                          // Vue principale
 require("../scripts/tools/calcscripts.php");                        // Scripts utilitaires (calculs divers)
 
 /***** *****    DECLARATIONS   ***** *****/
@@ -75,9 +76,10 @@ switch ($_POST['optPartie']) {
      <div class="col-xl-3 partie-label"><h2>Niveau :</h2></div>
      <div class="col-xl-7 partie-param"><h2><?php echo $arrLevel['Name'];?></h2></div>
     </section>
-    <section class="row" id="game_footer">
-
-    </section>
+<!-- -- -- -- -- Vue principale -- -- -- -- -->
+<?php
+fctDisplayGameView($arrQuestions, $strPartie);
+?>
 <?php
 /* ***** ***** ***** Footer HTML ***** ***** ***** */
 fct_BuildHtmlFooter($objPageInfos);
