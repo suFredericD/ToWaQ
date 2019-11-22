@@ -81,6 +81,24 @@ function fct_SelectLevelFromId($intId){
     $arrReturn['Color'] = $row['2'];
     return $arrReturn;
 }
+// Fonction d'extraction de toutes les catégories de questions
+//       Paramètres  : none
+//  Valeur de retour :
+//         arrReturn : tableau de toutes les catégories
+function fct_SelectAllCategories(){
+    $strRequest = "SELECT * FROM `fri_category`;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['Name'] = $row['1'];
+        $arrReturn[$i]['Color'] = $row['2'];
+        $arrReturn[$i]['NameUs'] = $row['3'];
+        $i++;
+    }
+    return $arrReturn;
+}
 // Fonction d'extraction de toutes les questions
 //       Paramètres  : none
 //  Valeur de retour :
