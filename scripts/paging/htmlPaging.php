@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page de définition de la classe page
  *   Date mise en oeuvre :   11/11/2019
- *          Dernière MàJ :   11/11/2019
+ *          Dernière MàJ :   22/11/2019
  *******************************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
@@ -44,7 +44,10 @@ function fct_BuildHtmlHeader($objPageInfos){
         <link href="<?php echo $objPageInfos->getCssPath();?>general.css" rel="stylesheet" type="text/css"><!-- Css général -->
 <?php   if ( $objPageInfos->getName() != "index.php" ) {?>
         <link href="<?php echo $objPageInfos->getCssPath().$strFileCss;?>" rel="stylesheet" type="text/css"><!-- Css associé au fichier -->
-<?php   }?>
+<?php       if ( $objPageInfos->getName() != "index.php" ) {?>
+        <link href="<?php echo $objPageInfos->getCssPath();?>mainView.css" rel="stylesheet" type="text/css"><!-- Css de la vue principale -->
+<?php       }
+        }?>
         <link rel="icon" type="image/ico" href="<?php echo $objPageInfos->getPicturesPath().$GLOBALS['strSiteIcon'];?>"><!-- Icône du site -->
         <link href="<?php echo $objPageInfos->getConfigPath();?>fontawesome/css/all.css" rel="stylesheet"><!-- Lien FontAwesome -->
     </head>
