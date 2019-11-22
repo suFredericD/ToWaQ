@@ -1,0 +1,448 @@
+/*************************************************************************************************
+ *   	EmtZahella Projetcs Incorporated
+ *                Projet :   ToWaQ
+ *                  Page :   general.css
+ *                Chemin :   http://127.0.0.1:8080/ToWaQ/config/css/general.css
+ *                  Type :   page de modules
+ * 				Contexte :	 Css 3.0
+ *              Fonction :   page de styles d'affichage CSS
+ *   Date mise en oeuvre :   11/11/2019
+ *          Dernière MàJ :   12/11/2019
+ *************************************************************************************************/
+/*
+Palette
+	Saison 1  :		#1F3A81
+	Saison 2  :		#D13328
+	Saison 3  :		#116D86
+	Saison 4  :		#F06F45
+	Saison 5  :		#7C2880
+	Saison 6  :		#1B776A
+	Saison 7  :		#DC328A
+	Saison 8  :		#3B95D1
+	Saison 9  :		#FFCC00
+	Saison 10 :		#8F2144
+
+   background :		#61697D
+   mauve bleu :		#67617D
+   mauve rose :		#75617D
+ 	     vert : 	#61777D
+		 kaki :		#777D61
+
+	 Niveau 1 :		#456958
+	 Niveau 2 :		#987D49
+	 Niveau 3 :		#7F4D5B
+*/
+ /***** ***** ***** Containers ***** ***** *****/
+#site-container{
+	opacity: 0.9;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	background-color: #61777D;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+/***** ***** ***** Webfonts ***** ***** *****/
+@font-face{
+	font-family: "2Dumb";
+	src: url('../fonts/2dumb_regular/2Dumb-webfont.eot') format('eot'),
+		 url('../fonts/2dumb_regular/2Dumb-webfont.woff') format('woff'),
+		 url('../fonts/2dumb_regular/2Dumb-webfont.ttf') format('truetype'),
+		 url('../fonts/2dumb_regular/2Dumb-webfont.svg') format('svg');
+}
+@font-face{
+	font-family: "Db20";
+	src: url('../fonts/20db_regular/20db-webfont.eot') format('eot'),
+		 url('../fonts/20db_regular/20db-webfont.woff') format('woff'),
+		 url('../fonts/20db_regular/20db-webfont.ttf') format('truetype'),
+		 url('../fonts/20db_regular/20db-webfont.svg') format('svg');
+}
+@font-face{
+	font-family: "Airstream";
+	src: url('../fonts/airstream_regular/Airstream-webfont.eot') format('eot'),
+		 url('../fonts/airstream_regular/Airstream-webfont.woff') format('woff'),
+		 url('../fonts/airstream_regular/Airstream-webfont.ttf') format('truetype'),
+		 url('../fonts/airstream_regular/Airstream-webfont.svg') format('svg');
+}
+@font-face{
+	font-family: "Banksia";
+	src: url('../fonts/banksia_regular/banksia-webfont.eot') format('eot'),
+		 url('../fonts/banksia_regular/banksia-webfont.woff') format('woff'),
+		 url('../fonts/banksia_regular/banksia-webfont.ttf') format('truetype'),
+		 url('../fonts/banksia_regular/banksia-webfont.svg') format('svg');
+}
+@font-face{
+	font-family: "BlockLetterBalPen";
+	src: url('../fonts/bloklettersbalpen/Blokletters-Balpent-webfont.eot') format('eot'),
+		 url('../fonts/bloklettersbalpen/Blokletters-Balpen-webfont.woff') format('woff'),
+		 url('../fonts/bloklettersbalpen/Blokletters-Balpen-webfont.ttf') format('truetype'),
+		 url('../fonts/bloklettersbalpen/Blokletters-Balpen-webfont.svg') format('svg');
+}
+@font-face{
+	font-family: "CaviarDreams";
+	src: url('../fonts/caviardreams_regular/CaviarDreams-webfont.eot') format('eot'),
+		 url('../fonts/caviardreams_regular/CaviarDreams-webfont.woff') format('woff'),
+		 url('../fonts/caviardreams_regular/CaviarDreams-webfont.ttf') format('truetype'),
+		 url('../fonts/caviardreams_regular/CaviarDreams-webfont.svg') format('svg');
+}
+@font-face{
+	font-family: "KomikaDisplay";
+	src: url('../fonts/komikadisplay_regular/Komika_display-webfont.eot') format('eot'),
+		 url('../fonts/komikadisplay_regular/Komika_display-webfont.woff') format('woff'),
+		 url('../fonts/komikadisplay_regular/Komika_display-webfont.ttf') format('truetype'),
+		 url('../fonts/komikadisplay_regular/Komika_display-webfont.svg') format('svg');
+}
+@font-face{
+	font-family: "NewCicleFina";
+	src: url('../fonts/newcicle_fina/New_Cicle_Fina-webfont.eot') format('eot'),
+		 url('../fonts/newcicle_fina/New_Cicle_Fina-webfont.woff') format('woff'),
+		 url('../fonts/newcicle_fina/New_Cicle_Fina-webfont.ttf') format('truetype'),
+		 url('../fonts/newcicle_fina/New_Cicle_Fina-webfont.svg') format('svg');
+}
+@font-face{
+	font-family: "NoteThis";
+	src: url('../fonts/notethis_regular/Note_this-webfont.eot') format('eot'),
+		 url('../fonts/notethis_regular/Note_this-webfont.woff') format('woff'),
+		 url('../fonts/notethis_regular/Note_this-webfont.ttf') format('truetype'),
+		 url('../fonts/notethis_regular/Note_this-webfont.svg') format('svg');
+}
+@font-face{
+	font-family: "UpperEastSide";
+	src: url('../fonts/uppereastside_regular/UpperEastSide-webfont.eot') format('eot'),
+		 url('../fonts/uppereastside_regular/UpperEastSide-webfont.woff') format('woff'),
+		 url('../fonts/uppereastside_regular/UpperEastSide-webfont.ttf') format('truetype'),
+		 url('../fonts/uppereastside_regular/UpperEastSide-webfont.svg') format('svg');
+}
+@font-face{
+	font-family: "WalkwayBlack";
+	src: url('../fonts/walkwayblack_regular/Walkway_Black-webfont.eot') format('eot'),
+		 url('../fonts/walkwayblack_regular/Walkway_Black-webfont.woff') format('woff'),
+		 url('../fonts/walkwayblack_regular/Walkway_Black-webfont.ttf') format('truetype'),
+		 url('../fonts/walkwayblack_regular/Walkway_Black-webfont.svg') format('svg');
+}
+/***** ***** ***** Balises HTML ***** ***** *****/
+body{
+	background-color: #61697D;
+}
+hr{
+
+}
+a,button{
+	transition-property: all;
+	transition-duration: 1850ms;
+}
+a{
+	text-decoration: none;
+	font-family: "CaviarDreams";
+	font-size: 28px;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	color: #61697D;
+	text-shadow: 1px 1px 3px #FFF;
+	transition-property: all;
+	transition-duration: 1850ms;
+}
+a:hover{
+	text-decoration: none;
+	color: #794E70;
+	text-shadow: 1px 1px 3px #333;
+}
+button{
+	background-color: hsl(261, 19%, 56%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeecf2", endColorstr="#8879a4");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#eeecf2), to(#8879a4));
+	background-image: -moz-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -ms-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeecf2), color-stop(100%, #8879a4));
+	background-image: -webkit-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -o-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: linear-gradient(#eeecf2, #8879a4);
+	border-color: #8879a4 #8879a4 hsl(261, 19%, 46.5%);
+	color: #333 !important;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
+	-webkit-font-smoothing: antialiased;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 8px 16px 8px 16px;
+	box-shadow: 1px 1px 3px #000;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	transition-property: all;
+	transition-duration: 1850ms;
+	-moz-transition-property: all;
+    -moz-transition-duration: 1850ms;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 1850ms;
+}
+button:hover{
+	background-color: hsl(31, 25%, 65%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e2d9cf", endColorstr="#bca68f");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#e2d9cf), to(#bca68f));
+	background-image: -moz-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -ms-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e2d9cf), color-stop(100%, #bca68f));
+	background-image: -webkit-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -o-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: linear-gradient(#e2d9cf, #bca68f);
+	border-color: #bca68f #bca68f hsl(31, 25%, 60%);
+	color: #333 !important;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+	-webkit-font-smoothing: antialiased;
+	border-radius: 20px;
+	box-shadow: -2px -2px 4px #000;
+	-moz-box-shadow: -2px -2px 4px #000;
+	-webkit-box-shadow: -2px -2px 4px #000;
+}
+/***** ***** ***** Titrages HTML ***** ***** *****/
+h1,h2,h3,h4,h5{
+	font-family: "2Dumb";
+	color: #C1C1C1;
+	text-shadow: 1px 1px 3px #000;
+	letter-spacing: 0.08em;
+}
+h1{
+	font-size: 32px;
+	font-weight: 300;
+}
+h2{
+	font-size: 28px;
+}
+h3{
+	font-size: 24px;
+}
+h4{
+	font-size: 20px;
+}
+/***** ***** ***** En-tête graphique ***** ***** *****/
+#accueil_header,#pconf_header{
+	background-image: url("../../media/pics/couch01_header.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 0.9;
+}
+#accueil_footer{
+	background-image: url("../../media/pics/friends/all_02.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 500px;
+	opacity: 0.85;
+}
+#site_title,#pconf_title,#site_subtitle,#pconf_subtitle{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #FFF;
+	text-shadow: 2px 2px 4px #61777D;
+}
+#site_title,#pconf_title{
+	font-family: "KomikaDisplay";
+	font-size: 90px;
+	letter-spacing: 0.15em;
+}
+#site_subtitle,#pconf_subtitle{
+	font-family: "UpperEastSide";
+	font-size: 70px;
+	letter-spacing: 0.1em;
+}
+.red,.blue,.yellow{
+	font-size: 16px;
+}
+.red{
+	color: #AA0000;
+}
+.blue{
+	color: #1F85DE;
+}
+.yellow{
+	color: #DEAD1F;
+}
+/***** ***** ***** Footer Html ***** ***** *****/
+footer{
+	opacity: 0.8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.9;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	background-color: #75617D;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#footer_author,#footer_rights{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "2Dumb";
+	letter-spacing: 0.1em;
+	color: #61777D;
+	text-shadow: 2px 2px 4px #000;
+}
+#footer_author{
+	font-size: 34px;
+}
+#footer_rights{
+	font-size: 28px;
+}
+#rendering{
+
+}
+/***** ***** ***** Barres de navigation ***** ***** *****/
+
+/***** ***** ***** Boutons de navigation ***** ***** *****/
+
+/***** ***** ***** Classes de mise en forme ***** ***** *****/
+.no-bg-no-bd{
+	background-color: transparent;
+	border: none;
+}
+.box-shadow{
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+/***** ***** ***** Page d'accueil ***** ***** *****/
+#accueil_main{
+	opacity: 0.8;
+	margin: 15px 15px 15px 15px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+	border-top: 1px outset #000;
+	border-left: 1px outset #000;
+}
+#accueil_title{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 15px;
+	padding-top: 5px;
+	font-family: "UpperEastSide";
+	font-size: 56px;
+	letter-spacing: 0.1em;
+	color: #FFF;
+	text-shadow: 2px 2px 4px #000;
+}
+#acc-friends{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "2Dumb";
+	font-size: 42px;
+	font-weight: bold;
+	letter-spacing: 0.2em;
+	color: #FFF;
+}
+#acc-friends .blue,#acc-friends .red,#acc-friends .yellow{
+	font-size: 10px;
+	align-items: center;
+}
+#accueil_main div p{
+	font-family: "BlockLetterBalPen";
+	font-size: 20px;
+	letter-spacing: 0.08em;
+	color: #000;
+}
+#acc-game-label,#acc_col_play{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#acc_towaq{
+	margin-top: 10px;
+	margin-bottom: 20px;
+	font-family: "KomikaDisplay";
+	font-size: 26px;
+	letter-spacing: 0.2em;
+	color: #FFF;
+	text-shadow: 2px 2px 4px #000;
+	opacity: 0.8;
+}
+#acc_towaq .red,#acc_towaq .blue,#acc_towaq .yellow{
+	font-size: 7px;
+	vertical-align: middle;
+}
+#acc_towaqsub{
+	vertical-align: top;
+	font-family: "UpperEastSide";
+	font-size: 38px;
+	font-weight: bold;
+	color: #FFF;
+	text-shadow: 2px 2px 4px #000;
+	letter-spacing: 0.2em;
+}
+#accueil_footer{
+	margin-top: 15px;
+}
+/***** ***** ***** ***** ***** ***** ***** ***** *****/
+/* * *** ***** ***** Media queries ***** ***** *** * */
+/***** ***** ***** ***** ***** ***** ***** ***** *****/
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+	h1{
+
+	}
+	h2{
+	
+	}
+	h3{
+	
+	}
+	h4{
+	
+	}
+}
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+	h1{
+
+	}
+	h2{
+	
+	}
+	h3{
+	
+	}
+	h4{
+	
+	}
+}
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+	h1{
+
+	}
+	h2{
+	
+	}
+	h3{
+	
+	}
+	h4{
+	
+	}
+}
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+	h1{
+
+	}
+	h2{
+	
+	}
+	h3{
+	
+	}
+	h4{
+	
+	}
+}
+/* Extra large devices (large desktops)
+   No media query since the extra-large breakpoint has no upper bound on its width */

@@ -1,0 +1,191 @@
+/*************************************************************************************************
+ *   	EmtZahella Projetcs Incorporated
+ *                Projet :   ToWaQ
+ *                  Page :   partieConfig.css
+ *                Chemin :   http://127.0.0.1:8080/ToWaQ/config/css/partieConfig.css
+ *                  Type :   page de modules
+ * 				Contexte :	 Css 3.0
+ *              Fonction :   page de styles d'affichage CSS
+ *   Date mise en oeuvre :   12/11/2019
+ *          Dernière MàJ :   12/11/2019
+ *************************************************************************************************/
+/* *** Conteneur principal *** */
+ #pconf_main{
+    margin-top: 20px;
+}
+/* *** Formulaire principal *** */
+#pconf_form{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #61697D;
+    box-shadow: 1px 1px 3px #000;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+}
+#pconf_form fieldset{
+    margin-bottom: 20px;
+    background-color: #617D75;
+    box-shadow: 1px 1px 3px #000;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+}
+/* *** Labels du formulaire *** */
+#pconf_main label,#pconf_form label{
+    padding-top: 10px;
+}
+#pconf_main label{
+    padding-left: 20px;
+}
+#pconf_form label{
+    padding-left: 50px;
+}
+fieldset label{
+    scroll-padding-top: 10px;
+}
+/* *** Contrôleurs du formulaire *** */
+#selectPlayer{
+    margin-bottom: 20px;
+    padding-left: 25px;
+    background-color: #67617D;
+    font-family: "2Dumb";
+    font-size: 24px;
+    color: #000000;
+    text-shadow: 1px 1px 3px #C1C1C1;
+    border: 1px outset #000;
+    box-shadow: 1px 1px 3px #000;
+	-moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    transition-property: all;
+    transition-duration: 850ms;
+    -moz-transition-property: all;
+    -moz-transition-duration: 850ms;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 850ms;
+}
+#selectPartieType,#selectDifficulty{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+#optPartie1,#optPartie2,#optPartie3{
+    
+}
+.optItem,.optLevel{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    background-color: #67617D;
+    box-shadow: 1px 1px 3px #000;
+	-moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    transition-property: all;
+    transition-duration: 850ms;
+    -moz-transition-property: all;
+    -moz-transition-duration: 850ms;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 850ms;
+}
+.optItem:hover,.optLevel:hover,#selectPlayer:hover{
+    background-color: #75617D;
+}
+.optItem label{
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.optItem label p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: justify;
+    font-family: "CaviarDreams";
+    font-size: 17px;
+    font-weight: bold;
+    color: #000;
+    text-shadow: 1px 1px 2px #61697D;
+    letter-spacing: 0.12em;
+}
+.optItem label p::first-letter{
+    padding-right: 1px;
+    font-family: "2Dumb";
+    font-size: 24px;
+    color: #C1C1C1;
+	text-shadow: 1px 1px 3px #000;
+}
+#launchGame{
+    background-color: hsl(261, 19%, 56%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeecf2", endColorstr="#8879a4");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#eeecf2), to(#8879a4));
+	background-image: -moz-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -ms-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeecf2), color-stop(100%, #8879a4));
+	background-image: -webkit-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -o-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: linear-gradient(#eeecf2, #8879a4);
+	border-color: #8879a4 #8879a4 hsl(261, 19%, 46.5%);
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
+	-webkit-font-smoothing: antialiased;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 8px 16px 8px 16px;
+	box-shadow: 1px 1px 3px #000;
+	-moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    text-decoration: none;
+	font-family: "CaviarDreams";
+	font-size: 28px;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	color: #61697D;
+    text-shadow: 1px 1px 3px #FFF;
+    transition-property: all;
+    transition-duration: 1850ms;
+    -moz-transition-property: all;
+    -moz-transition-duration: 1850ms;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 1850ms;
+}
+#launchGame:hover{
+    background-color: hsl(31, 25%, 65%) !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e2d9cf", endColorstr="#bca68f");
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#e2d9cf), to(#bca68f));
+    background-image: -moz-linear-gradient(top, #e2d9cf, #bca68f);
+    background-image: -ms-linear-gradient(top, #e2d9cf, #bca68f);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e2d9cf), color-stop(100%, #bca68f));
+    background-image: -webkit-linear-gradient(top, #e2d9cf, #bca68f);
+    background-image: -o-linear-gradient(top, #e2d9cf, #bca68f);
+    background-image: linear-gradient(#e2d9cf, #bca68f);
+    border-color: #bca68f #bca68f hsl(31, 25%, 60%);
+    color: #333 !important;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+    -webkit-font-smoothing: antialiased;
+    border-radius: 20px;
+    box-shadow: -2px -2px 4px #000;
+    -moz-box-shadow: -2px -2px 4px #000;
+    -webkit-box-shadow: -2px -2px 4px #000;
+    text-decoration: none;
+	color: #794E70;
+    text-shadow: 1px 1px 3px #333;
+}
+/***** ***** ***** ***** ***** ***** ***** ***** *****/
+/* * *** ***** ***** Media queries ***** ***** *** * */
+/***** ***** ***** ***** ***** ***** ***** ***** *****/
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+
+}
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+
+}
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+
+}
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+}
+/* Extra large devices (large desktops)
+   No media query since the extra-large breakpoint has no upper bound on its width */

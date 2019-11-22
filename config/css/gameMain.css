@@ -1,0 +1,53 @@
+/*************************************************************************************************
+ *   	EmtZahella Projetcs Incorporated
+ *                Projet :   ToWaQ
+ *                  Page :   gameMain.css
+ *                Chemin :   http://127.0.0.1:8080/ToWaQ/config/css/gameMain.css
+ *                  Type :   page de modules
+ * 				Contexte :	 Css 3.0
+ *              Fonction :   page de styles d'affichage CSS
+ *   Date mise en oeuvre :   13/11/2019
+ *          Dernière MàJ :   13/11/2019
+ *************************************************************************************************/
+/* *** Conteneur principal *** */
+
+/***** ***** ***** En-tête graphique ***** ***** *****/
+#game_header{
+    background-image: url("../../media/pics/couch01_header.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+    opacity: 0.9;
+    height: 240px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#gm_header{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-family: "2Dumb";
+	font-size: 36px;
+	letter-spacing: 0.2em;
+	color: #FFF;
+	text-shadow: 2px 2px 4px #000;
+	opacity: 0.8;
+}
+#gm_header span{
+	font-size: 7px;
+	vertical-align: middle;
+}
+/***** ***** ***** Labels ***** ***** *****/
+.partie-label{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+.partie-param{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+/***** ***** ***** Game footer ***** ***** *****/
+#game_footer{
+    
+}
