@@ -65,6 +65,7 @@ function fct_BuildHtmlFooter($objPageInfos){
 <!-- -- -- -- -- Fin de corps du contenu -- -- -- -- -->
      </section>
     </body>
+    
 <!-- -- -- -- -- Footer Html -- -- -- -- -->
     <footer class="container">
      <address>
