@@ -47,12 +47,14 @@ $arrLevels = fct_SelectAllLevels();                         // Tableau des infor
 $intLevels = count($arrLevels);                             // Nombre de niveaux de difficulté
 
 $arrQuestions = fct_SelectAllQuestions();
+$arrCategories = fct_SelectAllCategories();
+
 // ***** ***** ***** PAGE HTML   ***** ***** *****
 /* ***** ***** ***** En-tête HTML ***** ***** ***** */
 fct_BuildHtmlHeader($objPageInfos);
 // ***** ***** ***** Corps du contenu ***** ***** *****
 $strPlayerName = $arrPlayers[$_POST['selectPlayer']]['Pseudo'];
-switch ($_POST['optPartie']) {
+switch ($_POST['optPartie']) {      // Controller : type de partie
     case $GLOBALS['str10SuiteCode']:
         $strPartie = $GLOBALS['str10SuiteName'];    
         break;
@@ -62,6 +64,11 @@ switch ($_POST['optPartie']) {
     case $GLOBALS['strScoreBattleCode']:
         $strPartie = $GLOBALS['strScoreBattleName'];
         break;
+}
+if ( isset($_POST['asknum'])) {                             // Controller : nombre de questions
+    $intAskNumber = $_POST['asknum'];
+} else {
+    $intAskNumber = 1;
 }
 ?>
 <!-- -- -- -- -- Header graphique -- -- -- -- -->
@@ -78,7 +85,7 @@ switch ($_POST['optPartie']) {
     </section>
 <!-- -- -- -- -- Vue principale -- -- -- -- -->
 <?php
-fctDisplayGameView($arrQuestions, $strPartie);
+fctDisplayGameView($arrQuestions, $arrCategories, $strPartie, $intAskNumber);
 ?>
 <?php
 /* ***** ***** ***** Footer HTML ***** ***** ***** */
