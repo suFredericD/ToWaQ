@@ -111,7 +111,14 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
             </article>
 <!-- -- -- -- Bloc 'media' -- -- -- -->
             <article id="askMedia" class="col-xl-7">
-
+<?php
+    if ( $arrQuestion['PictureAsk'] === NULL ) {?>
+                <img id="imgIllustration" class="img-fluid img-thumbnail" src="../media/pics/random/<?php echo random_int(1, 26);?>.jpg">
+<?php
+    } else {?>
+                <img id="imgIllustration" class="img-fluid img-thumbnail" src="../media/pics/askPics/<?php echo $arrQuestion['PictureAsk'];?>">
+<?php
+    }?>
             </article>
 <!-- -- -- -- Bloc 'texte de la question' -- -- -- -->
             <article id="askText" class="col-xl-5">

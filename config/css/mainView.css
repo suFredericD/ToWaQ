@@ -160,6 +160,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #61697D;
     border: 1px inset #75617D;
     box-shadow: 2px 2px 4px #000;
 }
@@ -200,6 +201,18 @@
     text-align: center;
     color: #C1C1C1;
     text-shadow: 1px 1px 3px #000;
+}
+/* ** ** ** ** Media d'illustration ** ** ** ** */
+#askMedia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#imgIllustration{
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border: 1px inset #75617D;
+    box-shadow: 2px 2px 4px #000;
 }
  /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */
