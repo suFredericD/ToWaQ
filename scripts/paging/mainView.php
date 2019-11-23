@@ -41,7 +41,6 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
     $strSeasonBgClass = "season".$arrQuestion['Season'];
 ?>
     <section id="mainView">
-
 <!-- -- -- -- Section Hud -- -- -- -->
         <section id="secHud" class="row">
 <!-- -- -- -- Bloc 'question' -- -- -- -->
@@ -89,6 +88,7 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
             <article id="askInfos" class="col-xl-12">
 <!-- -- -- -- row 'saison' -- -- -- -->
                 <div id="seasonRow" class="row">
+                    <a href="#" hidden><?php echo $arrQuestion['Season'];?></a>
                     <label for="aiSeason" class="col-xl-4">Saison</label>
                     <div id="aiSeason" class="col-xl-8">
                         <div class="row">
@@ -101,7 +101,7 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
                     </div>
                 </div>
 <!-- -- -- -- row 'episode' -- -- -- -->
-                <div id="episodeRow" class="row">
+                <div id="seasonRow" class="row">
                     <label for="aiEpisode" class="col-xl-4">&Eacute;pisode <?php echo $arrQuestion['EpisodeNumber'];?></label>
                     <div class="col-xl-8">
                         <div id="aiTitleFr" class="col-xl-12"><?php echo $arrQuestion['EpisodeNameFr'];?></div>
@@ -110,16 +110,16 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
                 </div>
             </article>
 <!-- -- -- -- Bloc 'media' -- -- -- -->
-            <article id="askMedia" class="col-xl-8">
+            <article id="askMedia" class="col-xl-7">
 
             </article>
 <!-- -- -- -- Bloc 'texte de la question' -- -- -- -->
-            <article id="askText" class="col-xl-4">
-
+            <article id="askText" class="col-xl-5">
+                <p><?php echo $arrQuestion['Text'];?></p>
             </article>
 <!-- -- -- -- Bloc 'question' -- -- -- -->
-            <article id="askForReal" class="col-xl-12">
-
+            <article id="askForReal" class="offset-xl-2 col-xl-8">
+                <p><?php echo $arrQuestion['Question'];?></p>
             </article>
         </section>
 <!-- -- -- -- Formulaire 'réponse' -- -- -- -->

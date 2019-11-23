@@ -108,6 +108,7 @@
 #seasonRow,#episodeRow{
     opacity: 0.9;
     padding-top: 20px;
+    padding-bottom: 20px;
     background-color: #61697D;
     border: 1px inset #75617D;
     box-shadow: 2px 2px 4px #000;
@@ -153,6 +154,52 @@
 }
 .season10{
     background-color: #8F2144;
+}
+/* ** ** ** ** Question et son texte ** ** ** ** */
+#askText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px inset #75617D;
+    box-shadow: 2px 2px 4px #000;
+}
+#askText p{
+    padding: 20px 20px 0px 20px;
+    font-family: "BlockLetterBalPen";
+    font-size: 21px;
+    text-align: justify;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 3px #000;
+}
+#askForReal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: hsl(339, 22%, 41%) !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b58b9a", endColorstr="#7f5161");
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#b58b9a), to(#7f5161));
+    background-image: -moz-linear-gradient(top, #b58b9a, #7f5161);
+    background-image: -ms-linear-gradient(top, #b58b9a, #7f5161);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b58b9a), color-stop(100%, #7f5161));
+    background-image: -webkit-linear-gradient(top, #b58b9a, #7f5161);
+    background-image: -o-linear-gradient(top, #b58b9a, #7f5161);
+    background-image: linear-gradient(#b58b9a, #7f5161);
+    border-color: #7f5161 #7f5161 hsl(339, 22%, 35.5%);
+    color: #C1C1C1 !important;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.36);
+    -webkit-font-smoothing: antialiased;
+    border: 1px inset #75617D;
+    box-shadow: 2px 2px 4px #000;
+}
+#askForReal p{
+    font-family: "Desyrel";
+    font-size: 36px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 3px #000;
 }
  /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */
