@@ -105,32 +105,37 @@ function fct_SelectAllCategories(){
 //         arrReturn : tableau de toutes les questions
 function fct_SelectAllQuestions(){
     $strRequest = "SELECT * FROM `fri_questions` "
-    . "INNER JOIN `fri_AskLevel` ON `asl_Id`=`que_Level` "
-    . "INNER JOIN `fri_episodes` ON `epi_Id`=`que_Episode`;";
+                . "INNER JOIN `fri_AskLevel` ON `asl_Id`=`que_Level` "
+                . "INNER JOIN `fri_episodes` ON `epi_Id`=`que_Episode` "
+                . "INNER JOIN `fri_category` ON `cat_Id`=`que_Category`;";
     $resLink = fct_RequestExec($strRequest);
     $resLink->data_seek(0);
     $i = 1;
     while ($row = $resLink->fetch_row()) {
         $arrReturn[$i]['Id'] = $row['0'];
         $arrReturn[$i]['Level'] = $row['1'];
-        $arrReturn[$i]['EpisodeId'] = $row['2'];
-        $arrReturn[$i]['Text'] = $row['3'];
-        $arrReturn[$i]['Question'] = $row['4'];
-        $arrReturn[$i]['AnswerGood'] = $row['5'];
-        $arrReturn[$i]['Answer2'] = $row['6'];
-        $arrReturn[$i]['Answer3'] = $row['7'];
-        $arrReturn[$i]['Answer4'] = $row['8'];
-        $arrReturn[$i]['GoodText'] = $row['9'];
-        $arrReturn[$i]['BadText'] = $row['10'];
-        $arrReturn[$i]['PictureAsk'] = $row['11'];
-        $arrReturn[$i]['PictureAnswer'] = $row['12'];
-        $arrReturn[$i]['LevelName'] = $row['14'];
-        $arrReturn[$i]['LevelColor'] = $row['15'];
-        $arrReturn[$i]['Season'] = $row['17'];
-        $arrReturn[$i]['EpisodeNumber'] = $row['18'];
-        $arrReturn[$i]['EpisodeNameFr'] = $row['19'];
-        $arrReturn[$i]['EpisodeNameUs'] = $row['20'];
-        $arrReturn[$i]['EpisodeText'] = $row['21'];
+        $arrReturn[$i]['CategoryId'] = $row['2'];
+        $arrReturn[$i]['EpisodeId'] = $row['3'];
+        $arrReturn[$i]['Text'] = $row['4'];
+        $arrReturn[$i]['Question'] = $row['5'];
+        $arrReturn[$i]['AnswerGood'] = $row['6'];
+        $arrReturn[$i]['Answer2'] = $row['7'];
+        $arrReturn[$i]['Answer3'] = $row['8'];
+        $arrReturn[$i]['Answer4'] = $row['9'];
+        $arrReturn[$i]['GoodText'] = $row['10'];
+        $arrReturn[$i]['BadText'] = $row['11'];
+        $arrReturn[$i]['PictureAsk'] = $row['12'];
+        $arrReturn[$i]['PictureAnswer'] = $row['13'];
+        $arrReturn[$i]['LevelName'] = $row['15'];
+        $arrReturn[$i]['LevelColor'] = $row['16'];
+        $arrReturn[$i]['Season'] = $row['18'];
+        $arrReturn[$i]['EpisodeNumber'] = $row['19'];
+        $arrReturn[$i]['EpisodeNameFr'] = $row['20'];
+        $arrReturn[$i]['EpisodeNameUs'] = $row['21'];
+        $arrReturn[$i]['EpisodeText'] = $row['22'];
+        $arrReturn[$i]['Category'] = $row['24'];
+        $arrReturn[$i]['CatColor'] = $row['25'];
+        $arrReturn[$i]['CatUs'] = $row['26'];
         $i++;
     }
     return $arrReturn;
@@ -144,6 +149,7 @@ function fct_SelectQuestionsFromLevel($intLevel){
     $strRequest = "SELECT * FROM `fri_questions` "
                 . "INNER JOIN `fri_AskLevel` ON `asl_Id`=`que_Level` "
                 . "INNER JOIN `fri_episodes` ON `epi_Id`=`que_Episode` "
+                . "INNER JOIN `fri_category` ON `cat_Id`=`que_Category` "
                 . "WHERE `que_Level`='" . $intLevel . "';";
     $resLink = fct_RequestExec($strRequest);
     $resLink->data_seek(0);
@@ -151,24 +157,28 @@ function fct_SelectQuestionsFromLevel($intLevel){
     while ($row = $resLink->fetch_row()) {
         $arrReturn[$i]['Id'] = $row['0'];
         $arrReturn[$i]['Level'] = $row['1'];
-        $arrReturn[$i]['EpisodeId'] = $row['2'];
-        $arrReturn[$i]['Text'] = $row['3'];
-        $arrReturn[$i]['Question'] = $row['4'];
-        $arrReturn[$i]['AnswerGood'] = $row['5'];
-        $arrReturn[$i]['Answer2'] = $row['6'];
-        $arrReturn[$i]['Answer3'] = $row['7'];
-        $arrReturn[$i]['Answer4'] = $row['8'];
-        $arrReturn[$i]['GoodText'] = $row['9'];
-        $arrReturn[$i]['BadText'] = $row['10'];
-        $arrReturn[$i]['PictureAsk'] = $row['11'];
-        $arrReturn[$i]['PictureAnswer'] = $row['12'];
-        $arrReturn[$i]['LevelName'] = $row['14'];
-        $arrReturn[$i]['LevelColor'] = $row['15'];
-        $arrReturn[$i]['Season'] = $row['17'];
-        $arrReturn[$i]['EpisodeNumber'] = $row['18'];
-        $arrReturn[$i]['EpisodeNameFr'] = $row['19'];
-        $arrReturn[$i]['EpisodeNameUs'] = $row['20'];
-        $arrReturn[$i]['EpisodeText'] = $row['21'];
+        $arrReturn[$i]['CategoryId'] = $row['2'];
+        $arrReturn[$i]['EpisodeId'] = $row['3'];
+        $arrReturn[$i]['Text'] = $row['4'];
+        $arrReturn[$i]['Question'] = $row['5'];
+        $arrReturn[$i]['AnswerGood'] = $row['6'];
+        $arrReturn[$i]['Answer2'] = $row['7'];
+        $arrReturn[$i]['Answer3'] = $row['8'];
+        $arrReturn[$i]['Answer4'] = $row['9'];
+        $arrReturn[$i]['GoodText'] = $row['10'];
+        $arrReturn[$i]['BadText'] = $row['11'];
+        $arrReturn[$i]['PictureAsk'] = $row['12'];
+        $arrReturn[$i]['PictureAnswer'] = $row['13'];
+        $arrReturn[$i]['LevelName'] = $row['15'];
+        $arrReturn[$i]['LevelColor'] = $row['16'];
+        $arrReturn[$i]['Season'] = $row['18'];
+        $arrReturn[$i]['EpisodeNumber'] = $row['19'];
+        $arrReturn[$i]['EpisodeNameFr'] = $row['20'];
+        $arrReturn[$i]['EpisodeNameUs'] = $row['21'];
+        $arrReturn[$i]['EpisodeText'] = $row['22'];
+        $arrReturn[$i]['Category'] = $row['24'];
+        $arrReturn[$i]['CatColor'] = $row['25'];
+        $arrReturn[$i]['CatUs'] = $row['26'];
         $i++;
     }
     return $arrReturn;
