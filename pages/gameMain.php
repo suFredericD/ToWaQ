@@ -89,6 +89,7 @@ $arrAskItem = fctSelectNextQuestion($GLOBALS['arrAlreadyAsked']);
 <?php
 fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName);
 ?>
+    <script src="../scripts/js/mainView.js"></script>
 <?php
 /* ***** ***** ***** Footer HTML ***** ***** ***** */
 fct_BuildHtmlFooter($objPageInfos);
