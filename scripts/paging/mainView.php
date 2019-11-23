@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   vue principale du jeu
  *   Date mise en oeuvre :   22/11/2019
- *          Dernière MàJ :   22/11/2019
+ *          Dernière MàJ :   23/11/2019
  *************************************************************************************************/
 
 // Fonction d'extraction de toutes les questions
@@ -38,6 +38,7 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
     } else {
         $intScore = 0;
     }
+    $strSeasonBgClass = "season".$arrQuestion['Season'];
 ?>
     <section id="mainView">
 
@@ -83,13 +84,41 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
         </section>
 
 <!-- -- -- -- Section 'question' -- -- -- -->
-        <section id="secAsk">
+        <section id="secAsk" class="row">
+<!-- -- -- -- Bloc 'présentation' -- -- -- -->
+            <article id="askInfos" class="col-xl-12">
+<!-- -- -- -- row 'saison' -- -- -- -->
+                <div id="seasonRow" class="row">
+                    <label for="aiSeason" class="col-xl-4">Saison</label>
+                    <div id="aiSeason" class="col-xl-8">
+                        <div class="row">
+<?php
+    for ( $i = 1 ; $i < 11 ; $i++) {?>
+                            <div class="col-xl-1 <?php echo "season".$i;?>"><?php echo $i;?></div>
+<?php
+    }?>
+                        </div>
+                    </div>
+                </div>
+<!-- -- -- -- row 'episode' -- -- -- -->
+                <div id="episodeRow" class="row">
+                    <label for="aiEpisode" class="col-xl-4">&Eacute;pisode <?php echo $arrQuestion['EpisodeNumber'];?></label>
+                    <div class="col-xl-8">
+                        <div id="aiTitleFr" class="col-xl-12"><?php echo $arrQuestion['EpisodeNameFr'];?></div>
+                        <div id="aiTitleUs" class="col-xl-12"><?php echo $arrQuestion['EpisodeNameUs'];?></div>
+                    </div>
+                </div>
+            </article>
 <!-- -- -- -- Bloc 'media' -- -- -- -->
-            <article id="askMedia">
+            <article id="askMedia" class="col-xl-8">
+
+            </article>
+<!-- -- -- -- Bloc 'texte de la question' -- -- -- -->
+            <article id="askText" class="col-xl-4">
 
             </article>
 <!-- -- -- -- Bloc 'question' -- -- -- -->
-            <article id="askText">
+            <article id="askForReal" class="col-xl-12">
 
             </article>
         </section>

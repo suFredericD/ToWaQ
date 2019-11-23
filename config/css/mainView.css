@@ -15,6 +15,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.8;
+    padding: 0px 20px 20px 20px;
 }
 #secHud div{
     display: flex;
@@ -55,11 +56,36 @@
     background-color: #75617D;
     box-shadow: 2px 2px 4px #666;
 }
-
-
+/* ** ** ** ** Section Question ** ** ** ** */
+#secAsk{
+    padding: 20px 20px 20px 20px;
+    border: 1px inset #75617D;
+}
+#secAsk label,#aiTitleUs,#aiTitleFr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Desyrel";
+    font-size: 34px;
+    letter-spacing: 0.1em;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 2px #000;
+}
+#aiTitleUs,#aiTitleFr{
+    font-family: "NoteThis";
+    letter-spacing: 0.1em;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 2px #000;
+}
+#aiTitleFr{
+    font-size: 30px;
+}
+#aiTitleUs{
+    font-size: 24px;
+}
 /* ** ** ** ** Classes du label de catégorie ** ** ** ** */
 #hqCategory{
-    opacity: 0.9;
+    opacity: 0.92;
     font-family: "CaviarDreams";
     font-size: 26px;
     font-weight: 300;
@@ -78,7 +104,56 @@
 .relatives{
     background-color: #6D50C2;
 }
-
+/* ** ** ** ** Classes du label de saison ** ** ** ** */
+#seasonRow,#episodeRow{
+    opacity: 0.9;
+    padding-top: 20px;
+    background-color: #61697D;
+    border: 1px inset #75617D;
+    box-shadow: 2px 2px 4px #000;
+}
+#episodeRow{
+    padding-bottom: 10px;
+}
+[class*="season"]{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Desyrel";
+    font-size: 24px;
+    color: #999;
+    text-shadow: 1px 1px 3px #000;
+}
+.season1{
+    background-color: #1F3A81;
+}
+.season2{
+    background-color: #D13328;
+}
+.season3{
+    background-color: #116D86;
+}
+.season4{
+    background-color: #F06F45;
+}
+.season5{
+    background-color: #7C2880;
+}
+.season6{
+    background-color: #1B776A;
+}
+.season7{
+    background-color: #DC328A;
+}
+.season8{
+    background-color: #3B95D1;
+}
+.season9{
+    background-color: #FFCC00;
+}
+.season10{
+    background-color: #8F2144;
+}
  /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */
 /***** ***** ***** ***** ***** ***** ***** ***** *****/

@@ -8,12 +8,13 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page principale du jeu
  *   Date mise en oeuvre :   12/11/2019
- *          Dernière MàJ :   22/11/2019
+ *          Dernière MàJ :   23/11/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 require("../scripts/admin/variables.php");                          // Variables globales du site
 require("../scripts/admin/bdd.php");                                // Gestion des accès base de donnée
 require("../scripts/classes/page.php");                             // Script de définition de la classe 'Page'
+require("../scripts/classes/game.php");                             // Script de définition de la classe 'Game'
 require("../scripts/paging/htmlPaging.php");                        // Script de pagination html
 require("../scripts/paging/mainView.php");                          // Vue principale
 require("../scripts/tools/calcscripts.php");                        // Scripts utilitaires (calculs divers)
@@ -46,10 +47,6 @@ $arrPlayers = fct_SelectAllPlayers();                       // Tableau des joueu
 $intPlayers = count($arrPlayers);                           // Nombre de joueurs de la base de données
 $arrLevels = fct_SelectAllLevels();                         // Tableau des informations des niveaux de difficulté
 $intLevels = count($arrLevels);                             // Nombre de niveaux de difficulté
-
-$arrQuestions = fct_SelectAllQuestions();
-$arrCategories = fct_SelectAllCategories();
-
 // ***** ***** ***** PAGE HTML   ***** ***** *****
 /* ***** ***** ***** En-tête HTML ***** ***** ***** */
 fct_BuildHtmlHeader($objPageInfos);
