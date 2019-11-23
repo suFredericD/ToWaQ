@@ -17,9 +17,22 @@
 //     arrCategories : tableau de toutes les catégories
 //         strPartie : type de partie
 //      intAskNumber : numéro de la question en cours dans la liste des questions de la partie
+//     strPlayerName : nom du joueur
 //  Valeur de retour : none
-function fctDisplayGameView($arrQuestions, $arrCategories, $strPartie, $intAskNumber){
+function fctDisplayGameView($arrQuestions, $arrCategories, $strPartie, $intAskNumber, $strPlayerName){
     $intCategories = count($arrCategories);
+    $intNextAsk = $intAskNumber + 1;
+    switch ($strPartie) {      // Controller : type de partie
+        case $GLOBALS['str10SuiteName']:
+            $intProgAim = 10;
+            break;
+        case $GLOBALS['strFriendsBattleName']:
+            $intProgAim = 20;
+            break;
+        case $GLOBALS['strScoreBattleName']:
+            $intProgAim = 20;
+            break;
+    }
 ?>
     <section id="mainView">
 
@@ -30,12 +43,16 @@ function fctDisplayGameView($arrQuestions, $arrCategories, $strPartie, $intAskNu
 <!-- -- -- -- Numéro de la question -- -- -- -->
                 <div class="row">
                     <label for="hqNumber" id="hqNumLabel" class="col-xl-5">Question</label>
-                    <div id="hqNumber" class="col-xl-7"><span><?php echo $intAskNumber;?></span></div>
+                    <div id="hqNumber" class="col-xl-7">
+                        <span class="badge" id="askCounter"><?php echo $intAskNumber;?></span>
+                    </div>
                 </div>
 <!-- -- -- -- Niveau de la question -- -- -- -->
                 <div class="row">
                     <label for="hqLevel" id="hqLevelLabel" class="col-xl-5">Niveau</label>
-                    <div id="hqLevel" class="col-xl-7"><meter min="0" max="3" low="2" high="2" optimum="0" value="0"></meter></div>
+                    <div id="hqLevel" class="col-xl-7">
+                        <meter min="0" max="3" low="2" high="2" optimum="0" value=""></meter>
+                    </div>
                 </div>
 <!-- -- -- -- Catégorie de la question -- -- -- -->
                 <div class="row">
@@ -48,7 +65,9 @@ function fctDisplayGameView($arrQuestions, $arrCategories, $strPartie, $intAskNu
 <!-- -- -- -- Avancement de la partie -- -- -- -->
                 <div class="row">
                     <label for="hgState" id="hgStateLabel" class="col-xl-12">Avancement</label>
-                    <div id="hgState" class="col-xl-12"><progress max="10" value="1"></progress></div>
+                    <div id="hgState" class="col-xl-12">
+                        <progress max="<?php echo $intProgAim;?>" value="<?php echo $intAskNumber;?>"></progress>
+                    </div>
 <!-- -- -- -- Score de la partie -- -- -- -->
                     <label for="hgScore" id="hgScoreLabel" class="col-xl-5">Score</label>
                     <div id="hgScore" class="col-xl-7"><span></span></div>

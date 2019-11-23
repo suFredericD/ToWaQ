@@ -9,3 +9,64 @@
  *   Date mise en oeuvre :   22/11/2019
  *          Dernière MàJ :   22/11/2019
  *************************************************************************************************/
+/* ** ** ** ** Section Hud ** ** ** ** */
+#secHud{
+    background-image: url('../../media/pics/couch01_upside.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+}
+#secHud div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#secHud label{
+    text-align: center;
+    vertical-align: middle;
+	font-family: "KomikaDisplay";
+	font-size: 24px;
+    letter-spacing: 0.2em;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 2px #000;
+}
+#askCounter{
+    font-family: "NoteThis";
+    font-size: 24px;
+    color: #000;
+    text-shadow: 1px 1px 2px #444;
+    background-color: #C1C1C1;
+    box-shadow: 2px 2px 4px #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+ /***** ***** ***** ***** ***** ***** ***** ***** *****/
+/* * *** ***** ***** Media queries ***** ***** *** * */
+/***** ***** ***** ***** ***** ***** ***** ***** *****/
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+
+}
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+
+}
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+
+}
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+}
+/* Extra large devices (large desktops)
+   No media query since the extra-large breakpoint has no upper bound on its width */

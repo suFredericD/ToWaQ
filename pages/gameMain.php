@@ -85,7 +85,7 @@ if ( isset($_POST['asknum'])) {                             // Controller : nomb
     </section>
 <!-- -- -- -- -- Vue principale -- -- -- -- -->
 <?php
-fctDisplayGameView($arrQuestions, $arrCategories, $strPartie, $intAskNumber);
+fctDisplayGameView($arrQuestions, $arrCategories, $strPartie, $intAskNumber,$strPlayerName);
 ?>
 <?php
 /* ***** ***** ***** Footer HTML ***** ***** ***** */
