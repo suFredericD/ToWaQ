@@ -12,4 +12,17 @@
  **************************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
+/***** *****    FONCTIONS   ***** *****/
+// Fonction de sélection de la prochaine question
+//  Paramètres          :
+//      arrAlreadyAsked : tableau des id des questions déjà posées
+//  Valeur de retour    :
+//            arrReturn : tableau des infos de la prochaine question
+function fctSelectNextQuestion($arrAlreadyAsked){
+    $arrNotAsked = fct_selectNotAskedQuestions($arrAlreadyAsked);
+    $intRandomMax = count($arrNotAsked);
+    $intRandomId = random_int(1, $intRandomMax);
+    $arrReturn = fct_SelectOneQuestionById($intRandomId);
+    return $arrReturn;
+}
 ?>

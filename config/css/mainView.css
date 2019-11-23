@@ -25,29 +25,59 @@
     text-align: center;
     vertical-align: middle;
 	font-family: "KomikaDisplay";
-	font-size: 24px;
+	font-size: 26px;
     letter-spacing: 0.2em;
     color: #C1C1C1;
     text-shadow: 1px 1px 2px #000;
 }
+#hudGame label{
+    font-size: xx-large;
+}
+#hgScoreLabel{
+    text-align: right;
+}
+#hgScore{
+    height: 70px;
+}
 #askCounter{
     font-family: "NoteThis";
-    font-size: 24px;
+    font-size: 26px;
+    color: #000;
+    text-shadow: 1px 1px 2px #75617D;
+    background-color: #C1C1C1;
+    box-shadow: 2px 2px 4px #75617D;
+}
+#gameScore{
+    font-family: "NoteThis";
+    font-size: 28px;
     color: #000;
     text-shadow: 1px 1px 2px #444;
-    background-color: #C1C1C1;
-    box-shadow: 2px 2px 4px #000;
+    background-color: #75617D;
+    box-shadow: 2px 2px 4px #666;
 }
 
 
-
-
-
-
-
-
-
-
+/* ** ** ** ** Classes du label de catégorie ** ** ** ** */
+#hqCategory{
+    opacity: 0.9;
+    font-family: "CaviarDreams";
+    font-size: 26px;
+    font-weight: 300;
+    color: #000;
+    text-shadow: 2px 2px 4px #C1C1C1;
+}
+.fears{
+    background-color: #4BAEA0;
+}
+.history{
+    background-color: #C2509F;
+}
+.literature{
+    background-color: #D2AD0F;
+}
+.relatives{
+    background-color: #6D50C2;
+}
 
  /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */

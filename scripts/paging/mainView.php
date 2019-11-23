@@ -19,7 +19,7 @@
 //      intAskNumber : numéro de la question en cours dans la liste des questions de la partie
 //     strPlayerName : nom du joueur
 //  Valeur de retour : none
-function fctDisplayGameView($arrQuestions, $arrCategories, $strPartie, $intAskNumber, $strPlayerName){
+function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNumber, $strPlayerName){
     $intCategories = count($arrCategories);
     $intNextAsk = $intAskNumber + 1;
     switch ($strPartie) {      // Controller : type de partie
@@ -32,6 +32,11 @@ function fctDisplayGameView($arrQuestions, $arrCategories, $strPartie, $intAskNu
         case $GLOBALS['strScoreBattleName']:
             $intProgAim = 20;
             break;
+    }
+    if ( isset($_POST['score']) ) {
+        $intScore = $_POST['score'];
+    } else {
+        $intScore = 0;
     }
 ?>
     <section id="mainView">
@@ -51,26 +56,28 @@ function fctDisplayGameView($arrQuestions, $arrCategories, $strPartie, $intAskNu
                 <div class="row">
                     <label for="hqLevel" id="hqLevelLabel" class="col-xl-5">Niveau</label>
                     <div id="hqLevel" class="col-xl-7">
-                        <meter min="0" max="3" low="2" high="2" optimum="0" value=""></meter>
+                        <meter min="0" max="3" low="1" high="2" optimum="0" value="<?php echo $arrQuestion['Level'];?>"></meter>
                     </div>
                 </div>
 <!-- -- -- -- Catégorie de la question -- -- -- -->
                 <div class="row">
                     <label for="hqCategory" id="hqCatLabel" class="col-xl-5">Catégorie</label>
-                    <div id="hqCategory" class="col-xl-7"></div>
+                    <div id="hqCategory" class="col-xl-7 <?php echo $arrQuestion['CatSlug'];?>"><?php echo $arrQuestion['Category'];?></div>
                 </div>
             </article>
 <!-- -- -- -- Bloc 'partie' -- -- -- -->
             <article id="hudGame" class="col-xl-6">
 <!-- -- -- -- Avancement de la partie -- -- -- -->
                 <div class="row">
-                    <label for="hgState" id="hgStateLabel" class="col-xl-12">Avancement</label>
+                    <label for="hgState" id="hgStateLabel" class="col-xl-12">Partie</label>
                     <div id="hgState" class="col-xl-12">
                         <progress max="<?php echo $intProgAim;?>" value="<?php echo $intAskNumber;?>"></progress>
                     </div>
 <!-- -- -- -- Score de la partie -- -- -- -->
-                    <label for="hgScore" id="hgScoreLabel" class="col-xl-5">Score</label>
-                    <div id="hgScore" class="col-xl-7"><span></span></div>
+                    <label for="hgScore" id="hgScoreLabel" class="col-xl-8">Score</label>
+                    <div id="hgScore" class="col-xl-4">
+                        <span class="badge" id="gameScore"><?php echo $intScore;?></span>
+                    </div>
                 </div>
             </article>
         </section>
