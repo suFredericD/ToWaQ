@@ -17,6 +17,7 @@ require("../scripts/classes/page.php");                             // Script de
 require("../scripts/paging/htmlPaging.php");                        // Script de pagination html
 require("../scripts/paging/mainView.php");                          // Vue principale
 require("../scripts/tools/calcscripts.php");                        // Scripts utilitaires (calculs divers)
+require("../scripts/tools/selectItems.php");                        // Script de sélection des questions
 
 /***** *****    DECLARATIONS   ***** *****/
 $datNow = new DateTime();                                           // Timer de génération de la page (start)
@@ -54,7 +55,8 @@ $arrCategories = fct_SelectAllCategories();
 fct_BuildHtmlHeader($objPageInfos);
 // ***** ***** ***** Corps du contenu ***** ***** *****
 $strPlayerName = $arrPlayers[$_POST['selectPlayer']]['Pseudo'];
-switch ($_POST['optPartie']) {      // Controller : type de partie
+// Controller : type de partie
+switch ($_POST['optPartie']) {
     case $GLOBALS['str10SuiteCode']:
         $strPartie = $GLOBALS['str10SuiteName'];    
         break;
@@ -65,11 +67,14 @@ switch ($_POST['optPartie']) {      // Controller : type de partie
         $strPartie = $GLOBALS['strScoreBattleName'];
         break;
 }
-if ( isset($_POST['asknum'])) {                             // Controller : nombre de questions
+// Controller : nombre de questions
+if ( isset($_POST['asknum'])) {
     $intAskNumber = $_POST['asknum'];
 } else {
     $intAskNumber = 1;
 }
+// Model : sélection de la prochaine question
+$arrAskItem = fctSelectNextQuestion($GLOBALS['arrAlreadyAsked']);
 ?>
 <!-- -- -- -- -- Header graphique -- -- -- -- -->
     <section class="row" id="game_header">
@@ -85,7 +90,7 @@ if ( isset($_POST['asknum'])) {                             // Controller : nomb
     </section>
 <!-- -- -- -- -- Vue principale -- -- -- -- -->
 <?php
-fctDisplayGameView($arrQuestions, $arrCategories, $strPartie, $intAskNumber,$strPlayerName);
+fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName);
 ?>
 <?php
 /* ***** ***** ***** Footer HTML ***** ***** ***** */
