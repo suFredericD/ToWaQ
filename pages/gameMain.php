@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page principale du jeu
  *   Date mise en oeuvre :   12/11/2019
- *          Dernière MàJ :   23/11/2019
+ *          Dernière MàJ :   24/11/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 require("../scripts/admin/variables.php");                          // Variables globales du site
@@ -47,6 +47,7 @@ $arrPlayers = fct_SelectAllPlayers();                       // Tableau des joueu
 $intPlayers = count($arrPlayers);                           // Nombre de joueurs de la base de données
 $arrLevels = fct_SelectAllLevels();                         // Tableau des informations des niveaux de difficulté
 $intLevels = count($arrLevels);                             // Nombre de niveaux de difficulté
+
 // ***** ***** ***** PAGE HTML   ***** ***** *****
 /* ***** ***** ***** En-tête HTML ***** ***** ***** */
 fct_BuildHtmlHeader($objPageInfos);
@@ -55,7 +56,7 @@ $strPlayerName = $arrPlayers[$_POST['selectPlayer']]['Pseudo'];
 // Controller : type de partie
 switch ($_POST['optPartie']) {
     case $GLOBALS['str10SuiteCode']:
-        $strPartie = $GLOBALS['str10SuiteName'];    
+        $strPartie = $GLOBALS['str10SuiteName'];
         break;
     case $GLOBALS['strFriendsBattleCode']:
         $strPartie = $GLOBALS['strFriendsBattleName'];
@@ -66,12 +67,24 @@ switch ($_POST['optPartie']) {
 }
 // Controller : nombre de questions
 if ( isset($_POST['asknum'])) {
-    $intAskNumber = $_POST['asknum'];
+    $intAskNumber = $_POST['asknum'] + 1;
 } else {
     $intAskNumber = 1;
+    $intAskedItems = 0;
+    fct_CreateGameTable($strPlayerName);
+}
+// Controller : score de la partie
+if ( isset($_POST['score'])) {
+    $intGameScore = $_POST['score'];
+} else {
+    $intGameScore = 0;
+}
+// Controller : ajout de l'id de la question précédente dans le tableau des id des questions à bannir
+if ( isset($_POST['askid'])) {
+    fct_UpdateGameTable($strPlayerName, $_POST['askid']);
 }
 // Model : sélection de la prochaine question
-$arrAskItem = fctSelectNextQuestion($GLOBALS['arrAlreadyAsked']);
+$arrAskItem = fctSelectNextQuestion($strPlayerName);
 ?>
 <!-- -- -- -- -- Header graphique -- -- -- -- -->
     <section class="row" id="game_header">
@@ -87,7 +100,7 @@ $arrAskItem = fctSelectNextQuestion($GLOBALS['arrAlreadyAsked']);
     </section>
 <!-- -- -- -- -- Vue principale -- -- -- -- -->
 <?php
-fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName);
+fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore);
 ?>
     <script src="../scripts/js/mainView.js"></script>
 <?php

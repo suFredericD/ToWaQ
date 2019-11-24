@@ -19,7 +19,7 @@
 //      intAskNumber : numéro de la question en cours dans la liste des questions de la partie
 //     strPlayerName : nom du joueur
 //  Valeur de retour : none
-function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNumber, $strPlayerName){
+function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNumber, $strPlayerName, $intGameScore){
     $intCategories = count($arrCategories);
     $intNextAsk = $intAskNumber + 1;
     switch ($strPartie) {      // Controller : type de partie
@@ -32,11 +32,6 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
         case $GLOBALS['strScoreBattleName']:
             $intProgAim = 20;
             break;
-    }
-    if ( isset($_POST['score']) ) {
-        $intScore = $_POST['score'];
-    } else {
-        $intScore = 0;
     }
     $strSeasonBgClass = "season".$arrQuestion['Season'];
     // Tableau de toutes les réponses
@@ -97,7 +92,7 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
 <!-- -- -- -- Score de la partie -- -- -- -->
                     <label for="hgScore" id="hgScoreLabel" class="col-xl-8">Score</label>
                     <div id="hgScore" class="col-xl-4">
-                        <span class="badge" id="gameScore"><?php echo $intScore;?></span>
+                        <span class="badge" id="gameScore"><?php echo $intGameScore;?></span>
                     </div>
                 </div>
             </article>
@@ -151,7 +146,7 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
             </article>
         </section>
 <!-- -- -- -- Formulaire 'réponse' -- -- -- -->
-        <form id="frmAnswer" class="row">
+        <form id="frmAnswer" class="row" action="gameMain.php" method="post">
             <p id="rightAnswer" hidden><?php echo $arrQuestion['AnswerGood'];?></p>
             <p id="goodText" hidden><?php echo $arrQuestion['GoodText'];?></p>
             <p id="badText" hidden><?php echo $arrQuestion['BadText'];?></p>
@@ -163,7 +158,10 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
             <div id="<?php echo $strAnswerId;?>" class="col-xl-5 ansUnselected"><?php echo $arrAnsToDisplay[$i];?></div>
 <?php
     }?>
-            <input type="number" id="newscore" name="newscore" value="" hidden>
+            <input type="number" id="selectPlayer" name="selectPlayer" value="<?php echo $_POST['selectPlayer'];?>" hidden>
+            <input type="number" id="score" name="score" value="<?php echo $intGameScore;?>" hidden>
+            <input type="number" id="asknum" name="asknum" value="<?php echo $intAskNumber;?>" hidden>
+            <input type="number" id="askid" name="askid" value="<?php echo $arrQuestion['Id'];?>" hidden>
         </form>
     </section>
 <?php

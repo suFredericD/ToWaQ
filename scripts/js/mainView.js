@@ -124,9 +124,19 @@ function fctSeeGoodAnswer(divSelectedAnswer){
     divResultText.appendChild(paraResponseResultText);
     // Insertion du bloc d'affichage du résultat complet
     document.getElementById("secAsk").append(divResponseMessage);
+
     // Calcul et affichage du nouveau score
     var intNewScore = intCurrentScore + intScoreBonus;
     document.getElementById("gameScore").innerHTML = intNewScore;
+    // Modification du score à transmettre
+    document.getElementById("score").setAttribute('value', intNewScore);
+
+    // Création du bouton vers la question suivante
+    var btnSubmit = document.createElement("input");
+    btnSubmit.className = "offset-xl-2 col-xl-8 nextQuestion";
+    btnSubmit.type = "submit";
+    btnSubmit.value = "Question suivante     > > >";
+    document.getElementById("frmAnswer").prepend(btnSubmit);
 }
 /* *** *** *** EVENT LISTENERS *** *** *** */
 var eveAnswer1 = divAnswer1.addEventListener("click", function(){

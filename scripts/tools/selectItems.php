@@ -8,21 +8,24 @@
  *              Contexte :   Php 7.3
  *              Fonction :   fonctions de sélection des questions
  *   Date mise en oeuvre :   22/11/2019
- *          Dernière MàJ :   22/11/2019
+ *          Dernière MàJ :   24/11/2019
  **************************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
 /***** *****    FONCTIONS   ***** *****/
 // Fonction de sélection de la prochaine question
-//  Paramètres          :
-//      arrAlreadyAsked : tableau des id des questions déjà posées
+//  Paramètres          : none
 //  Valeur de retour    :
 //            arrReturn : tableau des infos de la prochaine question
-function fctSelectNextQuestion($arrAlreadyAsked){
+function fctSelectNextQuestion($strPlayerName){
+    $arrAlreadyAsked = fct_SelectBannedQuestions($strPlayerName);
     $arrNotAsked = fct_selectNotAskedQuestions($arrAlreadyAsked);
+
     $intRandomMax = count($arrNotAsked);
+    echo "intRandomMax : " . $intRandomMax."<br>";
     $intRandomId = random_int(1, $intRandomMax);
-    $arrReturn = fct_SelectOneQuestionById($intRandomId);
+    echo "intRandomId : " . $intRandomId."<br>";
+    $arrReturn = fct_SelectOneQuestionById($arrNotAsked[$intRandomId]['Id']);
     return $arrReturn;
 }
 ?>
