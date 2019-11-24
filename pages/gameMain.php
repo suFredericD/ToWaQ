@@ -17,6 +17,7 @@ require("../scripts/classes/page.php");                             // Script de
 require("../scripts/classes/game.php");                             // Script de définition de la classe 'Game'
 require("../scripts/paging/htmlPaging.php");                        // Script de pagination html
 require("../scripts/paging/mainView.php");                          // Vue principale
+require("../scripts/paging/gameEnd.php");                           // Vue de fin de partie
 require("../scripts/tools/calcscripts.php");                        // Scripts utilitaires (calculs divers)
 require("../scripts/tools/selectItems.php");                        // Script de sélection des questions
 
@@ -57,12 +58,15 @@ $strPlayerName = $arrPlayers[$_POST['selectPlayer']]['Pseudo'];
 switch ($_POST['optPartie']) {
     case $GLOBALS['str10SuiteCode']:
         $strPartie = $GLOBALS['str10SuiteName'];
+        $intMaxItems = 10;
         break;
     case $GLOBALS['strFriendsBattleCode']:
         $strPartie = $GLOBALS['strFriendsBattleName'];
+        $intMaxItems = 20;
         break;
     case $GLOBALS['strScoreBattleCode']:
         $strPartie = $GLOBALS['strScoreBattleName'];
+        $intMaxItems = 0;
         break;
 }
 // Controller : nombre de questions
@@ -100,7 +104,14 @@ $arrAskItem = fctSelectNextQuestion($strPlayerName);
     </section>
 <!-- -- -- -- -- Vue principale -- -- -- -- -->
 <?php
-fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore);
+// Controller : fin de partie
+if  ( $intMaxItems > 0 ) {
+    if ( $intAskNumber <= $intMaxItems ){
+        fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore);
+    } else {
+        fctDisplayEndGame();
+    }
+}
 ?>
     <script src="../scripts/js/mainView.js"></script>
 <?php

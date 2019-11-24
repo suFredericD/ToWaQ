@@ -20,11 +20,8 @@
 function fctSelectNextQuestion($strPlayerName){
     $arrAlreadyAsked = fct_SelectBannedQuestions($strPlayerName);
     $arrNotAsked = fct_selectNotAskedQuestions($arrAlreadyAsked);
-
     $intRandomMax = count($arrNotAsked);
-    echo "intRandomMax : " . $intRandomMax."<br>";
     $intRandomId = random_int(1, $intRandomMax);
-    echo "intRandomId : " . $intRandomId."<br>";
     $arrReturn = fct_SelectOneQuestionById($arrNotAsked[$intRandomId]['Id']);
     return $arrReturn;
 }

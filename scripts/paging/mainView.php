@@ -10,14 +10,14 @@
  *   Date mise en oeuvre :   22/11/2019
  *          Dernière MàJ :   24/11/2019
  *************************************************************************************************/
-
-// Fonction d'extraction de toutes les questions
+// Fonction d'affichage d'une question
 //       Paramètres  :
 //      arrQuestions : tableau de toutes les questions
 //     arrCategories : tableau de toutes les catégories
 //         strPartie : type de partie
 //      intAskNumber : numéro de la question en cours dans la liste des questions de la partie
 //     strPlayerName : nom du joueur
+//      intGameScore : score actuel
 //  Valeur de retour : none
 function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNumber, $strPlayerName, $intGameScore){
     $intCategories = count($arrCategories);
@@ -158,6 +158,7 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
             <div id="<?php echo $strAnswerId;?>" class="col-xl-5 ansUnselected"><?php echo $arrAnsToDisplay[$i];?></div>
 <?php
     }?>
+            <input type="text" id="optPartie" name="optPartie" value="<?php echo $_POST['optPartie'];?>" hidden>
             <input type="number" id="selectPlayer" name="selectPlayer" value="<?php echo $_POST['selectPlayer'];?>" hidden>
             <input type="number" id="score" name="score" value="<?php echo $intGameScore;?>" hidden>
             <input type="number" id="asknum" name="asknum" value="<?php echo $intAskNumber;?>" hidden>

@@ -11,6 +11,17 @@
  *          Dernière MàJ :   24/11/2019
  *********************************************************************************************/
 /* *** *** *** DECLARATIONS *** *** *** */
+// Type de partie
+const strPartie = document.getElementById("optPartie").getAttribute('value');
+var intMaxItems = 0;
+switch (strPartie){
+    case "10questions":
+        intMaxItems = 10;
+        break;
+    case "defifriends":
+        intMaxItems = 20;
+        break;
+}
 // Blocs d'affichage des réponse
 const divAnswer1 = document.getElementById("answer1");
 const divAnswer2 = document.getElementById("answer2");
