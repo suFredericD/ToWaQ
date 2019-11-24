@@ -197,6 +197,9 @@ button:hover{
 	-moz-box-shadow: -2px -2px 4px #000;
 	-webkit-box-shadow: -2px -2px 4px #000;
 }
+p, label, span, div{
+	cursor: default;
+}
 /***** ***** ***** Titrages HTML ***** ***** *****/
 h1,h2,h3,h4,h5{
 	font-family: "2Dumb";

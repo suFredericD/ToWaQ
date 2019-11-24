@@ -152,14 +152,15 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
         </section>
 <!-- -- -- -- Formulaire 'réponse' -- -- -- -->
         <form id="frmAnswer" class="row">
+            <p id="rightAnswer" hidden><?php echo $arrQuestion['AnswerGood'];?></p>
+            <p id="goodText" hidden><?php echo $arrQuestion['GoodText'];?></p>
+            <p id="badText" hidden><?php echo $arrQuestion['BadText'];?></p>
 <?php
     for ( $i = 0 ; $i < 4 ; $i++ ) {
         $intAnswerDivId = $i + 1;
         $strAnswerId = "answer" . $intAnswerDivId;
 ?>
-            <div id="<?php echo $strAnswerId;?>" class="col-xl-5 ansUnselected">
-                <?php echo $arrAnsToDisplay[$i];?>
-            </div>
+            <div id="<?php echo $strAnswerId;?>" class="col-xl-5 ansUnselected"><?php echo $arrAnsToDisplay[$i];?></div>
 <?php
     }?>
         </form>

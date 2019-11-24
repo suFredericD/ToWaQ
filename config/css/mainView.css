@@ -249,21 +249,61 @@
 }
 .ansUnselected:hover{
     font-size: x-large;
-    color: #164F51;
+    color: #000;
     text-shadow: 1px 1px 2px #C1C1C1;
     background-color: #75617D;
     border: 3px outset #61697D;
     box-shadow: 2px 2px 4px #999;
 }
 .ansSelected{
-    color: #164F51;
+    color: #000;
     text-shadow: 1px 1px 2px #C1C1C1;
     background-color: #75617D;
     border: 3px outset #61697D;
     box-shadow: 2px 2px 4px #999;
 }
-
-
+/* ** ** ** ** Blocs de résultat ** ** ** ** */
+.responseGood,.responseBad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px 20px 20px 20px;
+    text-align: justify;
+    font-family: "KomikaDisplay";
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 2px #000;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+.responseGood p,.responseBad p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+.responseGood{
+    background-color: #61697D;
+    border: 2px inset rgb(15, 199, 15);
+}
+.responseBad{
+    background-color: #777D61;
+    border: 2px inset rgb(139, 6, 6);
+}
+.bravo,.perdu{
+    font-size: 24px;
+}
+.bravo{
+    color: rgb(15, 199, 15);
+}
+.perdu{
+    color: rgb(139, 6, 6);
+}
  /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */
 /***** ***** ***** ***** ***** ***** ***** ***** *****/
