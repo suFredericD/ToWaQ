@@ -77,6 +77,9 @@ function fctFixSelection(divSelectedAnswer){
 //  Valeur de retour    : none
 function fctSeeGoodAnswer(divSelectedAnswer){
     fctFixSelection(divSelectedAnswer);         // Changement des classes d'affichage des div de réponse
+    var intScoreBonus = 0;                      // Bonus à appliquer au score après réponse
+    // Récupération du score avant réponse
+    var intCurrentScore = Number(document.getElementById("gameScore").innerHTML);
     // Récupération du texte de la bonne réponse
     var strGoodAnswer = document.getElementById("rightAnswer").innerHTML;
     // Récupération du texte réponse du joueur
@@ -104,12 +107,14 @@ function fctSeeGoodAnswer(divSelectedAnswer){
         paraResponseResultMsg.innerHTML = "Perdu !";
         paraResponseResultText.innerHTML = document.getElementById("badText").innerHTML;
         paraResponseScore.innerHTML = "Score + 0";
+        intScoreBonus = 0;
     } else {
         divResponseMessage.className = "offset-xl-1 col-xl-10 responseGood";
         paraResponseResultMsg.className += " bravo";
         paraResponseResultMsg.innerHTML = "Bravo !";
         paraResponseResultText.innerHTML = document.getElementById("goodText").innerHTML;
         paraResponseScore.innerHTML = "Score + 1";
+        intScoreBonus = 1;
     }
     // Insertion du bloc d'affichage du résultat
     divResponseMessage.appendChild(divResult);
@@ -119,6 +124,9 @@ function fctSeeGoodAnswer(divSelectedAnswer){
     divResultText.appendChild(paraResponseResultText);
     // Insertion du bloc d'affichage du résultat complet
     document.getElementById("secAsk").append(divResponseMessage);
+    // Calcul et affichage du nouveau score
+    var intNewScore = intCurrentScore + intScoreBonus;
+    document.getElementById("gameScore").innerHTML = intNewScore;
 }
 /* *** *** *** EVENT LISTENERS *** *** *** */
 var eveAnswer1 = divAnswer1.addEventListener("click", function(){

@@ -163,6 +163,7 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
             <div id="<?php echo $strAnswerId;?>" class="col-xl-5 ansUnselected"><?php echo $arrAnsToDisplay[$i];?></div>
 <?php
     }?>
+            <input type="number" id="newscore" name="newscore" value="" hidden>
         </form>
     </section>
 <?php
