@@ -7,7 +7,7 @@
  * 				Contexte :	 Css 3.0
  *              Fonction :   page de styles d'affichage CSS
  *   Date mise en oeuvre :   22/11/2019
- *          Dernière MàJ :   22/11/2019
+ *          Dernière MàJ :   23/11/2019
  *************************************************************************************************/
 /* ** ** ** ** Section Hud ** ** ** ** */
 #secHud{
@@ -60,6 +60,7 @@
 #secAsk{
     padding: 20px 20px 20px 20px;
     border: 1px inset #75617D;
+    box-shadow: 2px 2px 4px #000;
 }
 #secAsk label,#aiTitleUs,#aiTitleFr{
     display: flex;
@@ -214,6 +215,55 @@
     border: 1px inset #75617D;
     box-shadow: 2px 2px 4px #000;
 }
+/* ** ** ** ** Blocs de réponses ** ** ** ** */
+#frmAnswer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px 20px 0px;
+    border: 1px inset #75617D;
+    box-shadow: 2px 2px 4px #000;
+}
+[id*="answer"]{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    margin: 10px 15px 10px 15px;
+    padding: 20px 20px 20px 30px;
+    text-align: justify;
+    font-family: "KomikaDisplay";
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    cursor: pointer;
+}
+.ansUnselected{
+    color: #C1C1C1;
+    text-shadow: 1px 1px 2px #000;
+    background-color: #61697D;
+    border: 3px outset #75617D;
+    box-shadow: 2px 2px 4px #000;
+}
+.ansUnselected:hover{
+    font-size: x-large;
+    color: #164F51;
+    text-shadow: 1px 1px 2px #C1C1C1;
+    background-color: #75617D;
+    border: 3px outset #61697D;
+    box-shadow: 2px 2px 4px #999;
+}
+.ansSelected{
+    color: #164F51;
+    text-shadow: 1px 1px 2px #C1C1C1;
+    background-color: #75617D;
+    border: 3px outset #61697D;
+    box-shadow: 2px 2px 4px #999;
+}
+
+
  /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */
 /***** ***** ***** ***** ***** ***** ***** ***** *****/

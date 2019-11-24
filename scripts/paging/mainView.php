@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   vue principale du jeu
  *   Date mise en oeuvre :   22/11/2019
- *          Dernière MàJ :   23/11/2019
+ *          Dernière MàJ :   24/11/2019
  *************************************************************************************************/
 
 // Fonction d'extraction de toutes les questions
@@ -39,6 +39,27 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
         $intScore = 0;
     }
     $strSeasonBgClass = "season".$arrQuestion['Season'];
+    // Tableau de toutes les réponses
+    $arrAnswers = array($arrQuestion['AnswerGood'],$arrQuestion['Answer2'],$arrQuestion['Answer3'],$arrQuestion['Answer4']);
+    // Pioche première réponse à affciher
+    $intAnsToDisplay = random_int(0,3);
+    $arrAnsToDisplay = array($arrAnswers[$intAnsToDisplay]);
+    $arrTourSecond = array();
+    for ( $i = 0 ; $i < 4 ; $i++ ) {
+        if ( $i != $intAnsToDisplay ) {
+            $arrTourSecond[] = $arrAnswers[$i];
+        }
+    }
+    $intAnsToDisplay = random_int(0,2);
+    $arrAnsToDisplay[] = $arrTourSecond[$intAnsToDisplay];
+    for ( $i = 0 ; $i < 3 ; $i++ ) {
+        if ( $i != $intAnsToDisplay ) {
+            $arrTourLast[] = $arrTourSecond[$i];
+        }
+    }
+    $arrAnsToDisplay[] = $arrTourLast[0];
+    $arrAnsToDisplay[] = $arrTourLast[1];
+
 ?>
     <section id="mainView">
 <!-- -- -- -- Section Hud -- -- -- -->
@@ -125,13 +146,22 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
                 <p><?php echo $arrQuestion['Text'];?></p>
             </article>
 <!-- -- -- -- Bloc 'question' -- -- -- -->
-            <article id="askForReal" class="offset-xl-2 col-xl-8">
+            <article id="askForReal" class="offset-xl-1 col-xl-10">
                 <p><?php echo $arrQuestion['Question'];?></p>
             </article>
         </section>
 <!-- -- -- -- Formulaire 'réponse' -- -- -- -->
-        <form id="frmAnswer">
-        
+        <form id="frmAnswer" class="row">
+<?php
+    for ( $i = 0 ; $i < 4 ; $i++ ) {
+        $intAnswerDivId = $i + 1;
+        $strAnswerId = "answer" . $intAnswerDivId;
+?>
+            <div id="<?php echo $strAnswerId;?>" class="col-xl-5 ansUnselected">
+                <?php echo $arrAnsToDisplay[$i];?>
+            </div>
+<?php
+    }?>
         </form>
     </section>
 <?php
