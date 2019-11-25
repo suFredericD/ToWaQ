@@ -115,6 +115,12 @@ if  ( $intMaxItems > 0 ) {
     } else {
         fctDisplayEndGame($arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore);
     }
+} else {
+    if ( $intGameScore < 20 ) {
+        fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore);
+    } else {
+        fctDisplayEndGame($arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore);
+    }
 }
 ?>
     <script src="../scripts/js/mainView.js"></script>
