@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page d'accueil
  *   Date mise en oeuvre :   11/11/2019
- *          Dernière MàJ :   12/11/2019
+ *          Dernière MàJ :   25/11/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 require("scripts/admin/variables.php");                             // Variables globales du site
@@ -75,6 +75,15 @@ fct_BuildHtmlHeader($objPageInfos);
       <div class="offset-xl-2 col-xl-8 offset-lg-2 col-lg-8" id="acc_col_play">
        <a href="pages/partieConfig.php" title="Jouer à ToWaQ"><button>Créer une partie</button></a>
       </div>
+     </section>
+<!-- -- -- -- -- Liens d'accueil -- -- -- -- -->
+     <section class="row" id="accueil_contrib">
+      <details class="offset-xl-1 col-xl-10 offset-lg-1 col-lg-10" id="goNewQuestion">
+       <summary>Contribuer</summary>
+       <a href="pages/contribution.php?type=question">
+        <span class="fa fa-user-edit fa-lg"></span>&nbsp;&nbsp;Proposer une question
+       </a>
+      </details>
      </section>
 <!-- -- -- -- -- Image de fin de page -- -- -- -- -->
      <section class="row" id="accueil_footer">

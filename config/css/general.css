@@ -384,6 +384,41 @@ footer{
 #accueil_footer{
 	margin-top: 15px;
 }
+/***** ***** ***** Bandeau 'Contribuer' ***** ***** *****/
+#accueil_contrib{
+	margin-top: 30px;
+	padding: 20px 0px 20px 0px;
+	background-color: #61697D;
+	border: 1px outset #000;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#goNewQuestion{
+	font-family: "KomikaDisplay";
+	font-size: 30px;
+	letter-spacing: 0.15em;
+	color: #C1C1C1;
+	text-shadow: 1px 1px 3px #000;
+}
+#goNewQuestion a{
+	padding-left: 10%;
+	text-decoration: none;
+	font-family: "CaviarDreams";
+	font-size: 22px;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	color: #000;
+	text-shadow: 1px 1px 3px #C1C1C1;
+	transition-property: all;
+	transition-duration: 1850ms;
+}
+#goNewQuestion a:hover{
+	text-decoration: none;
+	font-size: x-large;
+	color: #794E70;
+	text-shadow: 1px 1px 3px #C1C1C1;
+}
 /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */
 /***** ***** ***** ***** ***** ***** ***** ***** *****/
