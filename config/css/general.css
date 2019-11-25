@@ -38,7 +38,7 @@ Palette
 	margin-top: 10px;
 	margin-bottom: 0px;
 	padding-top: 0px;
-	padding-bottom: 0px;
+	padding-bottom: 20px;
 	background-color: #61777D;
 	box-shadow: 2px 2px 4px #000;
 	-moz-box-shadow: 2px 2px 4px #000;
@@ -253,6 +253,7 @@ h4{
 }
 .red,.blue,.yellow{
 	font-size: 16px;
+	vertical-align: middle;
 }
 .red{
 	color: #AA0000;
@@ -299,8 +300,60 @@ footer{
 }
 /***** ***** ***** Barres de navigation ***** ***** *****/
 
-/***** ***** ***** Boutons de navigation ***** ***** *****/
-
+/***** ***** ***** Boutons de formulaires ***** ***** *****/
+.submit{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 8px 16px 8px 16px;
+	background-color: hsl(261, 19%, 56%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeecf2", endColorstr="#8879a4");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#eeecf2), to(#8879a4));
+	background-image: -moz-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -ms-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeecf2), color-stop(100%, #8879a4));
+	background-image: -webkit-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -o-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: linear-gradient(#eeecf2, #8879a4);
+	border-color: #8879a4 #8879a4 hsl(261, 19%, 46.5%);
+	box-shadow: 1px 1px 3px #000;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	text-decoration: none;
+	font-family: "CaviarDreams";
+	font-size: 28px;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	-webkit-font-smoothing: antialiased;
+	color: #61697D;
+	text-shadow: 1px 1px 3px #FFF;
+	transition-property: all;
+	transition-duration: 1850ms;
+	-moz-transition-property: all;
+    -moz-transition-duration: 1850ms;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 1850ms;
+}
+.submit:hover{
+	background-color: hsl(31, 25%, 65%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e2d9cf", endColorstr="#bca68f");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#e2d9cf), to(#bca68f));
+	background-image: -moz-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -ms-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e2d9cf), color-stop(100%, #bca68f));
+	background-image: -webkit-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -o-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: linear-gradient(#e2d9cf, #bca68f);
+	border-color: #bca68f #bca68f hsl(31, 25%, 60%);
+	color: #333 !important;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+	-webkit-font-smoothing: antialiased;
+	border-radius: 20px;
+	box-shadow: -2px -2px 4px #000;
+	-moz-box-shadow: -2px -2px 4px #000;
+	-webkit-box-shadow: -2px -2px 4px #000;
+}
 /***** ***** ***** Classes de mise en forme ***** ***** *****/
 .no-bg-no-bd{
 	background-color: transparent;
