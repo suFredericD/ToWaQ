@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page de définition de la classe page
  *   Date mise en oeuvre :   11/11/2019
- *          Dernière MàJ :   12/11/2019
+ *          Dernière MàJ :   25/11/2019
  *******************************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
@@ -38,7 +38,13 @@ class Page{
 				"description" => "Accueil"),
 			"partieConfig.php"=> array(
 				"title" => "Configuration",
-				"description" => "Configuration de la partie")
+				"description" => "Configuration de la partie"),
+			"contribution.php"=> array(
+				"title" => "Contribution",
+				"description" => "Contribution"),
+			"sendItem.php"=> array(
+				"title" => "Validation",
+				"description" => "Validation et envoi des données")
 		);
 		$this->setTitle($arrPages[$strNewName]['title']);					// Titre de la page
 		$this->setDescription($arrPages[$strNewName]['description']);		// Rôle de la page
