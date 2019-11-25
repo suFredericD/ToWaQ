@@ -169,20 +169,21 @@ function fct_selectNotAskedQuestions($arrAlreadyAsked){
         $arrReturn[$i]['PictureAnswer'] = $row['13'];
         $arrReturn[$i]['LevelName'] = $row['15'];
         $arrReturn[$i]['LevelColor'] = $row['16'];
-        $arrReturn[$i]['Season'] = $row['18'];
-        $arrReturn[$i]['EpisodeNumber'] = $row['19'];
-        $arrReturn[$i]['EpisodeNameFr'] = $row['20'];
-        $arrReturn[$i]['EpisodeNameUs'] = $row['21'];
-        $arrReturn[$i]['EpisodeText'] = $row['22'];
-        $arrReturn[$i]['Category'] = $row['24'];
-        $arrReturn[$i]['CatColor'] = $row['25'];
-        $arrReturn[$i]['CatUs'] = $row['26'];
-        $arrReturn[$i]['CatSlug'] = $row['27'];
-        $arrReturn[$i]['seaEpisodes'] = $row['29'];
-        $arrReturn[$i]['seaDiffStart'] = $row['30'];
-        $arrReturn[$i]['seaDiffEnd'] = $row['31'];
-        $arrReturn[$i]['seaDvdFr'] = $row['32'];
-        $arrReturn[$i]['seaColor'] = $row['33'];
+        $arrReturn[$i]['LevelText'] = $row['17'];
+        $arrReturn[$i]['Season'] = $row['19'];
+        $arrReturn[$i]['EpisodeNumber'] = $row['20'];
+        $arrReturn[$i]['EpisodeNameFr'] = $row['21'];
+        $arrReturn[$i]['EpisodeNameUs'] = $row['22'];
+        $arrReturn[$i]['EpisodeText'] = $row['23'];
+        $arrReturn[$i]['Category'] = $row['25'];
+        $arrReturn[$i]['CatColor'] = $row['26'];
+        $arrReturn[$i]['CatUs'] = $row['27'];
+        $arrReturn[$i]['CatSlug'] = $row['28'];
+        $arrReturn[$i]['seaEpisodes'] = $row['30'];
+        $arrReturn[$i]['seaDiffStart'] = $row['31'];
+        $arrReturn[$i]['seaDiffEnd'] = $row['32'];
+        $arrReturn[$i]['seaDvdFr'] = $row['33'];
+        $arrReturn[$i]['seaColor'] = $row['34'];
         $i++;
     }
     return $arrReturn;
@@ -218,20 +219,21 @@ function fct_SelectOneQuestionById($intId){
     $arrReturn['PictureAnswer'] = $row['13'];
     $arrReturn['LevelName'] = $row['15'];
     $arrReturn['LevelColor'] = $row['16'];
-    $arrReturn['Season'] = $row['18'];
-    $arrReturn['EpisodeNumber'] = $row['19'];
-    $arrReturn['EpisodeNameFr'] = $row['20'];
-    $arrReturn['EpisodeNameUs'] = $row['21'];
-    $arrReturn['EpisodeText'] = $row['22'];
-    $arrReturn['Category'] = $row['24'];
-    $arrReturn['CatColor'] = $row['25'];
-    $arrReturn['CatUs'] = $row['26'];
-    $arrReturn['CatSlug'] = $row['27'];
-    $arrReturn['seaEpisodes'] = $row['29'];
-    $arrReturn['seaDiffStart'] = $row['30'];
-    $arrReturn['seaDiffEnd'] = $row['31'];
-    $arrReturn['seaDvdFr'] = $row['32'];
-    $arrReturn['seaColor'] = $row['33'];
+    $arrReturn['LevelText'] = $row['17'];
+    $arrReturn['Season'] = $row['19'];
+    $arrReturn['EpisodeNumber'] = $row['20'];
+    $arrReturn['EpisodeNameFr'] = $row['21'];
+    $arrReturn['EpisodeNameUs'] = $row['22'];
+    $arrReturn['EpisodeText'] = $row['23'];
+    $arrReturn['Category'] = $row['25'];
+    $arrReturn['CatColor'] = $row['26'];
+    $arrReturn['CatUs'] = $row['27'];
+    $arrReturn['CatSlug'] = $row['28'];
+    $arrReturn['seaEpisodes'] = $row['30'];
+    $arrReturn['seaDiffStart'] = $row['31'];
+    $arrReturn['seaDiffEnd'] = $row['32'];
+    $arrReturn['seaDvdFr'] = $row['33'];
+    $arrReturn['seaColor'] = $row['34'];
     return $arrReturn;
 }
 // Fonction d'extraction de comptage de toutes les questions de la base de données
@@ -278,6 +280,27 @@ function fct_SelectAllLevels(){
         $arrReturn[$i]['Id'] = $row['0'];
         $arrReturn[$i]['Name'] = $row['1'];
         $arrReturn[$i]['Color'] = $row['2'];
+        $arrReturn[$i]['Text'] = $row['3'];
+        $i++;
+    }
+    return $arrReturn;
+}
+// Fonction d'extraction des informations de toutes les saisons
+//       Paramètres  : none
+//  Valeur de retour :
+//         arrReturn : tableau des informations de toutes les saisons
+function fct_SelectAllSeasons(){
+    $strRequest = "SELECT * FROM `fri_seasons`;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['EpisodesNumber'] = $row['1'];
+        $arrReturn[$i]['DiffusionStart'] = $row['2'];
+        $arrReturn[$i]['DiffusionEnd'] = $row['3'];
+        $arrReturn[$i]['DvdFrance'] = $row['4'];
+        $arrReturn[$i]['Color'] = $row['5'];
         $i++;
     }
     return $arrReturn;
@@ -295,6 +318,7 @@ function fct_SelectLevelFromId($intId){
     $arrReturn['Id'] = $row['0'];
     $arrReturn['Name'] = $row['1'];
     $arrReturn['Color'] = $row['2'];
+    $arrReturn['Text'] = $row['3'];
     return $arrReturn;
 }
 // Fonction d'extraction de toutes les catégories de questions

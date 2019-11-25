@@ -67,6 +67,8 @@ Palette
     padding: 20px 10px 20px 10px;
     background-color: #67617D;
     border: 3px outset #3A5E7D;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
 	box-shadow: 2px 2px 4px #000;
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;
@@ -74,26 +76,32 @@ Palette
 #frmContribution label{
     text-align: end;
     padding-right: 5%;
+    vertical-align: middle;
     font-family: "KomikaDisplay";
-	font-size: 34px;
+	font-size: 30px;
     letter-spacing: 0.12em;
     color: #C1C1C1;
     text-shadow: 2px 2px 4px #000;
 }
-#friend{
-    padding-left: 15%;
+#friend,#category{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 5%;
     background-color: #75617D;
     font-family: "Desyrel";
-	font-size: 36px;
-    letter-spacing: 0.15em;
+	font-size: 30px;
+    letter-spacing: 0.18em;
     color: #C1C1C1;
     text-shadow: 1px 1px 3px #000;
     border: 2px outset #3A5E7D;
-    border-top-right-radius: 50px;
-    border-bottom-left-radius: 50px;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
 	box-shadow: 2px 2px 4px #000;
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#friend:hover,#category:hover{
+    background-color: #61697D;
 }
 /***** ***** ***** Composant : niveau de difficulté ***** ***** *****/
 #level1,#level2,#level3{
@@ -102,7 +110,7 @@ Palette
     align-items: center;
 }
 #level1,#level2,#level3:hover{
-    background-color: #3A5E7D;
+    background-color: #61697D;
 }
 #fieldlevel{
     margin-top: 10px;
@@ -113,7 +121,7 @@ Palette
     align-items: center;
     padding-left: 50px;
     font-family: "Desyrel";
-	font-size: 32px;
+	font-size: 30px;
     letter-spacing: 0.15em;
     color: #C1C1C1;
     text-shadow: 1px 1px 3px #000;
@@ -124,6 +132,121 @@ Palette
     background-color: #57617B;
     color: #000;
     text-shadow: 1px 1px 3px #C1C1C1;
+}
+/***** ***** ***** Composant : sélection de saison ***** ***** *****/
+#season{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 15%;
+    background-color: #75617D;
+    font-family: "Desyrel";
+	font-size: 30px;
+    letter-spacing: 0.15em;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 3px #000;
+    border: 2px outset #3A5E7D;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#season:hover{
+    background-color: #61697D;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 3px #000;
+}
+[class*="epiSeason"]{
+    padding-left: 15%;
+    font-family: "Desyrel";
+	font-size: 28px;
+    letter-spacing: 0.15em;
+    color: #000;
+    text-shadow: 1px 1px 3px #C1C1C1;
+}
+.epiSeason1{
+    background-color: #1F3A81;
+}
+.epiSeason2{
+    background-color: #D13328;
+}
+.epiSeason3{
+    background-color: #116D86;
+}
+.epiSeason4{
+    background-color: #F06F45;
+}
+.epiSeason5{
+    background-color: #7C2880;
+}
+.epiSeason6{
+    background-color: #1B776A;
+}
+.epiSeason7{
+    background-color: #DC328A;
+}
+.epiSeason8{
+    background-color: #3B95D1;
+}
+.epiSeason9{
+    background-color: #FFCC00;
+}
+.epiSeason10{
+    background-color: #8F2144;
+}
+
+#newQuestion,#newAnswers,#newPictures,#newEpisode,#fieldlevel,#newCategory,#newFriend,#newMessages{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px 0px 20px 0px;
+    background-color: #61777D;
+    border: 2px outset #61777D;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+    box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#newQuestion div label{
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+}
+/***** ***** ***** Composant : description du contexte ***** ***** *****/
+.questText{
+    size: max-content;
+    font-family: "Desyrel";
+	font-size: 22px;
+    letter-spacing: 0.18em;
+    background-color: #134553;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 3px #000;
+}
+#ansInfos label{
+    font-size: x-large;
+}
+/***** ***** ***** Composants : réponses ***** ***** *****/
+#ansGood,#choice1,#choice2,#choice3{
+    font-family: "Desyrel";
+	font-size: 18px;
+    letter-spacing: 0.18em;
+    background-color: #134553;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 3px #000;
+    border: 1px inset #61777D;
+}
+
+#msgInfos label{
+    font-size: x-large;
+}
+#msgGood,#msgBad{
+    font-family: "Desyrel";
+	font-size: 18px;
+    letter-spacing: 0.18em;
+    background-color: #134553;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 3px #000;
+    border: 1px inset #61777D;
 }
 /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */
