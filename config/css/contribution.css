@@ -1,0 +1,148 @@
+/*************************************************************************************************
+ *   	EmtZahella Projetcs Incorporated
+ *                Projet :   ToWaQ
+ *                  Page :   contribution.css
+ *                Chemin :   http://127.0.0.1:8080/ToWaQ/config/css/contribution.css
+ *                  Type :   page de modules
+ * 				Contexte :	 Css 3.0
+ *              Fonction :   page de styles d'affichage CSS
+ *   Date mise en oeuvre :   25/11/2019
+ *          Dernière MàJ :   25/11/2019
+ *************************************************************************************************/
+/*
+Palette
+	Saison 1  :		#1F3A81
+	Saison 2  :		#D13328
+	Saison 3  :		#116D86
+	Saison 4  :		#F06F45
+	Saison 5  :		#7C2880
+	Saison 6  :		#1B776A
+	Saison 7  :		#DC328A
+	Saison 8  :		#3B95D1
+	Saison 9  :		#FFCC00
+	Saison 10 :		#8F2144
+
+   background :		#61697D
+   mauve bleu :		#67617D
+   mauve rose :		#75617D
+ 	     vert : 	#61777D
+		 kaki :		#777D61
+
+	 Niveau 1 :		#456958
+	 Niveau 2 :		#987D49
+	 Niveau 3 :		#7F4D5B
+*/
+
+/***** ***** ***** En-tête graphique ***** ***** *****/
+#contrib_header{
+	background-image: url("../../media/pics/couch01_header.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+    opacity: 0.9;
+    height: 200px;
+}
+#ch_header{
+    font-family: "KomikaDisplay";
+	font-size: 54px;
+    letter-spacing: 0.12em;
+    color: #C1C1C1;
+}
+#contrib_header label{
+    text-align: center;
+    font-family: "KomikaDisplay";
+	font-size: 40px;
+    letter-spacing: 0.12em;
+    color: #C1C1C1;
+    text-shadow: 2px 2px 4px #000;
+}
+#contrib_type{
+    text-align: left;
+    font-family: "KomikaDisplay";
+	font-size: 40px;
+    letter-spacing: 0.12em;
+    color: #C1C1C1;
+}
+#frmContribution{
+    margin: 20px 1% 20px 1%;
+    padding: 20px 10px 20px 10px;
+    background-color: #67617D;
+    border: 3px outset #3A5E7D;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#frmContribution label{
+    text-align: end;
+    padding-right: 5%;
+    font-family: "KomikaDisplay";
+	font-size: 34px;
+    letter-spacing: 0.12em;
+    color: #C1C1C1;
+    text-shadow: 2px 2px 4px #000;
+}
+#friend{
+    padding-left: 15%;
+    background-color: #75617D;
+    font-family: "Desyrel";
+	font-size: 36px;
+    letter-spacing: 0.15em;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 3px #000;
+    border: 2px outset #3A5E7D;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+/***** ***** ***** Composant : niveau de difficulté ***** ***** *****/
+#level1,#level2,#level3{
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#level1,#level2,#level3:hover{
+    background-color: #3A5E7D;
+}
+#fieldlevel{
+    margin-top: 10px;
+}
+#fieldlevel label{
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 50px;
+    font-family: "Desyrel";
+	font-size: 32px;
+    letter-spacing: 0.15em;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 3px #000;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+#fieldlevel label:hover{
+    background-color: #57617B;
+    color: #000;
+    text-shadow: 1px 1px 3px #C1C1C1;
+}
+/***** ***** ***** ***** ***** ***** ***** ***** *****/
+/* * *** ***** ***** Media queries ***** ***** *** * */
+/***** ***** ***** ***** ***** ***** ***** ***** *****/
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+
+}
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+
+}
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+
+}
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+}
+/* Extra large devices (large desktops)
+   No media query since the extra-large breakpoint has no upper bound on its width */
