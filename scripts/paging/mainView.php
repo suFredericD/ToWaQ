@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   vue principale du jeu
  *   Date mise en oeuvre :   22/11/2019
- *          Dernière MàJ :   24/11/2019
+ *          Dernière MàJ :   25/11/2019
  *************************************************************************************************/
 // Fonction d'affichage d'une question
 //       Paramètres  :
@@ -87,7 +87,14 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
                 <div class="row">
                     <label for="hgState" id="hgStateLabel" class="col-xl-12">Partie</label>
                     <div id="hgState" class="col-xl-12">
+<?php
+    if ( $strPartie != $GLOBALS['strScoreBattleName'] ) {?>
                         <progress max="<?php echo $intProgAim;?>" value="<?php echo $intAskNumber;?>"></progress>
+<?php
+    } else {?>
+                        <progress max="<?php echo $intProgAim;?>" value="<?php echo $intGameScore;?>"></progress>
+<?php
+    }?>
                     </div>
 <!-- -- -- -- Score de la partie -- -- -- -->
                     <label for="hgScore" id="hgScoreLabel" class="col-xl-8">Score</label>
