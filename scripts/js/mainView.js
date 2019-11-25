@@ -142,12 +142,41 @@ function fctSeeGoodAnswer(divSelectedAnswer){
     // Modification du score à transmettre
     document.getElementById("score").setAttribute('value', intNewScore);
 
+    // Création des éléments cachés pour passage des stats de la question
+    var hidLevel = document.createElement("input");
+    hidLevel.id = "level";
+    hidLevel.name = "level";
+    hidLevel.setAttribute('hidden',"");
+    var hidCategory = document.createElement("input");
+    hidCategory.id = "category";
+    hidCategory.name = "category";
+    hidCategory.setAttribute('hidden',"");
+    var hidResult =  document.createElement("input");
+    hidResult.id = "result";
+    hidResult.name = "result";
+    hidResult.setAttribute('hidden',"");
+
+    // Récupération des valeurs à passer au formulaire
+    hidLevel.setAttribute('value', document.getElementsByTagName('meter')[0].value);
+    hidCategory.setAttribute('value', document.getElementById("hqCategory").innerHTML);
+    if ( intScoreBonus > 0 ) {
+        hidResult.setAttribute('value', "win");
+    } else {
+        hidResult.setAttribute('value', "loose");
+    }
+
+    // Insertion des éléments au formulaire
+    document.getElementById("frmAnswer").append(hidLevel);
+    document.getElementById("frmAnswer").append(hidCategory);
+    document.getElementById("frmAnswer").append(hidResult);
+
     // Création du bouton vers la question suivante
     var btnSubmit = document.createElement("input");
     btnSubmit.className = "offset-xl-2 col-xl-8 nextQuestion";
     btnSubmit.type = "submit";
     btnSubmit.value = "Question suivante     > > >";
     document.getElementById("frmAnswer").prepend(btnSubmit);
+
 }
 /* *** *** *** EVENT LISTENERS *** *** *** */
 var eveAnswer1 = divAnswer1.addEventListener("click", function(){

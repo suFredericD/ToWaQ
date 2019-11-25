@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page principale du jeu
  *   Date mise en oeuvre :   12/11/2019
- *          Dernière MàJ :   24/11/2019
+ *          Dernière MàJ :   25/11/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 require("../scripts/admin/variables.php");                          // Variables globales du site
@@ -87,6 +87,10 @@ if ( isset($_POST['score'])) {
 if ( isset($_POST['askid'])) {
     fct_UpdateGameTable($strPlayerName, $_POST['askid']);
 }
+// Controller : enregistrement des stats du joueur
+if ( isset($_POST['result'])) {
+    fct_UpdateStats($_POST['selectPlayer'], $_POST['result'], $_POST['level'], $_POST['category']);
+}
 // Model : sélection de la prochaine question
 $arrAskItem = fctSelectNextQuestion($strPlayerName);
 ?>
@@ -109,7 +113,7 @@ if  ( $intMaxItems > 0 ) {
     if ( $intAskNumber <= $intMaxItems ){
         fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore);
     } else {
-        fctDisplayEndGame();
+        fctDisplayEndGame($arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore);
     }
 }
 ?>

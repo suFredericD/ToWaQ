@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   fonctions BdD
  *   Date mise en oeuvre :   11/11/2019
- *          Dernière MàJ :   24/11/2019
+ *          Dernière MàJ :   25/11/2019
  **************************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
@@ -29,6 +29,55 @@ function fct_RequestExec($strRequest){
         $resLink = $mysqli->query($strRequest);
         return $resLink;
     }
+}
+// Fonction d'enregistrement des statistiques de réponse d'un joueur après une question
+//       Paramètres :
+//       intPlayerId : id du joueur sélectionné
+//         strResult : résultat de la question
+//          intLevel : niveau de la question
+//       strCategory : nom de la catégorie de la question
+//  Valeur de retour : none
+function fct_UpdateStats($intPlayerId, $strResult, $intLevel, $strCategory){
+    // Controller win or loose
+    if ( $strResult != "win" ) {
+        $strWinOrLoose = "B";
+    } else {
+        $strWinOrLoose = "G";
+    }
+    // Controller : catégorie
+    $strRequest = "SELECT `cat_Id` FROM `fri_category` "
+                . "WHERE `cat_Name`='" . $strCategory . "';";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $intCategory = $row['0'];            
+    // Nom du champ level à modifier
+    $strFieldLevel = "pls_Level" . $intLevel . $strWinOrLoose;
+    $intLevelInitValue = intval(fct_SelectStatValue($intPlayerId, $strFieldLevel)) + 1;
+    // Nom du champ catégorie à modifier
+    $strFieldCategory = "pls_Cat" . $intCategory . $strWinOrLoose;
+    $intCatInitValue = intval(fct_SelectStatValue($intPlayerId, $strFieldCategory)) + 1;
+    // Requête de modification
+    $strRequest = "UPDATE `player_stats` "
+                . "SET `" . $strFieldLevel . "`='" . $intLevelInitValue . "'"
+                . ", `" . $strFieldCategory . "`='" . $intCatInitValue . "' "
+                . "WHERE `pls_Player`='" . $intPlayerId ."';";
+    fct_RequestExec($strRequest);
+}
+// Fonction de sélection d'une valeur de statistique d'un joueur
+//       Paramètres :
+//       intPlayerId : id du joueur sélectionné
+//      strFieldStat : nom du champ de la statistique sélectionnée
+//  Valeur de retour :
+//         intReturn : valeur de la statistique du joueur
+function fct_SelectStatValue($intPlayerId, $strFieldStat){
+    $strRequest = "SELECT `" . $strFieldStat . "` FROM `player_stats` "
+                . "WHERE `pls_Player`='" . $intPlayerId . "';";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $intReturn = $row['0'];
+    return $intReturn;
 }
 // Fonction de création de la table temporaire d'exclusion des questions de la partie en cours
 //       Paramètres :
