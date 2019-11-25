@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page de définition des variables du site
  *   Date mise en oeuvre :   11/11/2019
- *          Dernière MàJ :   12/11/2019
+ *          Dernière MàJ :   23/11/2019
  *******************************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
@@ -54,4 +54,7 @@ $strFriendsBattleName = "Dèfi \"Friends\"";
 $strFriendsBattleCode = "defifriends";
 $strScoreBattleName = "Dèfi \"Score\"";
 $strScoreBattleCode = "defiscore";
+
+// Tableau des id des questions déjà posées
+
 ?>
