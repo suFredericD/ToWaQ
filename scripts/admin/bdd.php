@@ -236,6 +236,25 @@ function fct_SelectOneQuestionById($intId){
     $arrReturn['seaColor'] = $row['34'];
     return $arrReturn;
 }
+// Fonction d'inserction des infos d'une proposition de question
+//         Paramètre :
+//           arrItem : tableaudes infos de la proposition de question
+//  Valeur de retour : none
+function fct_InsertProposalQuestion($arrItem){
+    $strPattern = "'";
+    $intItems = count($arrItem);
+    for ( $i = 0 ; $i < $intItems ; $i++ ) {
+        $arrItem[$i] = addcslashes($arrItem[$i], $strPattern);
+    }
+    $strRequest = "INSERT INTO `prop_questions` "
+                     . "(`prop_Player`, `prop_Level`, `prop_Category`, `prop_Episode`, "
+                     . "`prop_Text`, `prop_Question`, `prop_AnswerGood`, `prop_Answer2`, "
+                     . "`prop_Answer3`, `prop_Answer4`, `prop_GoodText`, `prop_BadText`) "
+                     . "VALUES ('" . $arrItem['0'] . "', '" . $arrItem['1'] . "', '" . $arrItem['2'] . "', '" . $arrItem['3'] . "', "
+                     . "'" . $arrItem['4'] . "', '" . $arrItem['5'] . "', '" . $arrItem['6'] . "', "
+                     . "'" . $arrItem['7'] . "', '" . $arrItem['8'] . "', '" . $arrItem['9'] . "', '" . $arrItem['10'] . "', '" . $arrItem['11'] . "');";
+    fct_RequestExec($strRequest);
+}
 // Fonction d'extraction des infos d'une catégorie par son id
 //         Paramètre :
 //             intId : id de la catégorie sélectionnée

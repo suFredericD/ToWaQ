@@ -88,7 +88,7 @@ if ( isset($_GET['validate']) ){
       <a href="../index.php"><span class="fa fa-arrow-alt-circle-left fa-lg"></span>&nbsp;Accueil</a>
      </button>
      <button id="reDo" class="offset-xl-1 col-xl-6 submit">
-      <a href="../index.php"><span class="fa fa-file-signature fa-lg"></span>&nbsp;Nouvelle contribution</a>
+      <a href="contribution.php"><span class="fa fa-file-signature fa-lg"></span>&nbsp;Nouvelle contribution</a>
      </button>
     </section>
 <?php
