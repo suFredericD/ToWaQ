@@ -65,7 +65,22 @@ fct_BuildHtmlHeader($objPageInfos);
     </section>
 <?php
     // Controller : validation effectuée / en cours
-if ( isset($_GET['validate']) ){?>
+if ( isset($_GET['validate']) ){
+    $arrItem = array();
+    $arrItem['0'] = $_POST['friend'];
+    $arrItem['1'] = $_POST['level'];
+    $arrItem['2'] = $_POST['category'];
+    $arrItem['3'] = $_POST['episode'];
+    $arrItem['4'] = $_POST['text'];
+    $arrItem['5'] = $_POST['question'];
+    $arrItem['6'] = $_POST['ansGood'];
+    $arrItem['7'] = $_POST['choice1'];
+    $arrItem['8'] = $_POST['choice2'];
+    $arrItem['9'] = $_POST['choice3'];
+    $arrItem['10'] = $_POST['msgGood'];
+    $arrItem['11'] = $_POST['msgBad'];
+    fct_InsertProposalQuestion($arrItem);
+?>
     <section id="itemInserted" class="row">
      <label class="offset-xl-1 col-xl-10">Nouvelle contribution proposée</label>
      <h3 class="offset-xl-2 col-xl-8">Merci de participer à ToWaQ&nbsp;&nbsp;<span class="fa fa-grin-wink fa-lg"></span></h3>
@@ -114,7 +129,21 @@ if ( isset($_GET['validate']) ){?>
     </div>
     <form class="row" id="frmSendQuestion" action="sendItem.php?validate=ok" method="post">
      <label for="frmSendQuestion" class="col-xl-12">Validation</label>
+<!-- -- -- -- Contrôleurs cachés -- -- -- -->
      <input type="text" id="type" name="type" value="<?php echo $_POST['type'];?>" hidden>
+     <input type="number" id="friend" name="friend" value="<?php echo $_POST['friend'];?>" hidden>
+     <input type="number" id="level" name="level" value="<?php echo $_POST['level'];?>" hidden>
+     <input type="number" id="category" name="category" value="<?php echo $_POST['category'];?>" hidden>
+     <input type="number" id="episode" name="episode" value="<?php echo $arrEpisode['Id'];?>" hidden>
+     <input type="text" id="text" name="text" value="<?php echo $_POST['text'];?>" hidden>
+     <input type="text" id="question" name="question" value="<?php echo $_POST['question'];?>" hidden>
+     <input type="text" id="ansGood" name="ansGood" value="<?php echo $_POST['ansGood'];?>" hidden>
+     <input type="text" id="choice1" name="choice1" value="<?php echo $_POST['choice1'];?>" hidden>
+     <input type="text" id="choice2" name="choice2" value="<?php echo $_POST['choice2'];?>" hidden>
+     <input type="text" id="choice3" name="choice3" value="<?php echo $_POST['choice3'];?>" hidden>
+     <input type="text" id="msgGood" name="msgGood" value="<?php echo $_POST['msgGood'];?>" hidden>
+     <input type="text" id="msgBad" name="msgBad" value="<?php echo $_POST['msgBad'];?>" hidden>
+<!-- -- -- -- boutons d'envoi -- -- -- -->
      <button id="unDo" class="offset-xl-1 col-xl-3 submit">
       <a href="../index.php"><span class="fa fa-arrow-alt-circle-left fa-lg"></span>&nbsp;Accueil</a>
      </button>
