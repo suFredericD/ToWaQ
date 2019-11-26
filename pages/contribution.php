@@ -111,16 +111,23 @@ fct_BuildHtmlHeader($objPageInfos);
         <fieldset id="newEpisode" class="offset-xl-1 col-xl-10">
          <div id="epiInfos" class="col-form-row">
           <label for="epiInfos" class="col-form-label col-xl-12">&Eacute;pisode concerné</label>
+<!-- -- -- -- -- Saison -- -- -- -- -->
           <label for="season" class="col-form-label col-xl-4">La saison</label>
-          <select class="col-form-control col-xl-7" id="season" name="season" required>
+          <select class="col-form-control col-xl-6" id="season" name="season" required>
 <?php
     for ( $i = 1 ; $i <= $intSeasons ; $i++ ) {?>
-         <option class="epiSeason<?php echo $arrSeasons[$i]['Id'];?>" value="<?php echo $arrSeasons[$i]['Id'];?>">
-          Saison <?php echo $arrSeasons[$i]['Id'];?>
-         </option>
+           <option class="epiSeason<?php echo $arrSeasons[$i]['Id'];?>" value="<?php echo $arrSeasons[$i]['Id'];?>">Saison <?php echo $arrSeasons[$i]['Id'];?></option>
 <?php
     }?>
-        </select>
+          </select>
+          <label for="episode" class="col-form-label col-xl-4">L'&eacute;pisode</label>
+          <select class="col-form-control col-xl-6" id="episode" name="episode" required>
+<?php
+    for ( $i = 1 ; $i <= 24 ; $i++ ) {?>
+            <option class="epiNum<?php echo $i;?>" value="<?php echo $i;?>">&Eacute;pisode <?php echo $i;?></option>
+<?php
+    }?>
+          </select>
          </div>
         </fieldset>
 <!-- -- -- -- -- La question -- -- -- -- -->

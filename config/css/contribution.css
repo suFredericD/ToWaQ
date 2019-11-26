@@ -151,7 +151,24 @@ Palette
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;
 }
-#season:hover{
+#episode{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 15%;
+    background-color: #75617D;
+    font-family: "Desyrel";
+	font-size: 22px;
+    letter-spacing: 0.15em;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 3px #000;
+    border: 2px outset #3A5E7D;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#season:hover,#episode:hover{
     background-color: #61697D;
     color: #C1C1C1;
     text-shadow: 1px 1px 3px #000;
