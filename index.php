@@ -79,7 +79,7 @@ fct_BuildHtmlHeader($objPageInfos);
 <!-- -- -- -- -- Liens d'accueil -- -- -- -- -->
      <section class="row" id="accueil_contrib">
       <details class="offset-xl-1 col-xl-10 offset-lg-1 col-lg-10" id="goNewQuestion">
-       <summary>Contribuer</summary>
+       <summary>Apporter sa contribution</summary>
        <a href="pages/contribution.php?type=question">
         <span class="fa fa-user-edit fa-lg"></span>&nbsp;&nbsp;Proposer une question
        </a>

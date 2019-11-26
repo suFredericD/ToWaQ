@@ -176,6 +176,9 @@ fct_BuildHtmlHeader($objPageInfos);
         <input type="reset" class="offset-xl-1 col-xl-3 submit" value="Vider">
         <input type="submit" class="offset-xl-1 col-xl-6 submit" value="Soumettre la question">
     </form>
+    <button class="offset-xl-2 col-xl-4 submit">
+        <a href="../index.php"><span class="fa fa-arrow-alt-circle-left fa-lg"></span>&nbsp;Accueil</a>
+    </button>
 <!-- -- -- -- -- Scripting dédié -- -- -- -- -->
     <script src="../scripts/js/contribution.js"></script>
 <?php

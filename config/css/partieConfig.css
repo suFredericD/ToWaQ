@@ -18,6 +18,8 @@
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: #61697D;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
     box-shadow: 1px 1px 3px #000;
 	-moz-box-shadow: 1px 1px 3px #000;
 	-webkit-box-shadow: 1px 1px 3px #000;
@@ -25,6 +27,8 @@
 #pconf_form fieldset{
     margin-bottom: 20px;
     background-color: #617D75;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
     box-shadow: 1px 1px 3px #000;
 	-moz-box-shadow: 1px 1px 3px #000;
 	-webkit-box-shadow: 1px 1px 3px #000;
@@ -52,6 +56,8 @@ fieldset label{
     color: #000000;
     text-shadow: 1px 1px 3px #C1C1C1;
     border: 1px outset #000;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
     box-shadow: 1px 1px 3px #000;
 	-moz-box-shadow: 1px 1px 3px #000;
     -webkit-box-shadow: 1px 1px 3px #000;
@@ -76,6 +82,8 @@ fieldset label{
     margin-bottom: 10px;
     padding-top: 10px;
     background-color: #67617D;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
     box-shadow: 1px 1px 3px #000;
 	-moz-box-shadow: 1px 1px 3px #000;
     -webkit-box-shadow: 1px 1px 3px #000;
@@ -127,7 +135,9 @@ fieldset label{
 	-webkit-font-smoothing: antialiased;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	padding: 8px 16px 8px 16px;
+    padding: 8px 16px 8px 16px;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
 	box-shadow: 1px 1px 3px #000;
 	-moz-box-shadow: 1px 1px 3px #000;
     -webkit-box-shadow: 1px 1px 3px #000;

@@ -167,6 +167,8 @@ button{
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: 8px 16px 8px 16px;
+	border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
 	box-shadow: 1px 1px 3px #000;
 	-moz-box-shadow: 1px 1px 3px #000;
 	-webkit-box-shadow: 1px 1px 3px #000;
@@ -316,6 +318,8 @@ footer{
 	background-image: -o-linear-gradient(top, #eeecf2, #8879a4);
 	background-image: linear-gradient(#eeecf2, #8879a4);
 	border-color: #8879a4 #8879a4 hsl(261, 19%, 46.5%);
+	border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
 	box-shadow: 1px 1px 3px #000;
 	-moz-box-shadow: 1px 1px 3px #000;
 	-webkit-box-shadow: 1px 1px 3px #000;
@@ -371,8 +375,9 @@ footer{
 	box-shadow: 2px 2px 4px #000;
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;
-	border-top: 1px outset #000;
-	border-left: 1px outset #000;
+	border: 1px outset #000;
+	border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
 }
 #accueil_title{
 	display: flex;
@@ -443,6 +448,8 @@ footer{
 	padding: 20px 0px 20px 0px;
 	background-color: #61697D;
 	border: 1px outset #000;
+	border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
 	box-shadow: 2px 2px 4px #000;
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;

@@ -143,7 +143,7 @@ if ( isset($_GET['validate']) ){
      <input type="text" id="choice3" name="choice3" value="<?php echo $_POST['choice3'];?>" hidden>
      <input type="text" id="msgGood" name="msgGood" value="<?php echo $_POST['msgGood'];?>" hidden>
      <input type="text" id="msgBad" name="msgBad" value="<?php echo $_POST['msgBad'];?>" hidden>
-<!-- -- -- -- boutons d'envoi -- -- -- -->
+<!-- -- -- -- Boutons d'envoi -- -- -- -->
      <button id="unDo" class="offset-xl-1 col-xl-3 submit">
       <a href="../index.php"><span class="fa fa-arrow-alt-circle-left fa-lg"></span>&nbsp;Accueil</a>
      </button>
