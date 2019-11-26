@@ -1,0 +1,155 @@
+/*************************************************************************************************
+ *   	EmtZahella Projetcs Incorporated
+ *                Projet :   ToWaQ
+ *                  Page :   sendItem.css
+ *                Chemin :   http://127.0.0.1:8080/ToWaQ/config/css/sendItem.css
+ *                  Type :   page de modules
+ * 				Contexte :	 Css 3.0
+ *              Fonction :   page de styles d'affichage CSS
+ *   Date mise en oeuvre :   26/11/2019
+ *          Dernière MàJ :   26/11/2019
+ *************************************************************************************************/
+/*
+Palette
+	Saison 1  :		#1F3A81
+	Saison 2  :		#D13328
+	Saison 3  :		#116D86
+	Saison 4  :		#F06F45
+	Saison 5  :		#7C2880
+	Saison 6  :		#1B776A
+	Saison 7  :		#DC328A
+	Saison 8  :		#3B95D1
+	Saison 9  :		#FFCC00
+	Saison 10 :		#8F2144
+
+   background :		#61697D
+   mauve bleu :		#67617D
+   mauve rose :		#75617D
+ 	     vert : 	#61777D
+		 kaki :		#777D61
+
+	 Niveau 1 :		#456958
+	 Niveau 2 :		#987D49
+	 Niveau 3 :		#7F4D5B
+*/
+/***** ***** ***** En-tête graphique ***** ***** *****/
+#recap_header{
+	background-image: url("../../media/pics/couch01_header.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+    opacity: 0.9;
+    height: 250px;
+}
+#recap_header h1{
+    text-align: center;
+    vertical-align: middle;
+    font-size: 36px;
+}
+#recap_header h1 span{
+    font-family: "KomikaDisplay";
+    font-size: 42px;
+    color: #000;
+    text-shadow: 2px 2px 4px #C1C1C1;
+}
+#re_header{
+    font-family: "KomikaDisplay";
+	font-size: 54px;
+    letter-spacing: 0.12em;
+    color: #C1C1C1;
+}
+
+#recapInfos,#recapQuestion,#recapAnswers,#recapMessages{
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    background-color: #61697D;
+    border: 3px inset #75617D;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#recapInfos h2,#recapQuestion h2,#recapAnswers h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    text-align: center;
+}
+#recapMessages h2{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60px;
+}
+#recapInfos h2 span,#recapQuestion h2 span,#recapAnswers h2 span,#recapMessages h2 span{
+    color: #000;
+    text-shadow: 2px 2px 4px #C1C1C1;
+}
+#recapInfos div,#recapQuestion div,#recapAnswers div,#recapMessages div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: justify;
+    font-family: "CaviarDreams";
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #000;
+    text-shadow: 1px 1px 2px #C1C1C1;
+}
+#recapInfos label,#recapQuestion label,#recapAnswers label,#recapMessages label{
+    font-family: "KomikaDisplay";
+	font-size: 40px;
+    letter-spacing: 0.12em;
+    color: #C1C1C1;
+    text-shadow: 2px 2px 4px #000;
+}
+/***** ***** ***** Page d'envoi de la proposition ***** ***** *****/
+#frmSendQuestion{
+    margin: 30px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    background-color: #75617D;
+    border: 3px inset #61697D;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#frmSendQuestion label{
+    font-family: "KomikaDisplay";
+	font-size: 40px;
+    letter-spacing: 0.12em;
+    color: #C1C1C1;
+    text-shadow: 2px 2px 4px #000;
+}
+/***** ***** ***** Page de validation de la proposition ***** ***** *****/
+#itemInserted{
+    background-image: url("../../media/pics/couch01_upside.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#itemInserted label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "KomikaDisplay";
+	font-size: 40px;
+    letter-spacing: 0.12em;
+    color: #C1C1C1;
+    text-shadow: 2px 2px 4px #000;
+}
+#itemInserted h3{
+    opacity: 0.92;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 10px 20px 10px;
+    background-color: #61697D;
+    border: 1px inset #C1C1C1;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}

@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   fonctions BdD
  *   Date mise en oeuvre :   11/11/2019
- *          Dernière MàJ :   25/11/2019
+ *          Dernière MàJ :   26/11/2019
  **************************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
@@ -236,6 +236,45 @@ function fct_SelectOneQuestionById($intId){
     $arrReturn['seaColor'] = $row['34'];
     return $arrReturn;
 }
+// Fonction d'extraction des infos d'une catégorie par son id
+//         Paramètre :
+//             intId : id de la catégorie sélectionnée
+//  Valeur de retour :
+//         arrReturn : tableau de la catégorie sélectionnée
+function fct_SelectOneCategoryById($intId){
+    $strRequest = "SELECT * FROM `fri_category` "
+                . "WHERE `cat_Id`='" . $intId . "';";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $arrReturn['Id'] = $row['0'];
+    $arrReturn['Name'] = $row['1'];
+    $arrReturn['Color'] = $row['2'];
+    $arrReturn['NameUs'] = $row['3'];
+    $arrReturn['Slug'] = $row['4'];
+    return $arrReturn;
+}
+// Fonction d'extraction des infos d'un épisode par son numéro de saison et d'épisode
+//         Paramètre :
+//         intSeason : numéro de la saison sélectionnée
+//  intEpisodeNumber : numéro de l'épisode
+//  Valeur de retour :
+//         arrReturn : tableau de l'épisode sélectionné
+function fct_SelectEpisodeBySeasonAndNumber($intSeason, $intEpisodeNumber){
+    $strRequest = "SELECT * FROM `fri_episodes` "
+                . "WHERE `epi_Season`='" . $intSeason . "' "
+                . "AND `epi_Number`='" . $intEpisodeNumber . "';";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $arrReturn['Id'] = $row['0'];
+    $arrReturn['Season'] = $row['1'];
+    $arrReturn['Number'] = $row['2'];
+    $arrReturn['NameFr'] = $row['3'];
+    $arrReturn['NameUs'] = $row['4'];
+    $arrReturn['Description'] = $row['5'];
+    return $arrReturn;
+}
 // Fonction d'extraction de comptage de toutes les questions de la base de données
 //       Paramètres  : none
 //  Valeur de retour :
@@ -265,6 +304,24 @@ function fct_SelectAllPlayers(){
         $arrReturn[$i]['Mail'] = $row['4'];
         $i++;
     }
+    return $arrReturn;
+}
+// Fonction d'extraction des informations d'un joueur
+//       Paramètres  :
+//             intId : id du joueur sélectionné
+//  Valeur de retour :
+//         arrReturn : tableau des informations d'un joueur
+function fct_SelectOnePlayerById($intId){
+    $strRequest = "SELECT * FROM `fri_Players` "
+                . "WHERE `pla_Id`='" . $intId . "';";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $arrReturn['Id'] = $row['0'];
+    $arrReturn['Pseudo'] = $row['1'];
+    $arrReturn['FirstName'] = $row['2'];
+	$arrReturn['LastName'] = $row['3'];
+    $arrReturn['Mail'] = $row['4'];
     return $arrReturn;
 }
 // Fonction d'extraction des informations de tous les niveaux de difficulté
