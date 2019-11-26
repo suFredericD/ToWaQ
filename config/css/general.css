@@ -372,6 +372,7 @@ footer{
 #accueil_main{
 	opacity: 0.8;
 	margin: 15px 15px 15px 15px;
+	background-color: #61697D;
 	box-shadow: 2px 2px 4px #000;
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;
@@ -441,6 +442,35 @@ footer{
 }
 #accueil_footer{
 	margin-top: 15px;
+}
+/***** ***** ***** Bandeau 'Friendopedia' ***** ***** *****/
+#accueil_friendopedia{
+	margin-top: 30px;
+	padding: 20px 0px 20px 0px;
+	background-color: #61697D;
+	border: 1px outset #000;
+	border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#accueil_friendopedia a{
+	text-decoration: none;
+	font-family: "CaviarDreams";
+	font-size: 22px;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	color: #C1C1C1;
+	text-shadow: 1px 1px 3px #000;
+	transition-property: all;
+	transition-duration: 1850ms;
+}
+#accueil_friendopedia a:hover{
+	text-decoration: none;
+	font-size: xx-large;
+	color: #794E70;
+	text-shadow: 1px 1px 3px #DDD;
 }
 /***** ***** ***** Bandeau 'Contribuer' ***** ***** *****/
 #accueil_contrib{

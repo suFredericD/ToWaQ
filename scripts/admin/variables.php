@@ -55,6 +55,9 @@ $strFriendsBattleCode = "defifriends";
 $strScoreBattleName = "Dèfi \"Score\"";
 $strScoreBattleCode = "defiscore";
 
-// Tableau des id des questions déjà posées
-
+// Chaîne : ToWaQ
+$strTowaq = "T<span class=\"fa fa-circle red\"></span>"
+          . "o<span class=\"fa fa-circle blue\"></span>"
+          . "W<span class=\"fa fa-circle yellow\"></span>"
+          . "a<span class=\"fa fa-circle red\"></span>Q";
 ?>

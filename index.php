@@ -76,7 +76,13 @@ fct_BuildHtmlHeader($objPageInfos);
        <a href="pages/partieConfig.php" title="Jouer à ToWaQ"><button>Créer une partie</button></a>
       </div>
      </section>
-<!-- -- -- -- -- Liens d'accueil -- -- -- -- -->
+<!-- -- -- -- -- Liens vers : FriendOpedia -- -- -- -- -->
+    <section class="row" id="accueil_friendopedia">
+     <a href="pages/friendopedia.php" class="offset-xl-1 col-xl-8" title="Parcourez l'encyclopédie de ToWaQ : 'FriendOpedia'">
+      Découvrir Friends avec <em>FriendOpedia</em>
+     </a>
+    </section>
+<!-- -- -- -- -- Liens vers : contributions -- -- -- -- -->
      <section class="row" id="accueil_contrib">
       <details class="offset-xl-1 col-xl-10 offset-lg-1 col-lg-10" id="goNewQuestion">
        <summary>Apporter sa contribution</summary>
