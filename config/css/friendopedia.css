@@ -7,7 +7,7 @@
  * 				Contexte :	 Css 3.0
  *              Fonction :   page de styles d'affichage CSS
  *   Date mise en oeuvre :   26/11/2019
- *          Dernière MàJ :   26/11/2019
+ *          Dernière MàJ :   30/11/2019
  *************************************************************************************************/
 /*
 Palette
@@ -32,25 +32,41 @@ Palette
 	 Niveau 2 :		#987D49
 	 Niveau 3 :		#7F4D5B
 */
+/***** ***** ***** Containers ***** ***** *****/
+#site-container{
+    background-color: #61697D;
+}
+#friendop_container{
+	margin-top: 20px;
+}
 /***** ***** ***** En-tête graphique ***** ***** *****/
 #friendop_header{
+    margin: 0px 15% 0px 15%;
+    padding: 0px;
     background-image: url("../../media/pics/couch01_header.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     opacity: 0.9;
+    border: 2px outset #61777D;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+    box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
 }
 #fop_header{
 	display: flex;
 	justify-content: center;
     align-items: center;
     font-family: "KomikaDisplay";
-	font-size: 70px;
+	font-size: 60px;
 	letter-spacing: 0.15em;
 	color: #FFF;
 	text-shadow: 2px 2px 4px #61777D;
 }
 #fop_header .red,#fop_header .blue,#fop_header .yellow{
-	font-size: x-small;
+	font-size: xx-small;
 	vertical-align: middle;
 }
 #fop_header .red{
@@ -67,7 +83,7 @@ Palette
 	justify-content: center;
     align-items: center;
     font-family: "UpperEastSide";
-	font-size: 70px;
+	font-size: 50px;
     letter-spacing: 0.1em;
     color: #FFF;
 	text-shadow: 2px 2px 4px #61777D;
@@ -76,14 +92,492 @@ Palette
     text-align: center;
     vertical-align: middle;
     font-family: "KomikaDisplay";
-	font-size: 40px;
+	font-size: 30px;
     letter-spacing: 0.15em;
     color: #FFF;
-	text-shadow: 2px 2px 4px #61777D;
+	text-shadow: 2px 2px 4px #000;
 }
 #friendop_header p .red,#friendop_header p .blue,#friendop_header p .yellow{
-	font-size: x-small;
+	font-size: xx-small;
 	vertical-align: middle;
+}
+/***** ***** ***** Bloc Menu ***** ***** *****/
+#friendop_menu,#friendop_main{
+    opacity: 0.9;
+    border: 2px outset #61777D;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+    box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#friendop_menu{
+    background-color: hsl(261, 19%, 56%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeecf2", endColorstr="#8879a4");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#eeecf2), to(#8879a4));
+	background-image: -moz-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -ms-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeecf2), color-stop(100%, #8879a4));
+	background-image: -webkit-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -o-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: linear-gradient(#eeecf2, #8879a4);
+	border-color: #8879a4 #8879a4 hsl(261, 19%, 46.5%);
+	color: #333 !important;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
+	-webkit-font-smoothing: antialiased;
+}
+#friendop_menu:hover{
+    background-color: hsl(31, 25%, 65%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e2d9cf", endColorstr="#bca68f");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#e2d9cf), to(#bca68f));
+	background-image: -moz-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -ms-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e2d9cf), color-stop(100%, #bca68f));
+	background-image: -webkit-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -o-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: linear-gradient(#e2d9cf, #bca68f);
+	border-color: #bca68f #bca68f hsl(31, 25%, 60%);
+	color: #333 !important;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+	-webkit-font-smoothing: antialiased;
+	cursor: pointer;
+}
+#friendop_menu label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 0px 6px 0px;
+    border: 2px inset #6C447C;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+    font-family: "KomikaDisplay";
+	font-size: 22px;
+	letter-spacing: 0.1em;
+	color: #000;
+	text-shadow: 2px 2px 3px #000;
+}
+#friendop_menu label .red,#friendop_menu label .blue,#friendop_menu label .yellow{
+	font-size: 6px;
+	vertical-align: middle;
+}
+#navbarMain{
+	padding: 10px 10px 50px 10px;
+}
+#navbarMain:hover,#navbarMain a:hover{
+	cursor: pointer;
+}
+#navbarMain a{
+	padding: 2px 0px 2px 20px;
+}
+#navbarMain a:hover{
+	color: #C1C1C1;
+	text-shadow: 1px 1px 3px #000;
+	background-color: #61697D;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+.rub{
+	font-size: 28px;
+}
+.sub{
+	font-size: 20px;
+}
+/***** ***** ***** Bloc Acteurs : liste ***** ***** *****/
+#fiche_title{
+	background-color: hsl(261, 19%, 56%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeecf2", endColorstr="#8879a4");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#eeecf2), to(#8879a4));
+	background-image: -moz-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -ms-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeecf2), color-stop(100%, #8879a4));
+	background-image: -webkit-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -o-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: linear-gradient(#eeecf2, #8879a4);
+	border-color: #8879a4 #8879a4 hsl(261, 19%, 46.5%);
+	color: #333 !important;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
+	-webkit-font-smoothing: antialiased;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+#fiche_title label{
+	display: flex;
+    justify-content: flex-start;
+    align-items: center;
+	padding: 10px 0px 10px 8%;
+	font-family: "KomikaDisplay";
+	font-size: 36px;
+	letter-spacing: 0.1em;
+	color: #000;
+	text-shadow: 2px 2px 3px #C1C1C1;
+}
+#fiche_title div{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	font-family: "Desyrel";
+	font-size: 36px;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	color: #000;
+	text-shadow: 2px 2px 3px #C1C1C1;
+}
+.act_cell{
+	display: flex;
+    justify-content: flex-start;
+    align-items: center;
+	height: 120px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color: #61777D;
+	border: 1px inset #333;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+.act_cell:hover{
+	background-color: #75617D;
+}
+.act_cell img{
+	max-height: 80px;
+	max-width: 80px;
+}
+.act_cell img:hover{
+	max-height: 200px;
+	max-width: 200px;
+}
+.act_cell a{
+	font-family: "CaviarDreams";
+	font-size: 26px;
+	color: #7C902F;
+	text-shadow: 2px 2px 3px #000;
+}
+.act_cell a:hover{
+	color: #000;
+	text-shadow: 2px 2px 4px #61777D;
+}
+/***** ***** ***** Fiche acteurs ***** ***** *****/
+#fact_title,#fcha_title{
+	background-color: hsl(261, 19%, 56%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeecf2", endColorstr="#8879a4");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#eeecf2), to(#8879a4));
+	background-image: -moz-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -ms-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeecf2), color-stop(100%, #8879a4));
+	background-image: -webkit-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -o-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: linear-gradient(#eeecf2, #8879a4);
+	border-color: #8879a4 #8879a4 hsl(261, 19%, 46.5%);
+	color: #333 !important;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
+	-webkit-font-smoothing: antialiased;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+#fact_title div,#fcha_title div{
+	display: flex;
+    justify-content: center;
+	align-items: baseline;
+	height: 100px;
+}
+#fact_title label,#fcha_title label{
+	display: flex;
+    justify-content: flex-start;
+    align-items: center;
+	padding: 10px 0px 10px 8%;
+	font-family: "KomikaDisplay";
+	font-size: 40px;
+	letter-spacing: 0.1em;
+	color: #000;
+	text-shadow: 2px 2px 3px #C1C1C1;
+}
+#fact_title a,#fcha_title a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Desyrel";
+	font-size: 26px;
+	font-weight: 200;
+	color: #75617D;
+	text-shadow: 2px 2px 3px #000;
+}
+#fact_title a:hover,#fcha_title a :hover{
+	font-size: 28px;
+	font-weight: bold;
+	color: #000;
+	text-shadow: 2px 2px 4px #75617D;
+}
+#fact_portrait,#fcha_portrait{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#fact_portrait img,#fcha_portrait img{
+	max-height: 90px;
+}
+#fact_section,#fct_infos,#fcha_section,#fcha_infos{
+	border: 2px outset #61777D;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#fact_section,#fcha_section{
+	background-color: #000;
+}
+#fct_infos,#fcha_infos{
+	background-color: #61777D;
+}
+#fct_infos label,#fcha_infos label{
+	display: flex;
+	align-items: center;
+	height: 60px;
+	letter-spacing: 0.14em;
+}
+#fact_characlink{
+	font-weight: 100;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+	background-color: #61697D;
+	border: 2px outset #75617D;
+}
+#fact_characlink:hover{
+	background-color: #75617D;
+	cursor: pointer;
+	color: #000;
+	text-shadow: 2px 2px 3px #C1C1C1;
+	border: 2px inset #61777D;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+.subGender:hover,.subRole:hover{
+	color: #000;
+	text-shadow: 2px 2px 3px #C1C1C1;
+}
+.subGender{
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding-right: 30px;
+	font-family: "NoteThis";
+	font-size: 36px;
+	color: #000;
+	text-shadow: 2px 2px 3px #C1C1C1;
+}
+#fcha_infos .subGender{
+	font-size: 28px;
+	padding-right: 10px;
+}
+.subRole{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "Desyrel";
+	font-size: 40px;
+	color: #C1C1C1;
+	text-shadow: 2px 2px 3px #000;
+}
+.fact_icons,#fact_flag{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #C1C1C1;
+	text-shadow: 2px 2px 3px #000;
+}
+#fact_birth,#fact_city{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "NoteThis";
+	text-shadow: 1px 1px 2px #C1C1C1;
+}
+#fact_birth{
+	font-size: 36px;
+	letter-spacing: 0.1em;
+}
+#fact_city{
+	font-size: 30px;
+	letter-spacing: 0.13em;
+}
+.fact_age{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "NoteThis";
+	text-shadow: 1px 1px 2px #C1C1C1;
+	font-size: 36px;
+	letter-spacing: 0.1em;
+}
+#fact_bigphoto,#fcha_bigphoto{
+	opacity: 0.9;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 40px;
+	background-color: #000;
+}
+/***** ***** ***** Fiche : personnage ***** ***** *****/
+#fcha_title{
+	padding-right: 10px;
+}
+#fcha_title button a{
+	vertical-align: middle;
+	font-size: 32px;
+	font-weight: 100;
+	color: #000;
+	text-shadow: 2px 2px 3px #61697D;
+}
+#fcha_title button a:hover{
+	color: #C1C1C1;
+	text-shadow: 2px 2px 3px #000;
+}
+#fcha_actorname{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "KomikaDisplay";
+	font-size: 36px;
+	color: #C1C1C1;
+	text-shadow: 1px 1px 2px #000;
+}
+/***** ***** ***** Liste des apparitions ***** ***** *****/
+#fcha_appearances{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #000;
+	border: 2px outset #000;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#fcha_appheader{
+	background-color: hsl(31, 25%, 65%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e2d9cf", endColorstr="#bca68f");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#e2d9cf), to(#bca68f));
+	background-image: -moz-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -ms-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e2d9cf), color-stop(100%, #bca68f));
+	background-image: -webkit-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -o-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: linear-gradient(#e2d9cf, #bca68f);
+	border-color: #bca68f #bca68f hsl(31, 25%, 60%);
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+	-webkit-font-smoothing: antialiased;
+	border-top-right-radius: 45px;
+}
+#fcha_appheader label{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #75617D !important;
+	text-shadow: 1px 1px 2px #000;
+	font-family: "KomikaDisplay";
+	font-size: 36px;
+}
+#fcha_appearances div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#fcha_seasonsnum,#fcha_episodesnum,#fcha_app_rate{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #75617D;
+	text-shadow: 1px 1px 2px #000;
+	font-family: "KomikaDisplay";
+	font-size: 30px;
+}
+#fcha_app_rate{
+	border-top-right-radius: 45px;
+}
+
+.fcha_episodeitem{
+	background-color: #61697D;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+	border: 1px inset #000;
+}
+.fcha_episodeitem:hover{
+	background-color: #75617D;
+}
+/***** ***** ***** Labels des saisons ***** ***** *****/
+[class*="season"]{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+	border: 1px inset #000;
+	box-shadow: 1px 1px 2px #000;
+	-moz-box-shadow: 1px 1px 2px #000;
+	-webkit-box-shadow: 1px 1px 2px #000;
+	font-family: "WalkwayBlack";
+	font-size: 30px;
+	text-shadow: 1px 1px 2px #C1C1C1;
+}
+#fcha_appearances div .season1{
+	background-color: #1F3A81;
+}
+#fcha_appearances .season2{
+	background-color: #D13328;
+}
+#fcha_appearances .season3{
+	background-color: #116D86;
+}
+#fcha_appearances .season4{
+	background-color: #F06F45;
+}
+#fcha_appearances .season5{
+	background-color: #7C2880;
+}
+#fcha_appearances .season6{
+	background-color: #1B776A;
+}
+#fcha_appearances .season7{
+	background-color: #DC328A;
+}
+#fcha_appearances .season8{
+	background-color: #3B95D1;
+}
+#fcha_appearances div .season9{
+	background-color: #FFCC00;
+}
+#fcha_appearances div .season10{
+	background-color: #8F2144;
+}
+.fcha_epinumber{
+	font-family: "NoteThis";
+	font-size: 26px;
+}
+.fcha_epilabel{
+	text-align: justify;
+	font-family: "Airstream";
+	font-size: 32px;
+	font-weight: 100;
+	letter-spacing: 0.05em;
+}
+/***** ***** ***** Fiche : Friend ***** ***** *****/
+.fri_label{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#second_name,#father,#mother{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */

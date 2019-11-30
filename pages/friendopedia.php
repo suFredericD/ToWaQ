@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page de consultation de la base de données
  *   Date mise en oeuvre :   26/11/2019
- *          Dernière MàJ :   26/11/2019
+ *          Dernière MàJ :   28/11/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 require("../scripts/admin/variables.php");                          // Variables globales du site
@@ -16,10 +16,9 @@ require("../scripts/admin/bdd.php");                                // Gestion d
 require("../scripts/classes/page.php");                             // Script de définition de la classe 'Page'
 require("../scripts/classes/game.php");                             // Script de définition de la classe 'Game'
 require("../scripts/paging/htmlPaging.php");                        // Script de pagination html
-require("../scripts/paging/mainView.php");                          // Vue principale
-require("../scripts/paging/gameEnd.php");                           // Vue de fin de partie
 require("../scripts/tools/calcscripts.php");                        // Scripts utilitaires (calculs divers)
-require("../scripts/tools/selectItems.php");                        // Script de sélection des questions
+require("../scripts/paging/menuFop.php");                           // Script de construction du menu
+require("../scripts/paging/viewFop.php");                           // Script de construction de la vue 'fiche'
 
 /***** *****    DECLARATIONS   ***** *****/
 $datNow = new DateTime();                                           // Timer de génération de la page (start)
@@ -61,8 +60,9 @@ $strFriendsTitle = "F<span class=\"fa fa-circle red\"></span>"
                  . "e<span class=\"fa fa-circle red\"></span>"
                  . "n<span class=\"fa fa-circle yellow\"></span>"
                  . "d<span class=\"fa fa-circle blue\"></span>s";
+$strMenuIconFile = $objPageInfos->getPicturesPath().$GLOBALS['strSiteIcon'];
 
-//***** *****   Variables de la base ***** ***** *****
+//***** *****   Variables issues de la base ***** ***** *****
 $arrPlayers = fct_SelectAllPlayers();                       // Tableau des joueurs de la base de données
 $intPlayers = count($arrPlayers);                           // Nombre de joueurs de la base de données
 $arrLevels = fct_SelectAllLevels();                         // Tableau des informations des niveaux de difficulté
@@ -88,15 +88,41 @@ fct_BuildHtmlHeader($objPageInfos);
 <?php
 //***** *****   Controllers ***** ***** *****
 ?>
+<!-- -- -- -- -- Vue principale -- -- -- -- -->
+    <section class="row" id="friendop_container">
+     <a id="haut" href="#" hidden></a><!-- Ancre pour les liens back-to-top -->
+<!-- -- -- -- -- Menu : section gauche -- -- -- -- -->
+        <aside class="col-xl-2" id="friendop_menu">
+         <label class="row"><?php echo $strFriendoTitle;?></label>
+<?php fctDisplayFriendOpediaMenu($strMenuIconFile);?>
+        </aside>
+<!-- -- -- -- -- Fiche : section droite -- -- -- -- -->
+        <section class="col-xl-10" id="friendop_main">
+<?php
+if ( preg_match("/actors$/", $_GET['show']) ) {
+    fctDisplayActors($_GET['show']);
+} elseif (preg_match("/actor$/", $_GET['show'])) {
+    fctDisplayActorFile($_GET['item']);
+} elseif ( preg_match("/character$/", $_GET['show']) ) {
+    fctDisplayCharacterFile($_GET['item']);
+} elseif ( preg_match("/fcharac$/", $_GET['show']) ) {
+    fctDisplayFriendFile($_GET['item']);
+} else {
+    fctDisplayCharacters($_GET['show']);
+}
+?>
+<!-- -- -- -- -- Fiche : Informations -- -- -- -- -->
+            <section class="row" id="fiche_title">
 
+            </section>
+<!-- -- -- -- -- Fiche : Articles -- -- -- -- -->
+            <section class="row" id="fiche_section">
+            
 
-
-
-
-
-
-
-
+            </section>
+        </section>
+<!-- -- -- -- -- Fin : vue principale -- -- -- -- -->
+    </section>
 <!-- -- -- -- -- Scripting dédié -- -- -- -- -->
     <script src="../scripts/js/friendopedia.js"></script>
 <?php

@@ -44,7 +44,10 @@ class Page{
 				"description" => "Contribution"),
 			"sendItem.php"=> array(
 				"title" => "Validation",
-				"description" => "Validation et envoi des données")
+				"description" => "Validation et envoi des données"),
+			"friendopedia.php"=> array(
+				"title" => "FriendOpedia",
+				"description" => "Consultation de la base de données")
 		);
 		$this->setTitle($arrPages[$strNewName]['title']);					// Titre de la page
 		$this->setDescription($arrPages[$strNewName]['description']);		// Rôle de la page

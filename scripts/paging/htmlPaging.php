@@ -53,7 +53,14 @@ function fct_BuildHtmlHeader($objPageInfos){
     </head>
 <!-- -- -- -- -- Corps du contenu -- -- -- -- -->
     <body>
+<?php
+    if ( $objPageInfos->getName() != "friendopedia.php" ) {?>
      <section class="container" id="site-container">
+<?php
+    } else {?>
+     <section class="container-fluid" id="site-container">
+<?php
+    }?>
 <?php
 }
 // Fonction de construction du footer html

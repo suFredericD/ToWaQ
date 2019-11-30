@@ -7,7 +7,7 @@
  *                  Type :   page de scripts
  *              Fonction :   fonctions de calcul sur les données
  *   Date mise en oeuvre :   11/11/2019
- *          Dernière MàJ :   11/11/2019
+ *          Dernière MàJ :   28/11/2019
  *******************************************************************************************/
  /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
@@ -23,4 +23,14 @@ function fct_CalcNbDaysFromNow($strStartTime){
 	$datNow = new DateTime();
 	$datDiff = date_diff($datStart, $datNow);
 	return $datDiff->format('%a');
+}
+//  Fonction de calcul du nombre d'années entre une date donnée en paramètre et la date actuelle
+//  Paramètres  :
+//		strStartTime	: date de comparaison
+//  Valeur de retour    : integer
+function fct_CalcNbYearsFromNow($strStartTime){
+	$datStart = date_create($strStartTime);
+	$datNow = new DateTime();
+	$datDiff = date_diff($datStart, $datNow);
+	return $datDiff->format('%y');
 }
