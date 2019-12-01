@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   fonctions BdD
  *   Date mise en oeuvre :   11/11/2019
- *          Dernière MàJ :   26/11/2019
+ *          Dernière MàJ :   30/11/2019
  **************************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
@@ -30,6 +30,56 @@ function fct_RequestExec($strRequest){
         return $resLink;
     }
 }
+/***** ***** FONCTIONS DE COMPTAGE ***** *****/
+// Fonction de comptage du nombre total d'épisodes dans la base
+//        Paramètres : none
+//  Valeur de retour :
+//         intReturn : nombre total d'épisodes dans la base
+function fct_CountEpisodes(){
+    $strRequest = "SELECT COUNT(`epi_Id`) FROM `fri_episodes`;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $intReturn = $row['0'];
+    return $intReturn;
+}
+// Fonction de comptage du nombre total de personnages dans la base
+//        Paramètres : none
+//  Valeur de retour :
+//         intReturn : nombre total de personnages dans la base
+function fct_CountCharacters(){
+    $strRequest = "SELECT COUNT(`cha_Id`) FROM `fri_characters`;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $intReturn = $row['0'];
+    return $intReturn;
+}
+// Fonction de comptage du nombre total d'acteurs dans la base
+//        Paramètres : none
+//  Valeur de retour :
+//         intReturn : nombre total d'acteurs dans la base
+function fct_CountActors(){
+    $strRequest = "SELECT COUNT(`act_Id`) FROM `fri_Actors`;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $intReturn = $row['0'];
+    return $intReturn;
+}
+// Fonction de comptage du nombre total de questions dans la base
+//        Paramètres : none
+//  Valeur de retour :
+//         intReturn : nombre total de questions dans la base
+function fct_CountQuestions(){
+    $strRequest = "SELECT COUNT(`que_Id`) FROM `fri_questions`;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $intReturn = $row['0'];
+    return $intReturn;
+}
+/***** ***** FONCTIONS D'UPDATE ***** *****/
 // Fonction d'enregistrement des statistiques de réponse d'un joueur après une question
 //       Paramètres :
 //       intPlayerId : id du joueur sélectionné
@@ -50,7 +100,7 @@ function fct_UpdateStats($intPlayerId, $strResult, $intLevel, $strCategory){
     $resLink = fct_RequestExec($strRequest);
     $resLink->data_seek(0);
     $row = $resLink->fetch_row();
-    $intCategory = $row['0'];            
+    $intCategory = $row['0'];
     // Nom du champ level à modifier
     $strFieldLevel = "pls_Level" . $intLevel . $strWinOrLoose;
     $intLevelInitValue = intval(fct_SelectStatValue($intPlayerId, $strFieldLevel)) + 1;
@@ -175,15 +225,16 @@ function fct_selectNotAskedQuestions($arrAlreadyAsked){
         $arrReturn[$i]['EpisodeNameFr'] = $row['21'];
         $arrReturn[$i]['EpisodeNameUs'] = $row['22'];
         $arrReturn[$i]['EpisodeText'] = $row['23'];
-        $arrReturn[$i]['Category'] = $row['25'];
-        $arrReturn[$i]['CatColor'] = $row['26'];
-        $arrReturn[$i]['CatUs'] = $row['27'];
-        $arrReturn[$i]['CatSlug'] = $row['28'];
-        $arrReturn[$i]['seaEpisodes'] = $row['30'];
-        $arrReturn[$i]['seaDiffStart'] = $row['31'];
-        $arrReturn[$i]['seaDiffEnd'] = $row['32'];
-        $arrReturn[$i]['seaDvdFr'] = $row['33'];
-        $arrReturn[$i]['seaColor'] = $row['34'];
+        $arrReturn[$i]['EpisodePic'] = $row['24'];
+        $arrReturn[$i]['Category'] = $row['26'];
+        $arrReturn[$i]['CatColor'] = $row['27'];
+        $arrReturn[$i]['CatUs'] = $row['28'];
+        $arrReturn[$i]['CatSlug'] = $row['29'];
+        $arrReturn[$i]['seaEpisodes'] = $row['31'];
+        $arrReturn[$i]['seaDiffStart'] = $row['32'];
+        $arrReturn[$i]['seaDiffEnd'] = $row['33'];
+        $arrReturn[$i]['seaDvdFr'] = $row['34'];
+        $arrReturn[$i]['seaColor'] = $row['35'];
         $i++;
     }
     return $arrReturn;
@@ -225,15 +276,16 @@ function fct_SelectOneQuestionById($intId){
     $arrReturn['EpisodeNameFr'] = $row['21'];
     $arrReturn['EpisodeNameUs'] = $row['22'];
     $arrReturn['EpisodeText'] = $row['23'];
-    $arrReturn['Category'] = $row['25'];
-    $arrReturn['CatColor'] = $row['26'];
-    $arrReturn['CatUs'] = $row['27'];
-    $arrReturn['CatSlug'] = $row['28'];
-    $arrReturn['seaEpisodes'] = $row['30'];
-    $arrReturn['seaDiffStart'] = $row['31'];
-    $arrReturn['seaDiffEnd'] = $row['32'];
-    $arrReturn['seaDvdFr'] = $row['33'];
-    $arrReturn['seaColor'] = $row['34'];
+    $arrReturn['EpisodePic'] = $row['24'];
+    $arrReturn['Category'] = $row['26'];
+    $arrReturn['CatColor'] = $row['27'];
+    $arrReturn['CatUs'] = $row['28'];
+    $arrReturn['CatSlug'] = $row['29'];
+    $arrReturn['seaEpisodes'] = $row['31'];
+    $arrReturn['seaDiffStart'] = $row['32'];
+    $arrReturn['seaDiffEnd'] = $row['33'];
+    $arrReturn['seaDvdFr'] = $row['34'];
+    $arrReturn['seaColor'] = $row['35'];
     return $arrReturn;
 }
 // Fonction d'inserction des infos d'une proposition de question
@@ -292,6 +344,7 @@ function fct_SelectEpisodeBySeasonAndNumber($intSeason, $intEpisodeNumber){
     $arrReturn['NameFr'] = $row['3'];
     $arrReturn['NameUs'] = $row['4'];
     $arrReturn['Description'] = $row['5'];
+    $arrReturn['Picture'] = $row['6'];
     return $arrReturn;
 }
 // Fonction d'extraction de comptage de toutes les questions de la base de données
@@ -450,15 +503,16 @@ function fct_SelectAllQuestions(){
         $arrReturn[$i]['EpisodeNameFr'] = $row['20'];
         $arrReturn[$i]['EpisodeNameUs'] = $row['21'];
         $arrReturn[$i]['EpisodeText'] = $row['22'];
-        $arrReturn[$i]['Category'] = $row['24'];
-        $arrReturn[$i]['CatColor'] = $row['25'];
-        $arrReturn[$i]['CatUs'] = $row['26'];
-        $arrReturn[$i]['CatSlug'] = $row['27'];
-        $arrReturn[$i]['seaEpisodes'] = $row['29'];
-        $arrReturn[$i]['seaDiffStart'] = $row['30'];
-        $arrReturn[$i]['seaDiffEnd'] = $row['31'];
-        $arrReturn[$i]['seaDvdFr'] = $row['32'];
-        $arrReturn[$i]['seaColor'] = $row['33'];
+        $arrReturn[$i]['EpisodePic'] = $row['23'];
+        $arrReturn[$i]['Category'] = $row['25'];
+        $arrReturn[$i]['CatColor'] = $row['26'];
+        $arrReturn[$i]['CatUs'] = $row['27'];
+        $arrReturn[$i]['CatSlug'] = $row['28'];
+        $arrReturn[$i]['seaEpisodes'] = $row['30'];
+        $arrReturn[$i]['seaDiffStart'] = $row['31'];
+        $arrReturn[$i]['seaDiffEnd'] = $row['32'];
+        $arrReturn[$i]['seaDvdFr'] = $row['33'];
+        $arrReturn[$i]['seaColor'] = $row['34'];
         $i++;
     }
     return $arrReturn;
@@ -500,15 +554,405 @@ function fct_SelectQuestionsFromLevel($intLevel){
         $arrReturn[$i]['EpisodeNameFr'] = $row['20'];
         $arrReturn[$i]['EpisodeNameUs'] = $row['21'];
         $arrReturn[$i]['EpisodeText'] = $row['22'];
-        $arrReturn[$i]['Category'] = $row['24'];
-        $arrReturn[$i]['CatColor'] = $row['25'];
-        $arrReturn[$i]['CatUs'] = $row['26'];
-        $arrReturn[$i]['CatSlug'] = $row['27'];
-        $arrReturn[$i]['seaEpisodes'] = $row['29'];
-        $arrReturn[$i]['seaDiffStart'] = $row['30'];
-        $arrReturn[$i]['seaDiffEnd'] = $row['31'];
-        $arrReturn[$i]['seaDvdFr'] = $row['32'];
-        $arrReturn[$i]['seaColor'] = $row['33'];
+        $arrReturn[$i]['EpisodePic'] = $row['23'];
+        $arrReturn[$i]['Category'] = $row['25'];
+        $arrReturn[$i]['CatColor'] = $row['26'];
+        $arrReturn[$i]['CatUs'] = $row['27'];
+        $arrReturn[$i]['CatSlug'] = $row['28'];
+        $arrReturn[$i]['seaEpisodes'] = $row['30'];
+        $arrReturn[$i]['seaDiffStart'] = $row['31'];
+        $arrReturn[$i]['seaDiffEnd'] = $row['32'];
+        $arrReturn[$i]['seaDvdFr'] = $row['33'];
+        $arrReturn[$i]['seaColor'] = $row['34'];
+        $i++;
+    }
+    return $arrReturn;
+}
+// Fonction d'extraction des informations de tous les acteurs
+//       Paramètres  : none
+//  Valeur de retour :
+//         arrReturn : tableau des informations de tous les acteurs
+function fct_SelectAllActors(){
+    $strRequest = "SELECT * FROM `fri_Actors` "
+                . "INNER JOIN `fri_Countries` ON `cou_Id`=`act_Country` "
+                . "ORDER BY `act_FirstName` ASC;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['FirstName'] = $row['1'];
+        $arrReturn[$i]['LastName'] = $row['2'];
+        $arrReturn[$i]['Wiki'] = $row['3'];
+        $arrReturn[$i]['Portrait'] = $row['4'];
+        $arrReturn[$i]['Gender'] = $row['5'];
+        $arrReturn[$i]['City'] = $row['6'];
+        $arrReturn[$i]['Country'] = $row['7'];
+        $arrReturn[$i]['Birth'] = $row['8'];
+        $arrReturn[$i]['CountryId'] = $row['9'];
+        $arrReturn[$i]['CountryName'] = $row['10'];
+        $arrReturn[$i]['Flag'] = $row['11'];
+        $arrReturn[$i]['CountryCode'] = $row['12'];
+        $i++;
+    }
+    return $arrReturn;
+}
+// Fonction d'extraction des informations des acteurs des 6 Friends
+//       Paramètres  : none
+//  Valeur de retour :
+//         arrReturn : tableau des informations des acteurs des 6 Friends
+function fct_SelectFriendsActors(){
+    $strRequest = "SELECT * FROM `fri_Actors` "
+                . "INNER JOIN `fri_Countries` ON `cou_Id`=`act_Country` "
+                . "WHERE `act_Id` IN ('1','2','3','4','5','6') "
+                . "ORDER BY `act_FirstName` ASC;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['FirstName'] = $row['1'];
+        $arrReturn[$i]['LastName'] = $row['2'];
+        $arrReturn[$i]['Wiki'] = $row['3'];
+        $arrReturn[$i]['Portrait'] = $row['4'];
+        $arrReturn[$i]['Gender'] = $row['5'];
+        $arrReturn[$i]['City'] = $row['6'];
+        $arrReturn[$i]['Country'] = $row['7'];
+        $arrReturn[$i]['Birth'] = $row['8'];
+        $arrReturn[$i]['CountryId'] = $row['9'];
+        $arrReturn[$i]['CountryName'] = $row['10'];
+        $arrReturn[$i]['Flag'] = $row['11'];
+        $arrReturn[$i]['CountryCode'] = $row['12'];
+        $i++;
+    }
+    return $arrReturn;
+}
+// Fonction d'extraction des informations des acteurs des personnages secondaires
+//       Paramètres  : none
+//  Valeur de retour :
+//         arrReturn : tableau des informations des acteurs des personnages secondaires
+function fct_SelectOtherActors(){
+    $strRequest = "SELECT * FROM `fri_Actors` "
+                . "INNER JOIN `fri_Countries` ON `cou_Id`=`act_Country` "
+                . "WHERE `act_Id`>'6' "
+                . "ORDER BY `act_FirstName` ASC;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['FirstName'] = $row['1'];
+        $arrReturn[$i]['LastName'] = $row['2'];
+        $arrReturn[$i]['Wiki'] = $row['3'];
+        $arrReturn[$i]['Portrait'] = $row['4'];
+        $arrReturn[$i]['Gender'] = $row['5'];
+        $arrReturn[$i]['City'] = $row['6'];
+        $arrReturn[$i]['Country'] = $row['7'];
+        $arrReturn[$i]['Birth'] = $row['8'];
+        $arrReturn[$i]['CountryId'] = $row['9'];
+        $arrReturn[$i]['CountryName'] = $row['10'];
+        $arrReturn[$i]['Flag'] = $row['11'];
+        $arrReturn[$i]['CountryCode'] = $row['12'];
+        $i++;
+    }
+    return $arrReturn;
+}
+// Fonction d'extraction des informations d'un acteur par son id
+//       Paramètres  :
+//        intActorId : id de l'acteur sélectionné
+//  Valeur de retour :
+//         arrReturn : tableau des informations de l'acteur sélectionné
+function fct_SelectOneActorById($intActorId){
+    $strRequest = "SELECT * FROM `fri_Actors` "
+                . "INNER JOIN `fri_Countries` ON `cou_Id`=`act_Country` "
+                . "WHERE `act_Id`='" . $intActorId . "';";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $arrReturn['Id'] = $row['0'];
+    $arrReturn['FirstName'] = $row['1'];
+    $arrReturn['LastName'] = $row['2'];
+    $arrReturn['Wiki'] = $row['3'];
+    $arrReturn['Portrait'] = $row['4'];
+    $arrReturn['Gender'] = $row['5'];
+    $arrReturn['City'] = $row['6'];
+    $arrReturn['Country'] = $row['7'];
+    $arrReturn['Birth'] = $row['8'];
+    $arrReturn['CountryId'] = $row['9'];
+    $arrReturn['CountryName'] = $row['10'];
+    $arrReturn['Flag'] = $row['11'];
+    $arrReturn['CountryCode'] = $row['12'];
+    return $arrReturn;
+}
+// Fonction d'extraction des informations d'un personnage par son id
+//       Paramètres  :
+//        intActorId : id du personnage sélectionné
+//  Valeur de retour :
+//         arrReturn : tableau des informations du personnage sélectionné
+function fct_SelectCharacterById($intCharacterId){
+    $strRequest = "SELECT * FROM `fri_characters` "
+                . "WHERE `cha_Id`='" . $intCharacterId . "';";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $arrReturn['Id'] = $row['0'];
+    $arrReturn['Gender'] = $row['1'];
+    $arrReturn['FirstName'] = $row['2'];
+    $arrReturn['LastName'] = $row['3'];
+    $arrReturn['SecondName'] = $row['4'];
+    $arrReturn['BirthName'] = $row['5'];
+    $arrReturn['Birth'] = $row['6'];
+    $arrReturn['Wiki'] = $row['7'];
+    $arrReturn['ActorId'] = $row['8'];
+    $arrReturn['Portrait'] = $row['9'];
+    $arrReturn['Father'] = $row['10'];
+    $arrReturn['Mother'] = $row['11'];
+    return $arrReturn;
+}
+// Fonction d'extraction des informations d'un personnage par l'id de son acteur
+//       Paramètres  :
+//        intActorId : id de l'acteur sélectionné
+//  Valeur de retour :
+//         arrReturn : tableau des informations du personnage de l'acteur sélectionné
+function fct_SelectCharacterByActorId($intActorId){
+    if ( $intActorId > 6 ) {
+        $strRequest = "SELECT * FROM `fri_characters` "
+                    . "WHERE `cha_Actor`='" . $intActorId . "';";
+    } else {
+        $strRequest = "SELECT * FROM `fri_friends` "
+                    . "WHERE `fri_Actor`='" . $intActorId . "';";
+    }
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $arrReturn['Id'] = $row['0'];
+    $arrReturn['Gender'] = $row['1'];
+    $arrReturn['FirstName'] = $row['2'];
+    $arrReturn['LastName'] = $row['3'];
+    $arrReturn['SecondName'] = $row['4'];
+    $arrReturn['BirthName'] = $row['5'];
+    $arrReturn['Birth'] = $row['6'];
+    $arrReturn['Wiki'] = $row['7'];
+    $arrReturn['ActorId'] = $row['8'];
+    $arrReturn['Portrait'] = $row['9'];
+    $arrReturn['Father'] = $row['10'];
+    $arrReturn['Mother'] = $row['11'];
+    return $arrReturn;
+}
+// Fonction d'extraction des informations d'un signe astrologique en fonction d'une date de naissance
+//       Paramètres  :
+//          datBirth : date de naissance (objet 'DateTime')
+//  Valeur de retour :
+//         arrReturn : tableau des informations du signe astrologique sélectionné
+function fct_FindZodiacFromBirth($datBirth){
+    $strBirthMonth = $datBirth->format("m");
+    $intBirthDay = intval($datBirth->format("d"));
+    $strRequest = "SELECT * FROM `fri_Zodiac` "
+                . "WHERE `zod_StartMonth`='" . $strBirthMonth . "';";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $arrFirstSign['Id'] = $row['0'];
+    $arrFirstSign['Name'] = $row['1'];
+    $arrFirstSign['StartMonth'] = $row['2'];
+    $arrFirstSign['StartDay'] = $row['3'];
+    $arrFirstSign['EndMonth'] = $row['4'];
+    $arrFirstSign['EndDay'] = $row['5'];
+    $arrFirstSign['Icon'] = $row['6'];
+    if ( $intBirthDay >= intval($arrFirstSign['StartDay']) ) {
+        $arrReturn = $arrFirstSign;
+    } else {
+        $strRequest = "SELECT * FROM `fri_Zodiac` "
+                    . "WHERE `zod_EndMonth`='" . $strBirthMonth . "';";
+        $resLink = fct_RequestExec($strRequest);
+        $resLink->data_seek(0);
+        $row = $resLink->fetch_row();
+        $arrReturn['Id'] = $row['0'];
+        $arrReturn['Name'] = $row['1'];
+        $arrReturn['StartMonth'] = $row['2'];
+        $arrReturn['StartDay'] = $row['3'];
+        $arrReturn['EndMonth'] = $row['4'];
+        $arrReturn['EndDay'] = $row['5'];
+        $arrReturn['Icon'] = $row['6'];
+    }
+    return $arrReturn;
+}
+// Fonction d'extraction des épisodes d'apparition d'un personnage en fonction de son id
+//       Paramètres  :
+//             intId : id du personnage
+//  Valeur de retour :
+//         arrReturn : tableau des infos des épisodes où le personnage sélectionné apparaît
+function fct_CheckAppearanceById($intId){
+    $strRequest = "SELECT `app_Episode` FROM `fri_appearence` "
+                . "WHERE `app_Character1`='" . $intId . "' "
+                . "OR `app_Character2`='" . $intId . "' "
+                . "OR `app_Character3`='" . $intId . "' "
+                . "OR `app_Character4`='" . $intId . "' "
+                . "OR `app_Character5`='" . $intId . "' "
+                . "OR `app_Character6`='" . $intId . "' "
+                . "OR `app_Character7`='" . $intId . "' "
+                . "OR `app_Character8`='" . $intId . "' "
+                . "ORDER BY `app_Episode` ASC;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrEpisodes[$i]['Id'] = $row['0'];
+        $i++;
+    }
+    $intEpisodes = count($arrEpisodes);
+    $strRequest = "SELECT * FROM `fri_episodes` "
+                . "WHERE `epi_Id` IN (";
+    for ( $i = 1 ; $i <= $intEpisodes ; $i++ ) {
+        if ( $i < $intEpisodes ) {
+            $strRequest .= "'" . $arrEpisodes[$i]['Id'] . "', ";
+        } else {
+            $strRequest .= "'" . $arrEpisodes[$i]['Id'] . "');";
+        }
+    }
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['Season'] = $row['1'];
+        $arrReturn[$i]['Episode'] = $row['2'];
+        $arrReturn[$i]['NameFr'] = $row['3'];
+        $arrReturn[$i]['NameUs'] = $row['4'];
+        $arrReturn[$i]['Description'] = $row['5'];
+        $arrReturn[$i]['Picture'] = $row['6'];
+        $i++;
+    }
+    return $arrReturn;
+}
+// Fonction d'extraction de tous les personnages de la base
+//       Paramètres  : none
+//  Valeur de retour :
+//         arrReturn : tableau des infos des tous les personnages
+function fct_SelectAllCharacters(){
+    $strRequest = "SELECT * FROM `fri_friends` "
+                . "INNER JOIN `fri_Actors` ON `act_Id`=`fri_Actor` "
+                . "ORDER BY `fri_FirstName` ASC;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['Gender'] = $row['1'];
+        $arrReturn[$i]['FirstName'] = $row['2'];
+        $arrReturn[$i]['LastName'] = $row['3'];
+        $arrReturn[$i]['SecondName'] = $row['4'];
+        $arrReturn[$i]['BirthName'] = $row['5'];
+        $arrReturn[$i]['Birth'] = $row['6'];
+        $arrReturn[$i]['Wiki'] = $row['7'];
+        $arrReturn[$i]['ActorId'] = $row['8'];
+        $arrReturn[$i]['Portrait'] = $row['9'];
+        $arrReturn[$i]['Father'] = $row['10'];
+        $arrReturn[$i]['Mother'] = $row['11'];
+        $arrReturn[$i]['ActorFirstName'] = $row['12'];
+        $arrReturn[$i]['ActorLastName'] = $row['13'];
+        $arrReturn[$i]['ActorWiki'] = $row['14'];
+        $arrReturn[$i]['ActorPortrait'] = $row['15'];
+        $arrReturn[$i]['City'] = $row['16'];
+        $arrReturn[$i]['Country'] = $row['17'];
+        $arrReturn[$i]['ActorBirth'] = $row['18'];
+        $i++;
+    }
+    $strRequest = "SELECT * FROM `fri_characters` "
+                . "INNER JOIN `fri_Actors` ON `act_Id`=`cha_Actor` "
+                . "ORDER BY `cha_FirstName` ASC;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['Gender'] = $row['1'];
+        $arrReturn[$i]['FirstName'] = $row['2'];
+        $arrReturn[$i]['LastName'] = $row['3'];
+        $arrReturn[$i]['SecondName'] = $row['4'];
+        $arrReturn[$i]['BirthName'] = $row['5'];
+        $arrReturn[$i]['Birth'] = $row['6'];
+        $arrReturn[$i]['Wiki'] = $row['7'];
+        $arrReturn[$i]['ActorId'] = $row['8'];
+        $arrReturn[$i]['Portrait'] = $row['9'];
+        $arrReturn[$i]['Father'] = $row['10'];
+        $arrReturn[$i]['Mother'] = $row['11'];
+        $arrReturn[$i]['ActorFirstName'] = $row['12'];
+        $arrReturn[$i]['ActorLastName'] = $row['13'];
+        $arrReturn[$i]['ActorWiki'] = $row['14'];
+        $arrReturn[$i]['ActorPortrait'] = $row['15'];
+        $arrReturn[$i]['City'] = $row['16'];
+        $arrReturn[$i]['Country'] = $row['17'];
+        $arrReturn[$i]['ActorBirth'] = $row['18'];
+        $i++;
+    }
+    return $arrReturn;
+}
+// Fonction d'extraction de tous les personnages principaux de la base
+//       Paramètres  : none
+//  Valeur de retour :
+//         arrReturn : tableau des infos des tous les personnages principaux
+function fct_SelectFriendsCharacters(){
+    $strRequest = "SELECT * FROM `fri_friends` "
+    . "INNER JOIN `fri_Actors` ON `act_Id`=`fri_Actor` "
+    . "ORDER BY `fri_FirstName` ASC;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['Gender'] = $row['1'];
+        $arrReturn[$i]['FirstName'] = $row['2'];
+        $arrReturn[$i]['LastName'] = $row['3'];
+        $arrReturn[$i]['SecondName'] = $row['4'];
+        $arrReturn[$i]['BirthName'] = $row['5'];
+        $arrReturn[$i]['Birth'] = $row['6'];
+        $arrReturn[$i]['Wiki'] = $row['7'];
+        $arrReturn[$i]['ActorId'] = $row['8'];
+        $arrReturn[$i]['Portrait'] = $row['9'];
+        $arrReturn[$i]['Father'] = $row['10'];
+        $arrReturn[$i]['Mother'] = $row['11'];
+        $arrReturn[$i]['ActorFirstName'] = $row['12'];
+        $arrReturn[$i]['ActorLastName'] = $row['13'];
+        $arrReturn[$i]['ActorWiki'] = $row['14'];
+        $arrReturn[$i]['ActorPortrait'] = $row['15'];
+        $arrReturn[$i]['City'] = $row['16'];
+        $arrReturn[$i]['Country'] = $row['17'];
+        $arrReturn[$i]['ActorBirth'] = $row['18'];
+        $i++;
+    }
+    return $arrReturn;
+}
+// Fonction d'extraction de tous les personnages secondaires de la base
+//       Paramètres  : none
+//  Valeur de retour :
+//         arrReturn : tableau des infos des tous les personnages secondaires
+function fct_SelectOtherCharacters(){
+    $strRequest = "SELECT * FROM `fri_characters` "
+                . "INNER JOIN `fri_Actors` ON `act_Id`=`cha_Actor` "
+                . "ORDER BY `cha_FirstName` ASC;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['Gender'] = $row['1'];
+        $arrReturn[$i]['FirstName'] = $row['2'];
+        $arrReturn[$i]['LastName'] = $row['3'];
+        $arrReturn[$i]['SecondName'] = $row['4'];
+        $arrReturn[$i]['BirthName'] = $row['5'];
+        $arrReturn[$i]['Birth'] = $row['6'];
+        $arrReturn[$i]['Wiki'] = $row['7'];
+        $arrReturn[$i]['ActorId'] = $row['8'];
+        $arrReturn[$i]['Portrait'] = $row['9'];
+        $arrReturn[$i]['Father'] = $row['10'];
+        $arrReturn[$i]['Mother'] = $row['11'];
+        $arrReturn[$i]['ActorFirstName'] = $row['12'];
+        $arrReturn[$i]['ActorLastName'] = $row['13'];
+        $arrReturn[$i]['ActorWiki'] = $row['14'];
+        $arrReturn[$i]['ActorPortrait'] = $row['15'];
+        $arrReturn[$i]['City'] = $row['16'];
+        $arrReturn[$i]['Country'] = $row['17'];
+        $arrReturn[$i]['ActorBirth'] = $row['18'];
         $i++;
     }
     return $arrReturn;

@@ -8,11 +8,44 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page de construction de la vue 'fiche'
  *   Date mise en oeuvre :   27/11/2019
- *          Dernière MàJ :   30/11/2019
+ *          Dernière MàJ :   01/12/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
 /***** *****    FONCTIONS   ***** *****/
+// Fonction de construction de la page d'accueil de friendopedia
+//       Paramètres  : none
+//  Valeur de retour : none
+function fctDisplayWelcome(){
+    $intCharacters = fct_CountCharacters();
+    $intActors = fct_CountActors();
+    $intQuestions = fct_CountQuestions();
+?>
+<!-- -- -- -- --Friendopedia : accueil -- -- -- -- -->
+    <section class="row" id="fop_accueil">
+     <p class="col-xl-12" id="fopacc_title">Découvrez ou redécouvrez les secrets de Friends</p>
+     <div class="col-xl-8" id="fopacc_infos">
+      <div class="row">
+       <p class="col-xl-12" id="fopacc_subtitle">
+        Installez-vous confortablement et venez consulter l'immense mémoire de <span id="fopacc_towaq"><?php echo $GLOBALS['strTowaq'];?></span>&nbsp;:</p>
+       <p class="col-xl-12">
+        <ul>
+         <li>les <strong>10</strong>&nbsp;saisons de la série,</li>
+         <li><strong>236</strong>&nbsp;&eacute;pisodes au total,</li>
+         <li><strong><?php echo $intActors;?></strong>&nbsp;acteurs au casting,</li>
+         <li><strong><?php echo $intCharacters;?></strong>&nbsp;personnages secondaires,</li>
+         <li><strong><?php echo $intQuestions;?></strong>&nbsp;questions pour tester vos connaissances</li>
+        </ul>
+       </p>
+       <p class="col-xl-12">Et&nbsp;<strong>des heures</strong>&nbsp;passées avec nos amis préférés !!</p>
+      </div>
+     </div>
+     <div class="col-xl-4" id="fopacc_img">
+      <img class="img-fluid img-thumbnail" src="../media/pics/backgrounds/ohohoh.gif">
+     </div>
+    </section>
+<?php
+}
 // Fonction de construction de la liste des acteurs
 //       Paramètres  :
 //       strTypeShow : type de liste d'acteurs sélectionnée
@@ -66,11 +99,11 @@ function fctDisplayCharacters($strTypeShow){
             $arrCharacters = fct_SelectAllCharacters();
             $strMainLabel = "Tous les Friends";
             break;
-        case "fcharac":
+        case "friends":
             $arrCharacters = fct_SelectFriendsCharacters();
             $strMainLabel = "Nos Friends";
             break;
-        case "ocharac":
+        case "others":
             $arrCharacters = fct_SelectOtherCharacters();
             $strMainLabel = "Les Autres";
             break;
@@ -91,18 +124,26 @@ function fctDisplayCharacters($strTypeShow){
         $strAltText = "Photo de " . $strCompleteName;
         $strFicheUrl = "friendopedia.php?show=";
         $strPortraitUrl = "../media/pics/";
-        if ($strTypeShow != "ocharac" ){
-            if ( $arrCharacters[$i]['Id'] > 6 ) {
-                $strFicheUrl .= "character";
-                $strPortraitUrl .= "persos/";
-            } else {
+        switch ($strTypeShow){
+            case "allcharac":
+                if ( $i > 6 ) {
+                    $strFicheUrl .= "character";
+                    $strPortraitUrl .= "persos/";
+                } else {
+                    $strFicheUrl .= "fcharac";
+                    $strPortraitUrl .= "friends/";
+                }
+                break;
+            case "friends":
                 $strFicheUrl .= "fcharac";
                 $strPortraitUrl .= "friends/";
-            }
-        } else {
-            $strFicheUrl .= "character";
-            $strPortraitUrl .= "persos/";
+                break;
+            case "others":
+                $strFicheUrl .= "character";
+                $strPortraitUrl .= "persos/";
+                break;
         }
+        
         $strFicheUrl .= "&item=" . $arrCharacters[$i]['ActorId'];
         $strPortraitUrl .= $arrCharacters[$i]['Portrait'];
 ?>
@@ -134,6 +175,13 @@ function fctDisplayActorFile($intActorId){
     $intyears = fct_CalcNbYearsFromNow($arrActorFile['Birth']);
     $arrZodiac = fct_FindZodiacFromBirth($datBirth);
     $strFicheCharacterMsg = "Voir la fiche de " . $arrCharacter['FirstName'];
+    $strFicheCharacterUrl = "friendopedia.php?show=";
+    if ( $intActorId > 6 ) {
+        $strFicheCharacterUrl .= "character";
+    } else {
+        $strFicheCharacterUrl .= "fcharac";
+    }
+    $strFicheCharacterUrl .= "&item=" . $arrActorFile['Id'];
 ?>
 <!-- -- -- -- -- Fiche : Informations -- -- -- -- -->
             <section class="row" id="fact_title">
@@ -149,7 +197,7 @@ function fctDisplayActorFile($intActorId){
              <div class="col-xl-8" id="fct_infos">
               <div class="row">
                <label class="col-xl-5 subGender"><?php echo $strGenderLabel;?></label>
-               <a class="col-xl-7" id="fact_characlink" href="friendopedia.php?show=character&item=<?php echo $arrActorFile['Id'];?>" title="<?php echo $strFicheCharacterMsg;?>">
+               <a class="col-xl-7" id="fact_characlink" href="<?php echo $strFicheCharacterUrl;?>" title="<?php echo $strFicheCharacterMsg;?>">
                 <div class="row">
                  <label class="col-xl-12 subRole"><?php echo $arrCharacter['FirstName'];?></label>
                 </div>

@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page de construction du menu FriendOpedia
  *   Date mise en oeuvre :   26/11/2019
- *          Dernière MàJ :   30/11/2019
+ *          Dernière MàJ :   01/12/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
@@ -23,8 +23,8 @@ function fctDisplayFriendOpediaMenu($strMenuIconFile){
      <a class="offset-xl-1 col-xl-10 sub" href="friendopedia.php?show=oactors">Leurs amis</a>
 <!-- Section Personnages -->
      <a class="col-xl-12 rub" href="friendopedia.php?show=allcharac">Les Personnages</a>
-     <a class="offset-xl-1 col-xl-10 sub" href="friendopedia.php?show=fcharac">Nos Friends</a>
-     <a class="offset-xl-1 col-xl-10 sub" href="friendopedia.php?show=ocharac">Leurs amis</a>
+     <a class="offset-xl-1 col-xl-10 sub" href="friendopedia.php?show=friends">Nos Friends</a>
+     <a class="offset-xl-1 col-xl-10 sub" href="friendopedia.php?show=others">Leurs amis</a>
      <a class="col-xl-11 rub">Les Saisons</a>
      <a class="col-xl-11 rub">Les &Eacute;pisodes</a>
     </nav>
