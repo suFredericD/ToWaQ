@@ -184,6 +184,73 @@ Palette
 .sub{
 	font-size: 20px;
 }
+/***** ***** ***** Page d'acceuil ***** ***** *****/
+#fop_accueil{
+	background-color: #61777D;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+#fop_accueil div{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#fopacc_title{
+	padding-left: 100px;
+	background-color: hsl(261, 19%, 56%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeecf2", endColorstr="#8879a4");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#eeecf2), to(#8879a4));
+	background-image: -moz-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -ms-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeecf2), color-stop(100%, #8879a4));
+	background-image: -webkit-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -o-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: linear-gradient(#eeecf2, #8879a4);
+	border-color: #8879a4 #8879a4 hsl(261, 19%, 46.5%);
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.62);
+	-webkit-font-smoothing: antialiased;
+	font-family: "Desyrel";
+	font-size: 40px;
+	color: #000 !important;
+	text-shadow: 1px 1px 3px #C1C1C1;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+#fopacc_infos{
+	padding: 0px 10px 10px 20px;
+	font-family: "NoteThis";
+	letter-spacing: 0.085em;
+}
+#fopacc_infos p{
+	font-size: 34px;
+	letter-spacing: 0.085em;
+	text-align: center;
+}
+#fopacc_subtitle{
+	padding: 0px 40px 0px 80px;
+}
+#fopacc_towaq{
+	font-family: "KomikaDisplay";
+	font-size: 32px;
+	font-weight: bold;
+	color: #C1C1C1;
+	text-shadow: 2px 2px 4px #000;
+}
+#fopacc_towaq .red,#fopacc_towaq .blue,#fopacc_towaq .yellow{
+	font-size: 8px;
+	vertical-align: middle;
+}
+#fopacc_infos ul li{
+	font-family: "CaviarDreams";
+	font-size: 26px;
+	letter-spacing: 0.065em;
+	text-align: justify;
+}
+#fopacc_img img{
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
 /***** ***** ***** Bloc Acteurs : liste ***** ***** *****/
 #fiche_title{
 	background-color: hsl(261, 19%, 56%) !important;

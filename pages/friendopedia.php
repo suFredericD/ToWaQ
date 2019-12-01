@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page de consultation de la base de données
  *   Date mise en oeuvre :   26/11/2019
- *          Dernière MàJ :   28/11/2019
+ *          Dernière MàJ :   01/12/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 require("../scripts/admin/variables.php");                          // Variables globales du site
@@ -81,7 +81,7 @@ fct_BuildHtmlHeader($objPageInfos);
     <section class="row" id="friendop_header">
      <div class="offset-xl-1 col-xl-10">
       <p><span id="fop_header"><?php echo $strFriendoTitle;?></span></p>
-      <div id="fop_subtitle">Installez-vous, venez découvrir</div>
+      <div id="fop_subtitle">L'encyclopédie de</div>
       <p><?php echo $strFriendsTitle;?></p>
      </div>
     </section>
@@ -99,27 +99,22 @@ fct_BuildHtmlHeader($objPageInfos);
 <!-- -- -- -- -- Fiche : section droite -- -- -- -- -->
         <section class="col-xl-10" id="friendop_main">
 <?php
-if ( preg_match("/actors$/", $_GET['show']) ) {
+// Controller : redirection d'affichage
+if ( preg_match("/actors$/", $_GET['show']) ) {             // Liste de tous les acteurs
     fctDisplayActors($_GET['show']);
-} elseif (preg_match("/actor$/", $_GET['show'])) {
+} elseif (preg_match("/actor$/", $_GET['show'])) {          // Fiches individuelles des acteurs
     fctDisplayActorFile($_GET['item']);
-} elseif ( preg_match("/character$/", $_GET['show']) ) {
+
+} elseif ( preg_match("/character$/", $_GET['show']) ) {    // Fiches individuelles des personnages secondaires
     fctDisplayCharacterFile($_GET['item']);
-} elseif ( preg_match("/fcharac$/", $_GET['show']) ) {
+} elseif ( preg_match("/fcharac$/", $_GET['show']) ) {      // Fiches individuelles des Friends
     fctDisplayFriendFile($_GET['item']);
-} else {
+} elseif ( !isset($_GET['show']) ) {                        // Page d'accueil
+    fctDisplayWelcome();
+} else {                                                    // Liste des personnages
     fctDisplayCharacters($_GET['show']);
 }
 ?>
-<!-- -- -- -- -- Fiche : Informations -- -- -- -- -->
-            <section class="row" id="fiche_title">
-
-            </section>
-<!-- -- -- -- -- Fiche : Articles -- -- -- -- -->
-            <section class="row" id="fiche_section">
-            
-
-            </section>
         </section>
 <!-- -- -- -- -- Fin : vue principale -- -- -- -- -->
     </section>

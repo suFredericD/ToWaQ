@@ -8,7 +8,7 @@
  *              Contexte :   JavaScript
  *              Fonction :   script de dynamisation de la page de jeu
  *   Date mise en oeuvre :   23/11/2019
- *          Dernière MàJ :   24/11/2019
+ *          Dernière MàJ :   30/11/2019
  *********************************************************************************************/
 /* *** *** *** DECLARATIONS *** *** *** */
 // Type de partie
@@ -95,6 +95,15 @@ function fctSeeGoodAnswer(divSelectedAnswer){
     var strGoodAnswer = document.getElementById("rightAnswer").innerHTML;
     // Récupération du texte réponse du joueur
     var strPlayerAnswer = divSelectedAnswer.innerHTML
+    // Récupération de l'image à afficher après réponse
+    var strPicAnswerFile = document.getElementById("picAnswer").innerHTML;
+    console.log("strPicAnswerFile : " + strPicAnswerFile);
+    if ( strPicAnswerFile != "" ) {
+        // Sélection de l'élément à modifier
+        var strAnswerPicPath = "../media/pics/askPics/" + strPicAnswerFile;
+        var imgQuestionPicture = document.getElementById("imgIllustration");
+        imgQuestionPicture.src = strAnswerPicPath;
+    }
     // Création du bloc d'affichage des infos du résultat
     var divResponseMessage = document.createElement("div");
     divResponseMessage.className = "row";
@@ -127,6 +136,7 @@ function fctSeeGoodAnswer(divSelectedAnswer){
         paraResponseScore.innerHTML = "Score + 1";
         intScoreBonus = 1;
     }
+    
     // Insertion du bloc d'affichage du résultat
     divResponseMessage.appendChild(divResult);
     divResponseMessage.appendChild(divResultText);
@@ -135,13 +145,11 @@ function fctSeeGoodAnswer(divSelectedAnswer){
     divResultText.appendChild(paraResponseResultText);
     // Insertion du bloc d'affichage du résultat complet
     document.getElementById("secAsk").append(divResponseMessage);
-
     // Calcul et affichage du nouveau score
     var intNewScore = intCurrentScore + intScoreBonus;
     document.getElementById("gameScore").innerHTML = intNewScore;
     // Modification du score à transmettre
     document.getElementById("score").setAttribute('value', intNewScore);
-
     // Création des éléments cachés pour passage des stats de la question
     var hidLevel = document.createElement("input");
     hidLevel.id = "level";
@@ -155,7 +163,6 @@ function fctSeeGoodAnswer(divSelectedAnswer){
     hidResult.id = "result";
     hidResult.name = "result";
     hidResult.setAttribute('hidden',"");
-
     // Récupération des valeurs à passer au formulaire
     hidLevel.setAttribute('value', document.getElementsByTagName('meter')[0].value);
     hidCategory.setAttribute('value', document.getElementById("hqCategory").innerHTML);
@@ -164,19 +171,16 @@ function fctSeeGoodAnswer(divSelectedAnswer){
     } else {
         hidResult.setAttribute('value', "loose");
     }
-
     // Insertion des éléments au formulaire
     document.getElementById("frmAnswer").append(hidLevel);
     document.getElementById("frmAnswer").append(hidCategory);
     document.getElementById("frmAnswer").append(hidResult);
-
     // Création du bouton vers la question suivante
     var btnSubmit = document.createElement("input");
     btnSubmit.className = "offset-xl-2 col-xl-8 nextQuestion";
     btnSubmit.type = "submit";
     btnSubmit.value = "Question suivante     > > >";
     document.getElementById("frmAnswer").prepend(btnSubmit);
-
 }
 /* *** *** *** EVENT LISTENERS *** *** *** */
 var eveAnswer1 = divAnswer1.addEventListener("click", function(){

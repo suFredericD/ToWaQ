@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   vue principale du jeu
  *   Date mise en oeuvre :   22/11/2019
- *          Dernière MàJ :   25/11/2019
+ *          Dernière MàJ :   30/11/2019
  *************************************************************************************************/
 // Fonction d'affichage d'une question
 //       Paramètres  :
@@ -157,6 +157,7 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
             <p id="rightAnswer" hidden><?php echo $arrQuestion['AnswerGood'];?></p>
             <p id="goodText" hidden><?php echo $arrQuestion['GoodText'];?></p>
             <p id="badText" hidden><?php echo $arrQuestion['BadText'];?></p>
+            <p id="picAnswer" hidden><?php echo $arrQuestion['PictureAnswer'];?></p>
 <?php
     for ( $i = 0 ; $i < 4 ; $i++ ) {
         $intAnswerDivId = $i + 1;
