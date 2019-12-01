@@ -21,9 +21,9 @@ function fctDisplayWelcome(){
     $intActors = fct_CountActors();
     $intQuestions = fct_CountQuestions();
 ?>
-<!-- -- -- -- --Friendopedia : accueil -- -- -- -- -->
+<!-- -- -- -- -- Friendopedia : accueil -- -- -- -- -->
     <section class="row" id="fop_accueil">
-     <p class="col-xl-12" id="fopacc_title">Découvrez ou redécouvrez les secrets de Friends</p>
+     <p class="col-xl-12" id="fopacc_title">Découvrez tous les secrets de la série mythique</p>
      <div class="col-xl-8" id="fopacc_infos">
       <div class="row">
        <p class="col-xl-12" id="fopacc_subtitle">
@@ -81,7 +81,7 @@ function fctDisplayActors($strTypeShow){
         $strAltText = "Photo de " . $strCompleteName;
 ?>
              <div class="col-xl-4 act_cell">
-              <img class="img-fluid img-thumbnail" src="../media/pics/actors/<?php echo $arrActors[$i]['Portrait'];?>" title="<?php echo $strLinkText;?>" alt="<?php echo $strAltText;?>">&nbsp;&nbsp;&nbsp;
+              <img class="img-fluid img-thumbnail" src="../media/pics/actors/<?php echo $arrActors[$i]['Portrait'];?>" alt="<?php echo $strAltText;?>">&nbsp;&nbsp;&nbsp;
               <a href="friendopedia.php?show=actor&item=<?php echo $arrActors[$i]['Id'];?>" title="<?php echo $strLinkText;?>"><?php echo $strCompleteName;?></a>
              </div>
 <?php
@@ -148,7 +148,7 @@ function fctDisplayCharacters($strTypeShow){
         $strPortraitUrl .= $arrCharacters[$i]['Portrait'];
 ?>
              <div class="col-xl-4 act_cell">
-              <img class="img-fluid img-thumbnail" src="<?php echo $strPortraitUrl;?>" title="<?php echo $strLinkText;?>" alt="<?php echo $strAltText;?>">&nbsp;&nbsp;&nbsp;
+              <img class="img-fluid img-thumbnail" src="<?php echo $strPortraitUrl;?>" alt="<?php echo $strAltText;?>">&nbsp;&nbsp;&nbsp;
               <a href="<?php echo $strFicheUrl;?>" title="<?php echo $strLinkText;?>"><?php echo $strCompleteName;?></a>
              </div>
 <?php

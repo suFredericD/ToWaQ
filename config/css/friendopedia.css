@@ -223,6 +223,9 @@ Palette
 	text-shadow: 1px 1px 3px #C1C1C1;
 	border-top-right-radius: 45px;
 	border-bottom-left-radius: 45px;
+	box-shadow: 3px 3px 5px #000;
+	-moz-box-shadow: 3px 3px 5px #000;
+	-webkit-box-shadow: 3px 3px 5px #000;
 }
 #fopacc_infos{
 	padding: 0px 10px 10px 20px;
@@ -257,6 +260,9 @@ Palette
 #fopacc_img img{
 	border-top-right-radius: 45px;
 	border-bottom-left-radius: 45px;
+	box-shadow: 3px 3px 5px #000;
+	-moz-box-shadow: 3px 3px 5px #000;
+	-webkit-box-shadow: 3px 3px 5px #000;
 }
 /***** ***** ***** Bloc Acteurs : liste ***** ***** *****/
 #fiche_title{
@@ -310,6 +316,9 @@ Palette
 	border: 1px inset #333;
 	border-top-right-radius: 45px;
 	border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
 }
 .act_cell:hover{
 	background-color: #75617D;
@@ -319,8 +328,9 @@ Palette
 	max-width: 80px;
 }
 .act_cell img:hover{
-	max-height: 200px;
-	max-width: 200px;
+	max-height: 300px;
+	max-width: 300px;
+	z-index: 50000;
 }
 .act_cell a{
 	font-family: "CaviarDreams";
@@ -653,6 +663,51 @@ Palette
 	justify-content: center;
 	align-items: center;
 }
+/***** ***** ***** Pae : liste des épisodes ***** ***** *****/
+[class*="season"]{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    font-family: "Desyrel";
+	font-size: 32px;
+    letter-spacing: 0.15em;
+    color: #000;
+    text-shadow: 1px 1px 3px #C1C1C1;
+}
+.season1{
+    background-color: #1F3A81;
+}
+.season2{
+    background-color: #D13328;
+}
+.season3{
+    background-color: #116D86;
+}
+.season4{
+    background-color: #F06F45;
+}
+.season5{
+    background-color: #7C2880;
+}
+.season6{
+    background-color: #1B776A;
+}
+.season7{
+    background-color: #DC328A;
+}
+.season8{
+    background-color: #3B95D1;
+}
+.season9{
+    background-color: #FFCC00;
+}
+.season10{
+    background-color: #8F2144;
+}
+[id*="season_liste"]{
+	display: none;
+}
+
 /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */
 /***** ***** ***** ***** ***** ***** ***** ***** *****/

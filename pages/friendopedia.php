@@ -19,6 +19,7 @@ require("../scripts/paging/htmlPaging.php");                        // Script de
 require("../scripts/tools/calcscripts.php");                        // Scripts utilitaires (calculs divers)
 require("../scripts/paging/menuFop.php");                           // Script de construction du menu
 require("../scripts/paging/viewFop.php");                           // Script de construction de la vue 'fiche'
+require("../scripts/paging/viewEpisodes.php");                      // Script de construction des vues 'Epiosdes'
 
 /***** *****    DECLARATIONS   ***** *****/
 $datNow = new DateTime();                                           // Timer de génération de la page (start)
@@ -91,11 +92,6 @@ fct_BuildHtmlHeader($objPageInfos);
 <!-- -- -- -- -- Vue principale -- -- -- -- -->
     <section class="row" id="friendop_container">
      <a id="haut" href="#" hidden></a><!-- Ancre pour les liens back-to-top -->
-     <div class="col-xl-12">
-      <a href="../index.php" title="Retour à l'accueil de ToWaQ">
-       <button>Accueil</button>
-      </a>
-     </div>
 <!-- -- -- -- -- Menu : section gauche -- -- -- -- -->
         <aside class="col-xl-2" id="friendop_menu">
          <a href="friendopedia.php" id="fop_acclink" title="Retour à l'accueil de FriendOpedia">
@@ -111,19 +107,27 @@ if ( preg_match("/actors$/", $_GET['show']) ) {             // Liste de tous les
     fctDisplayActors($_GET['show']);
 } elseif (preg_match("/actor$/", $_GET['show'])) {          // Fiches individuelles des acteurs
     fctDisplayActorFile($_GET['item']);
-
 } elseif ( preg_match("/character$/", $_GET['show']) ) {    // Fiches individuelles des personnages secondaires
     fctDisplayCharacterFile($_GET['item']);
 } elseif ( preg_match("/fcharac$/", $_GET['show']) ) {      // Fiches individuelles des Friends
     fctDisplayFriendFile($_GET['item']);
 } elseif ( !isset($_GET['show']) ) {                        // Page d'accueil
     fctDisplayWelcome();
+} elseif (preg_match("/episodes$/", $_GET['show'])) {       // Liste de tous les épisodes
+    fctDisplayEpisodeList();
 } else {                                                    // Liste des personnages
     fctDisplayCharacters($_GET['show']);
 }
 ?>
-        </section>
 <!-- -- -- -- -- Fin : vue principale -- -- -- -- -->
+        </section>
+<!-- -- -- -- -- Bouton : Retour à l'accueil -- -- -- -- -->
+<div class="col-xl-12">
+      <a href="../index.php" title="Retour à l'accueil de ToWaQ">
+       <button><span class="fa fa-arrow-circle-left"></span>&nbsp;Accueil</button>
+      </a>
+     </div>
+<!-- -- -- -- -- Fin : page -- -- -- -- -->
     </section>
 <!-- -- -- -- -- Scripting dédié -- -- -- -- -->
     <script src="../scripts/js/friendopedia.js"></script>

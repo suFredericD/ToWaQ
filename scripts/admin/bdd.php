@@ -325,6 +325,72 @@ function fct_SelectOneCategoryById($intId){
     $arrReturn['Slug'] = $row['4'];
     return $arrReturn;
 }
+// Fonction d'extraction des infos de tous les épisodes
+//         Paramètre : none
+//  Valeur de retour :
+//         arrReturn : tableau des infos de tous les épisodes
+function fct_SelectAllEpisodes(){
+    $strRequest = "SELECT * FROM `fri_episodes` "
+                . "LEFT JOIN `fri_appearence` ON `app_Episode`=`epi_Id` "
+                . "ORDER BY `epi_Id` ASC;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['Season'] = $row['1'];
+        $arrReturn[$i]['Number'] = $row['2'];
+		$arrReturn[$i]['Title'] = $row['3'];
+        $arrReturn[$i]['TitleUs'] = $row['4'];
+        $arrReturn[$i]['Description'] = $row['5'];
+        $arrReturn[$i]['Picture'] = $row['6'];
+        $arrReturn[$i]['Appearances'] = $row['7'];
+        $arrReturn[$i]['Character1'] = $row['9'];
+        $arrReturn[$i]['Character2'] = $row['10'];
+        $arrReturn[$i]['Character3'] = $row['11'];
+        $arrReturn[$i]['Character4'] = $row['12'];
+        $arrReturn[$i]['Character5'] = $row['13'];
+        $arrReturn[$i]['Character6'] = $row['14'];
+        $arrReturn[$i]['Character7'] = $row['15'];
+        $arrReturn[$i]['Character8'] = $row['16'];
+        $i++;
+    }
+    return $arrReturn;
+}
+// Fonction d'extraction des infos des épisodes d'une saison sélectionnée
+//         Paramètre :
+//         intSeason : numéro de la saison sélectionnée
+//  Valeur de retour :
+//         arrReturn : tableau des épisodes de la saison sélectionnée
+function fct_SelecEpisodesFromSeason($intSeason){
+    $strRequest = "SELECT * FROM `fri_episodes` "
+                . "LEFT JOIN `fri_appearence` ON `app_Episode`=`epi_Id` "
+                . "WHERE `epi_Season`='" . $intSeason . "' "
+                . "ORDER BY `epi_Id` ASC;";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['Season'] = $row['1'];
+        $arrReturn[$i]['Number'] = $row['2'];
+        $arrReturn[$i]['Title'] = $row['3'];
+        $arrReturn[$i]['TitleUs'] = $row['4'];
+        $arrReturn[$i]['Description'] = $row['5'];
+        $arrReturn[$i]['Picture'] = $row['6'];
+        $arrReturn[$i]['Appearances'] = $row['7'];
+        $arrReturn[$i]['Character1'] = $row['9'];
+        $arrReturn[$i]['Character2'] = $row['10'];
+        $arrReturn[$i]['Character3'] = $row['11'];
+        $arrReturn[$i]['Character4'] = $row['12'];
+        $arrReturn[$i]['Character5'] = $row['13'];
+        $arrReturn[$i]['Character6'] = $row['14'];
+        $arrReturn[$i]['Character7'] = $row['15'];
+        $arrReturn[$i]['Character8'] = $row['16'];
+        $i++;
+    }
+    return $arrReturn;
+}
 // Fonction d'extraction des infos d'un épisode par son numéro de saison et d'épisode
 //         Paramètre :
 //         intSeason : numéro de la saison sélectionnée
