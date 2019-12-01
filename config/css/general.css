@@ -141,8 +141,6 @@ a{
 	letter-spacing: 0.1em;
 	color: #61697D;
 	text-shadow: 1px 1px 3px #FFF;
-	transition-property: all;
-	transition-duration: 1850ms;
 }
 a:hover{
 	text-decoration: none;

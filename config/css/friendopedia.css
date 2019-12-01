@@ -664,6 +664,73 @@ Palette
 	align-items: center;
 }
 /***** ***** ***** Pae : liste des épisodes ***** ***** *****/
+#fopepi_title{
+	background-color: hsl(31, 25%, 65%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e2d9cf", endColorstr="#bca68f");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#e2d9cf), to(#bca68f));
+	background-image: -moz-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -ms-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e2d9cf), color-stop(100%, #bca68f));
+	background-image: -webkit-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -o-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: linear-gradient(#e2d9cf, #bca68f);
+	border-color: #bca68f #bca68f hsl(31, 25%, 60%);
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+	-webkit-font-smoothing: antialiased;
+	font-family: "KomikaDisplay";
+	font-size: 36px;
+	color: #000 !important;
+	text-shadow: 1px 1px 2px #C1C1C1;
+	border: 2px outset #000;
+	border-top-right-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#fopepi_title label{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#fopepi_main{
+	background-color: #61777D;
+	border: 2px outset #000;
+	border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+[id*="season_liste"]{
+	margin-bottom: 20px;
+	padding: 20px 20px 20px 40px;
+	background-color: #75617D;
+	border: 2px outset #000;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#fopepi_media{
+	background-color: #000;
+	border: 2px outset #000;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+.season_epinumber{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #61777D;
+	border: 2px outset #000;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
 [class*="season"]{
 	display: flex;
 	justify-content: center;
@@ -707,7 +774,44 @@ Palette
 [id*="season_liste"]{
 	display: none;
 }
-
+.epiNumber{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	font-family: "UpperEastSide";
+	font-size: 26px;
+	font-weight: bold;
+	color: #000;
+	text-shadow: 1px 1px 3px #C1C1C1;
+}
+.epiTitle a{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 5px 0px 5px 20px;
+	font-family: "NoteThis";
+	font-size: 26px;
+	font-weight: bold;
+	letter-spacing: 0.09em;
+	color: #000;
+	text-shadow: none;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+.epiTitle a:hover{
+	background-color: #61697D;
+	text-shadow: 1px 1px 3px #C1C1C1;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#fopepi_media{
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 100px;
+}
 /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */
 /***** ***** ***** ***** ***** ***** ***** ***** *****/

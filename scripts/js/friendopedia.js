@@ -10,7 +10,18 @@
  *   Date mise en oeuvre :   01/12/2019
  *          Dernière MàJ :   01/12/2019
  ***************************************************************************************************************/
-/* *** *** *** DECLARATIONS *** *** *** */
+/* *** *** *** DECLARATIONS : ELEMENTS *** *** *** */
+const divBloc1 = document.getElementById("season_bloc1");
+const divBloc2 = document.getElementById("season_bloc2");
+const divBloc3 = document.getElementById("season_bloc3");
+const divBloc4 = document.getElementById("season_bloc4");
+const divBloc5 = document.getElementById("season_bloc5");
+const divBloc6 = document.getElementById("season_bloc6");
+const divBloc7 = document.getElementById("season_bloc7");
+const divBloc8 = document.getElementById("season_bloc8");
+const divBloc9 = document.getElementById("season_bloc9");
+const divBloc10 = document.getElementById("season_bloc10");
+const arrBlocs = new Array(divBloc1, divBloc2, divBloc3, divBloc4, divBloc5, divBloc6, divBloc7, divBloc8, divBloc9, divBloc10);
 const lblSeason1 = document.getElementById("season1");
 const lblSeason2 = document.getElementById("season2");
 const lblSeason3 = document.getElementById("season3");
@@ -33,7 +44,16 @@ const divSeason8 = document.getElementById("season_liste8");
 const divSeason9 = document.getElementById("season_liste9");
 const divSeason10 = document.getElementById("season_liste10");
 const arrSections = new Array(divSeason1, divSeason2, divSeason3, divSeason4, divSeason5, divSeason6, divSeason7, divSeason8, divSeason9, divSeason10);
-/* *** *** *** VARIABLES *** *** *** */
+const imgEpisodeListe = document.getElementById("fopepi_media").getElementsByTagName('img')['0'];
+/* *** *** *** DECLARATIONS : CLASSES *** *** *** */
+const strSeasonLabelOff = "col-xl-4 season";
+const strSeasonLabelOn = "offset-xl-1 col-xl-4 season";
+/* *** *** *** DECLARATIONS : MEDIAS *** *** *** */
+const strSeasonPath = "../media/pics/seasons/cover_";
+const strFirstBg = "../media/pics/backgrounds/Friends_logo_02.jpg";
+/* *** *** *** DECLARATIONS : DONNEES *** *** *** */
+const arrEpiNumbers =  new Array("24", "24", "25", "24", "24", "25", "24", "24", "24", "18");
+/* *** *** *** DECLARATIONS : VARIABLES *** *** *** */
 var arrDisplayed =  new Array(false, false, false, false, false, false, false, false, false, false);
 
 /* *** *** *** FONCTIONS *** *** *** */
@@ -44,15 +64,29 @@ var arrDisplayed =  new Array(false, false, false, false, false, false, false, f
 //  Valeur de retour    : none
 function fctDisplayEpisodeListe(intSeason){
     for ( i = 0 ; i < arrSections.length ; i++ ) {
+        intIndex = i + 1;
+        strSeasonTitle = "Voir la liste des épisodes de la saison " + intIndex;
+        strSeasonPicture = strSeasonPath + intIndex + ".jpg";
         if ( i != intSeason ) {
             arrSections[i].style.display = "none";
+            arrBlocs[i].prepend(arrLabels[i]);
+            arrLabels[i].className = strSeasonLabelOff + intIndex;
+            arrLabels[i].setAttribute('title', strSeasonTitle);
             arrDisplayed[i] = false;
         } else {
             if ( arrDisplayed[i] != true) {
                 arrSections[i].style.display = "flex";
+                arrSections[i].getElementsByClassName('row')['0'].prepend(arrLabels[i]);
+                arrLabels[i].className = strSeasonLabelOn + intIndex;
+                arrLabels[i].setAttribute('title', "Réduire la liste des épisodes");
+                imgEpisodeListe.setAttribute('src', strSeasonPicture);
                 arrDisplayed[i] = true;
             } else {
                 arrSections[i].style.display = "none";
+                arrBlocs[i].prepend(arrLabels[i]);
+                arrLabels[i].className = strSeasonLabelOff + intIndex;
+                arrLabels[i].setAttribute('title', strSeasonTitle);
+                imgEpisodeListe.setAttribute('src', strFirstBg);
                 arrDisplayed[i] = false;
             }
         }

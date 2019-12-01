@@ -24,38 +24,52 @@ function fctDisplayEpisodeList(){
 ?>
 <!-- -- -- -- -- Liste de tous les épisodes -- -- -- -- -->
         <section class="row" id="fop_episodes">
-         <label class="col-xl-8" id="fopepi_title">Tous les épisodes</label>
-         <label class="col-xl-4" id="fopepi_title"><?php echo $intEpisodes;?></label>
+         <div class="col-xl-12" id="fopepi_title">
+          <div class="row">
+           <label class="col-xl-8">Tous les épisodes</label>
+           <label class="col-xl-4"><?php echo $intEpisodes;?></label>
+          </div>
+         </div>
 <!-- -- -- -- -- Section : principale -- -- -- -- -->
          <section class="col-xl-8" id="fopepi_main">
 <?php
     for ( $i = 1 ; $i <= $intSeasons ; $i++ ) {
         $arrEpiSeason = fct_SelecEpisodesFromSeason($i);        // Tableau des informations des épisodes de la saison
         $strSeasonClass = "col-xl-4 season" . $i;
+        $strBlocId = "season_bloc" . $i;
         $strLabelId = "season" . $i;
-        $strBlocId = "season_liste" . $i;
+        $strListeId = "season_liste" . $i;
+        $strLabelDescription = "Voir la liste des épisodes";
 ?>
-         <article class="row">
-          <label class="<?php echo $strSeasonClass;?>" id="<?php echo $strLabelId;?>">Saison&nbsp;<?php echo $i;?></label>
-          <div class="col-xl-12" id="<?php echo $strBlocId;?>">
-           <div class="row">
+          <article class="row" id="<?php echo $strBlocId;?>">
+           <label class="<?php echo $strSeasonClass;?>" id="<?php echo $strLabelId;?>" title="<?php echo $strLabelDescription;?>">Saison&nbsp;<?php echo $i;?></label>
+           <div class="offset-xl-1 col-xl-10" id="<?php echo $strListeId;?>">
+            <div class="row">
 <?php
         for ( $j = 1 ; $j <= $arrSeasons[$i]['EpisodesNumber'] ; $j++ ) {
-            
-?>
-            <div class="col-xl-1"><?php echo $j;?></div>
-            <div class="col-xl-11"><?php echo $arrEpiSeason[$j]['Title'];?></div>
+            $strEpisodeLinkAlt = "Voir la fiche de « " . $arrEpiSeason[$j]['Title'] . " »";
+            if ( $j != 1 ) {?>
+             <div class="col-xl-1 epiNumber"><?php echo $j;?></div>
+<?php
+            } else {?>
+             <div class="col-xl-7"></div>
+             <div class="col-xl-1 epiNumber"><?php echo $j;?></div>
+<?php
+            }?>
+             <div class="col-xl-11 epiTitle">
+              <a title="<?php echo $strEpisodeLinkAlt;?>"><?php echo $arrEpiSeason[$j]['Title'];?></a>
+             </div>
 <?php
         }?>
+            </div>
            </div>
-          </div>
-         </article>
+          </article>
 <?php
     }?>
          </section>
 <!-- -- -- -- -- Section : media -- -- -- -- -->
-         <section class="col-xl-8" id="fopepi_media">
-
+         <section class="col-xl-4" id="fopepi_media">
+          <img class="img-fluid" src="../media/pics/backgrounds/Friends_logo_02.jpg" alt="Photo d'illustration">
          </section>
 <!-- -- -- -- -- Fin : liste des épisodes -- -- -- -- -->
         </section>
