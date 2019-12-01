@@ -144,6 +144,13 @@ Palette
 	-webkit-font-smoothing: antialiased;
 	cursor: pointer;
 }
+#fop_acclink{
+	font-weight: 100;
+}
+#fop_acclink label:hover{
+	color: #C1C1C1;
+	text-shadow: 2px 2px 3px #000;
+}
 #friendop_menu label{
     display: flex;
     justify-content: center;
@@ -156,7 +163,7 @@ Palette
 	font-size: 22px;
 	letter-spacing: 0.1em;
 	color: #000;
-	text-shadow: 2px 2px 3px #000;
+	text-shadow: 2px 2px 3px #C1C1C1;
 }
 #friendop_menu label .red,#friendop_menu label .blue,#friendop_menu label .yellow{
 	font-size: 6px;

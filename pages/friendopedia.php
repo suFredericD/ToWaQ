@@ -91,9 +91,16 @@ fct_BuildHtmlHeader($objPageInfos);
 <!-- -- -- -- -- Vue principale -- -- -- -- -->
     <section class="row" id="friendop_container">
      <a id="haut" href="#" hidden></a><!-- Ancre pour les liens back-to-top -->
+     <div class="col-xl-12">
+      <a href="../index.php" title="Retour à l'accueil de ToWaQ">
+       <button>Accueil</button>
+      </a>
+     </div>
 <!-- -- -- -- -- Menu : section gauche -- -- -- -- -->
         <aside class="col-xl-2" id="friendop_menu">
-         <label class="row"><?php echo $strFriendoTitle;?></label>
+         <a href="friendopedia.php" id="fop_acclink" title="Retour à l'accueil de FriendOpedia">
+          <label class="row"><?php echo $strFriendoTitle;?></label>
+         </a>
 <?php fctDisplayFriendOpediaMenu($strMenuIconFile);?>
         </aside>
 <!-- -- -- -- -- Fiche : section droite -- -- -- -- -->
