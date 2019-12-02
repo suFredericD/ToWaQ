@@ -69,7 +69,14 @@ function fctDisplayEpisodeList(){
          </section>
 <!-- -- -- -- -- Section : media -- -- -- -- -->
          <section class="col-xl-4" id="fopepi_media">
-          <img class="img-fluid" src="../media/pics/backgrounds/Friends_logo_02.jpg" alt="Photo d'illustration">
+          <div class="row">
+           <div class="offset-xl-1 col-xl-10" id="media_picture">
+            <img class="img-fluid img-thumbnail" src="../media/pics/backgrounds/start_01.gif" alt="Photo d'illustration">
+           </div>
+           <div class="offset-xl-1 col-xl-10" id="media_cover">
+            <img class="img-fluid" src="../media/pics/backgrounds/Friends_logo_02.jpg" alt="Photo d'illustration">
+           </div>
+          </div>
          </section>
 <!-- -- -- -- -- Fin : liste des épisodes -- -- -- -- -->
         </section>
@@ -82,6 +89,11 @@ function fctDisplayEpisodeList(){
 function fctDisplayEpisodeFiche($intId){
     $arrEpisode = fct_SelectEpisodeById($intId);
     $strSeasonPicture = "cover_" . $arrEpisode['Season'] . ".jpg";
+    if ( $arrEpisode['Picture'] != "" ) {
+        $strEpisodePicture = $arrEpisode['Picture'];
+    } else {
+        $strEpisodePicture = $strSeasonPicture;
+    }
     $strSeasonClass = "col-xl-6 season" . $arrEpisode['Season'];
     $arrAppearances = fct_SelectAppearancesFromEpisodeById($intId);
     $intAppearances = count($arrAppearances);
@@ -90,7 +102,9 @@ function fctDisplayEpisodeFiche($intId){
     } else {
         $strDescription = "Aucune description disponible.";
     }
+    $arrQuestions = fct_SelectQuestionsFromEpisode($arrEpisode['Id']);
 ?>
+<!-- -- -- -- -- -- -- - - -- -- -- -- -- -- -- -- -->
 <!-- -- -- -- -- Fiche de l'épisode :  -- -- -- -- -->
         <section class="row" id="fop_episode">
          <div class="col-xl-12" id="fopepi_title">
@@ -130,7 +144,6 @@ function fctDisplayEpisodeFiche($intId){
                 $strImgAlt = "Photo de " . $strCompleteName . "'";
                 $strCharacterLinkText = "Voir la fiche de " . $strCompleteName;
             }
-            
 ?>
             <div class="col-xl-12">
              <div class="row cliste_item">
@@ -155,12 +168,53 @@ function fctDisplayEpisodeFiche($intId){
           </div>
 <?php
     }?>
+<!-- -- -- -- -- Liste des questions -- -- -- -- -->
+<?php
+    if ( is_array($arrQuestions) ) {
+        $intQuestions = count($arrQuestions);
+?>
+          <div class="row" id="questions_bloc">
+           <label for="questions_bloc" class="col-xl-12 cliste_label">Questions en rapport :&nbsp;<?php echo $intQuestions;?></label>
+<?php
+    for ( $i = 1 ; $i <= $intQuestions ; $i++ ) {
+        $strQuestionItemId = "que_item" . $i;
+        $strQuestionLevelDiv = "que_itemrow" . $i;
+?>
+<!-- -- -- -- -- Question n°<?php echo $i;?> -- -- -- -- -->
+            <div class="col-xl-12">
+             <div class="row que_item">
+              <div class="col-xl-1 que_itemnum"><?php echo $i;?></div>
+<!-- -- -- -- -- Niveau question n°<?php echo $i;?> -- -- -- -- -->
+              <div class="col-xl-2" id="<?php echo $strQuestionLevelDiv;?>">
+               <div class="row">
+                <label for="<?php echo $strQuestionItemId;?>" class="col-xl-12">Niveau</label>
+                <div id="<?php echo $strQuestionItemId;?>" class="col-xl-12">
+                 <meter min="0" max="3" low="1" high="2" optimum="0" value="<?php echo $arrQuestions[$i]['Level'];?>"></meter>
+                </div>
+               </div>
+              </div>
+<!-- -- -- -- -- Catégorie question n°<?php echo $i;?> -- -- -- -- -->
+              <div class="offset-xl-2 col-xl-5 <?php echo $arrQuestions[$i]['CatSlug'];?>"><?php echo $arrQuestions[$i]['Category'];?></div>
+             </div>
+            </div>
+<?php
+    }?>
+          </div>
+<?php
+    } else {?>
+          <div class="row" id="questions_bloc">
+           <label for="charac_liste" class="col-xl-12 cliste_label">Questions en rapport</label>
+           <div id="noquestion" class="offset-xl-1 col-xl-10"><?php echo $arrQuestions;?></div>
+          </div>
+<?php
+    }?>
+<!-- -- -- -- -- Section : fiche section principale -- -- -- -- -->
          </section>
 <!-- -- -- -- -- Section : media -- -- -- -- -->
          <section class="col-xl-4" id="fopepi_media">
-          <img class="img-fluid" src="../media/pics/seasons/<?php echo $strSeasonPicture;?>" alt="Couverture du dvd de la saison <?php echo $arrEpisode['Season'];?>">
+          <img class="img-fluid" src="../media/pics/seasons/<?php echo $strEpisodePicture;?>" alt="Couverture du dvd de la saison <?php echo $arrEpisode['Season'];?>">
          </section>
-<!-- -- -- -- -- Fin : liste des épisodes -- -- -- -- -->
+<!-- -- -- -- -- Fin : vue 'Fiche' -- -- -- -- -->
         </section>
 <?php
 }

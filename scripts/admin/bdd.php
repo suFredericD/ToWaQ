@@ -654,6 +654,64 @@ function fct_SelectQuestionsFromLevel($intLevel){
     }
     return $arrReturn;
 }
+// Fonction d'extraction des questions d'un épisode sélectionné
+//       Paramètres  :
+//        intEpisode : id de l'épisode sélectionné
+//  Valeur de retour :
+//         arrReturn : tableau des questions de l'épisode sélectionné
+//                  ou
+//    strNoQuestions : message 'Pas de question en rapport.'
+function fct_SelectQuestionsFromEpisode($intEpisode){
+    $strRequest = "SELECT * FROM `fri_questions` "
+                . "INNER JOIN `fri_AskLevel` ON `asl_Id`=`que_Level` "
+                . "INNER JOIN `fri_episodes` ON `epi_Id`=`que_Episode` "
+                . "INNER JOIN `fri_category` ON `cat_Id`=`que_Category` "
+                . "INNER JOIN `fri_seasons` ON `sea_Id`=`epi_Season` "
+                . "WHERE `que_Episode`='" . $intEpisode . "';";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $i = 1;
+    while ($row = $resLink->fetch_row()) {
+        $arrReturn[$i]['Id'] = $row['0'];
+        $arrReturn[$i]['Level'] = $row['1'];
+        $arrReturn[$i]['CategoryId'] = $row['2'];
+        $arrReturn[$i]['EpisodeId'] = $row['3'];
+        $arrReturn[$i]['Text'] = $row['4'];
+        $arrReturn[$i]['Question'] = $row['5'];
+        $arrReturn[$i]['AnswerGood'] = $row['6'];
+        $arrReturn[$i]['Answer2'] = $row['7'];
+        $arrReturn[$i]['Answer3'] = $row['8'];
+        $arrReturn[$i]['Answer4'] = $row['9'];
+        $arrReturn[$i]['GoodText'] = $row['10'];
+        $arrReturn[$i]['BadText'] = $row['11'];
+        $arrReturn[$i]['PictureAsk'] = $row['12'];
+        $arrReturn[$i]['PictureAnswer'] = $row['13'];
+        $arrReturn[$i]['LevelName'] = $row['15'];
+        $arrReturn[$i]['LevelColor'] = $row['16'];
+        $arrReturn[$i]['Season'] = $row['18'];
+        $arrReturn[$i]['EpisodeNumber'] = $row['19'];
+        $arrReturn[$i]['EpisodeNameFr'] = $row['20'];
+        $arrReturn[$i]['EpisodeNameUs'] = $row['21'];
+        $arrReturn[$i]['EpisodeText'] = $row['22'];
+        $arrReturn[$i]['EpisodePic'] = $row['23'];
+        $arrReturn[$i]['Category'] = $row['26'];
+        $arrReturn[$i]['CatColor'] = $row['27'];
+        $arrReturn[$i]['CatUs'] = $row['28'];
+        $arrReturn[$i]['CatSlug'] = $row['29'];
+        $arrReturn[$i]['seaEpisodes'] = $row['31'];
+        $arrReturn[$i]['seaDiffStart'] = $row['32'];
+        $arrReturn[$i]['seaDiffEnd'] = $row['33'];
+        $arrReturn[$i]['seaDvdFr'] = $row['34'];
+        $arrReturn[$i]['seaColor'] = $row['35'];
+        $i++;
+    }
+    if ( $arrReturn['1']['Id'] != "" ) {
+        return $arrReturn;
+    } else {
+        $strNoQuestions = "Pas de question en rapport.";
+        return $strNoQuestions;
+    }
+}
 // Fonction d'extraction des informations de tous les acteurs
 //       Paramètres  : none
 //  Valeur de retour :

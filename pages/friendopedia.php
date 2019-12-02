@@ -124,13 +124,13 @@ if ( preg_match("/actors$/", $_GET['show']) ) {             // Liste de tous les
 <!-- -- -- -- -- Fin : vue principale -- -- -- -- -->
         </section>
 <!-- -- -- -- -- Bouton : Retour à l'accueil -- -- -- -- -->
-<div class="col-xl-12">
-      <a href="../index.php" title="Retour à l'accueil de ToWaQ">
-       <button><span class="fa fa-arrow-circle-left"></span>&nbsp;Accueil</button>
-      </a>
-     </div>
+        <div class="col-xl-12">
+         <a href="../index.php" title="Retour à l'accueil de ToWaQ">
+          <button><span class="fa fa-arrow-circle-left"></span>&nbsp;Accueil</button>
+         </a>
+        </div>
 <!-- -- -- -- -- Fin : page -- -- -- -- -->
-    </section>
+       </section>
 <!-- -- -- -- -- Scripting dédié -- -- -- -- -->
     <script src="../scripts/js/friendopedia.js"></script>
 <?php

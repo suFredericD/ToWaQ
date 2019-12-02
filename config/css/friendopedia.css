@@ -723,11 +723,18 @@ Palette
 	-webkit-box-shadow: 2px 2px 4px #000;
 }
 #fopepi_media{
+	display: flex;
+	justify-content: space-around;
+	align-items: stretch;
+	padding-top: 20px;
 	background-color: #000;
 	border: 2px outset #000;
 	box-shadow: 2px 2px 4px #000;
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#media_picture,#media_cover{
+	margin-top: 20px;
 }
 .season_epinumber{
 	display: flex;
@@ -816,12 +823,6 @@ Palette
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;
 }
-#fopepi_media{
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	padding-top: 100px;
-}
 /***** ***** ***** Fiche : épisode ***** ***** *****/
 .fepiTitle{
 	display: flex;
@@ -859,7 +860,7 @@ Palette
 	color: #C1C1C1;
 	text-shadow: 1px 1px 3px #000;
 }
-#epiText_bloc,#characliste_bloc{
+#epiText_bloc,#characliste_bloc,#questions_bloc{
 	margin: 20px 50px 0px 50px;
 	background-color: #67617D;
 	border: 1px inset #333;
@@ -868,6 +869,9 @@ Palette
 	box-shadow: 2px 2px 4px #000;
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#characliste_bloc{
+	padding-bottom: 15px;
 }
 #epiText_bloc p,#nocharac{
 	font-family: "NoteThis";
@@ -880,17 +884,22 @@ Palette
 .cliste{
 	margin: 5px 0px 20px 0px;
 }
-.cliste_item{
+.cliste_item,.que_item{
 	margin: 5px 10px 5px 10px;
 	padding: 6px 5px 6px 26px;
 	height: 80px;
-	background-color: #75617D;
 	border: 1px inset #333;
 	border-top-right-radius: 45px;
 	border-bottom-left-radius: 45px;
 	box-shadow: 1px 1px 2px #000;
 	-moz-box-shadow: 1px 1px 2px #000;
 	-webkit-box-shadow: 1px 1px 2px #000;
+}
+.cliste_item{
+	background-color: #75617D;
+}
+.que_item{
+	background-color: #61697D;
 }
 .cliste_item:hover{
 	background-color: #61777D;
@@ -919,6 +928,51 @@ Palette
 	font-weight: 100;
 	color: #C1C1C1;
 	text-shadow: 2px 2px 4px #000;
+}
+/***** ***** ***** Questions de l' épisode : labels de catégories***** ***** *****/
+[id*="que_itemrow"] label,.que_itemnum,.fears,.history,.literature,.relatives,#noquestion{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "NoteThis";
+	font-weight: bold;
+	letter-spacing: 0.09em;
+	color: #000;
+	text-shadow: none;
+}
+.que_itemnum{
+	font-size: 30px;
+}
+[id*="que_itemrow"] label{
+	font-size: 20px;
+}
+.fears,.history,.literature,.relatives,.que_item div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+.fears,.history,.literature,.relatives{
+	border: 1px inset #333;
+	font-size: 20px;
+}
+.fears{
+    background-color: #4BAEA0;
+}
+.history{
+    background-color: #C2509F;
+}
+.literature{
+    background-color: #D2AD0F;
+}
+.relatives{
+    background-color: #6D50C2;
+}
+#noquestion{
+	padding-top: 5px;
+	padding-bottom: 15px;
+	font-size: 26px;
 }
 /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */
