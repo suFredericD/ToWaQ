@@ -117,6 +117,8 @@ if ( preg_match("/actors$/", $_GET['show']) ) {             // Liste de tous les
     fctDisplayEpisodeList();
 } elseif (preg_match("/episode$/", $_GET['show'])) {       // Fiche d'un épisode
     fctDisplayEpisodeFiche($_GET['item']);
+} elseif (preg_match("/seasons$/", $_GET['show'])) {       // Liste des saisons
+    fctDisplaySeasonsList();
 } else {                                                    // Liste des personnages
     fctDisplayCharacters($_GET['show']);
 }
