@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page de construction de la vue 'fiche'
  *   Date mise en oeuvre :   27/11/2019
- *          Dernière MàJ :   01/12/2019
+ *          Dernière MàJ :   02/12/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
@@ -310,11 +310,16 @@ function fctDisplayCharacterFile($intActorId){
 <?php
     for ( $i = 1 ; $i <= $intAppearances ; $i++ ) {
         $strSeasonClass = "season" . $arrAppearances[$i]['Season'];
+        $strEpisodeUs = "Nom original : " . $arrAppearances[$i]['NameUs'];
+        $strEpisodeUrl = "friendopedia.php?show=episode&item=" . $arrAppearances[$i]['Id'];
+        $strEpisodeLinkText = "Voir la fiche de « " . $arrAppearances[$i]['NameFr'] . " »";
 ?>
                <div class="row fcha_episodeitem">
                 <div class="col-xl-1 <?php echo $strSeasonClass;?>"><?php echo $arrAppearances[$i]['Season'];?></div>
                 <div class="col-xl-3 fcha_epinumber">Episode&nbsp;<?php echo $arrAppearances[$i]['Episode'];?></div>
-                <div class="col-xl-8 fcha_epilabel" title="<?php echo $arrAppearances[$i]['NameUs'];?>"><?php echo $arrAppearances[$i]['NameFr'];?></div>
+                <div class="col-xl-8 fcha_epilabel" title="<?php echo $strEpisodeUs;?>">
+                 <a class="episode_link" href="<?php echo $strEpisodeUrl;?>" title="<?php echo $strEpisodeLinkText;?>"><?php echo $arrAppearances[$i]['NameFr'];?></a>
+                </div>
                 </div>
 <?php
     }?>

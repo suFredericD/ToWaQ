@@ -7,7 +7,7 @@
  * 				Contexte :	 Css 3.0
  *              Fonction :   page de styles d'affichage CSS
  *   Date mise en oeuvre :   26/11/2019
- *          Dernière MàJ :   30/11/2019
+ *          Dernière MàJ :   02/12/2019
  *************************************************************************************************/
 /*
 Palette
@@ -527,7 +527,17 @@ Palette
 	font-family: "KomikaDisplay";
 	font-size: 36px;
 	color: #C1C1C1;
-	text-shadow: 1px 1px 2px #000;
+	text-shadow: 1px 1px 1px #000;
+}
+.episode_link{
+	font-family: "Desyrel";
+	color: #333;
+	text-shadow: none;
+}
+.episode_link:hover{
+	font-size: xx-large;
+	color: #000;
+	text-shadow: 2px 2px 3px #C1C1C1;
 }
 /***** ***** ***** Liste des apparitions ***** ***** *****/
 #fcha_appearances{
@@ -663,7 +673,7 @@ Palette
 	justify-content: center;
 	align-items: center;
 }
-/***** ***** ***** Pae : liste des épisodes ***** ***** *****/
+/***** ***** ***** Page : liste des épisodes ***** ***** *****/
 #fopepi_title{
 	background-color: hsl(31, 25%, 65%) !important;
 	background-repeat: repeat-x;
@@ -811,6 +821,104 @@ Palette
 	justify-content: center;
 	align-items: flex-start;
 	padding-top: 100px;
+}
+/***** ***** ***** Fiche : épisode ***** ***** *****/
+.fepiTitle{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5px 0px 5px 20px;
+	background-color: #61697D;
+	font-family: "NoteThis";
+	font-size: 30px;
+	font-weight: bold;
+	letter-spacing: 0.09em;
+	color: #000;
+	text-shadow: none;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+.cliste_label{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 5px 0px 5px 50px;
+	background-color: #75617D;
+	border: 1px inset #333;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+	box-shadow: 1px 1px 2px #000;
+	-moz-box-shadow: 1px 1px 2px #000;
+	-webkit-box-shadow: 1px 1px 2px #000;
+	font-family: "Desyrel";
+	font-size: 30px;
+	letter-spacing: 0.09em;
+	color: #C1C1C1;
+	text-shadow: 1px 1px 3px #000;
+}
+#epiText_bloc,#characliste_bloc{
+	margin: 20px 50px 0px 50px;
+	background-color: #67617D;
+	border: 1px inset #333;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+	box-shadow: 2px 2px 4px #000;
+	-moz-box-shadow: 2px 2px 4px #000;
+	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#epiText_bloc p,#nocharac{
+	font-family: "NoteThis";
+	font-size: 24px;
+	font-weight: bold;
+	letter-spacing: 0.09em;
+	color: #333;
+	text-shadow: none;
+}
+.cliste{
+	margin: 5px 0px 20px 0px;
+}
+.cliste_item{
+	margin: 5px 10px 5px 10px;
+	padding: 6px 5px 6px 26px;
+	height: 80px;
+	background-color: #75617D;
+	border: 1px inset #333;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+	box-shadow: 1px 1px 2px #000;
+	-moz-box-shadow: 1px 1px 2px #000;
+	-webkit-box-shadow: 1px 1px 2px #000;
+}
+.cliste_item:hover{
+	background-color: #61777D;
+}
+.cliste_item div{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.cliste_item div img{
+	max-height: 60px;
+}
+.cliste_item div img:hover{
+	max-height: 300px;
+	max-width: 300px;
+	z-index: 5000;
+}
+.cliste_item div a{
+	font-family: "Desyrel";
+	font-size: 34px;
+	letter-spacing: 0.1em;
+	color: #333;
+}
+.cliste_item div a:hover{
+	font-size: 36px;
+	font-weight: 100;
+	color: #C1C1C1;
+	text-shadow: 2px 2px 4px #000;
 }
 /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */

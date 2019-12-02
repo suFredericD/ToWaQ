@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page de consultation de la base de données
  *   Date mise en oeuvre :   26/11/2019
- *          Dernière MàJ :   01/12/2019
+ *          Dernière MàJ :   02/12/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 require("../scripts/admin/variables.php");                          // Variables globales du site
@@ -115,6 +115,8 @@ if ( preg_match("/actors$/", $_GET['show']) ) {             // Liste de tous les
     fctDisplayWelcome();
 } elseif (preg_match("/episodes$/", $_GET['show'])) {       // Liste de tous les épisodes
     fctDisplayEpisodeList();
+} elseif (preg_match("/episode$/", $_GET['show'])) {       // Fiche d'un épisode
+    fctDisplayEpisodeFiche($_GET['item']);
 } else {                                                    // Liste des personnages
     fctDisplayCharacters($_GET['show']);
 }

@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   fonctions BdD
  *   Date mise en oeuvre :   11/11/2019
- *          Dernière MàJ :   30/11/2019
+ *          Dernière MàJ :   02/12/2019
  **************************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
@@ -389,6 +389,26 @@ function fct_SelecEpisodesFromSeason($intSeason){
         $arrReturn[$i]['Character8'] = $row['16'];
         $i++;
     }
+    return $arrReturn;
+}
+// Fonction d'extraction des infos d'un épisode par son id
+//         Paramètre :
+//             intId : id de l'épisode
+//  Valeur de retour :
+//         arrReturn : tableau de l'épisode sélectionné
+function fct_SelectEpisodeById($intId){
+    $strRequest = "SELECT * FROM `fri_episodes` "
+                . "WHERE `epi_Id`='" . $intId . "';";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $arrReturn['Id'] = $row['0'];
+    $arrReturn['Season'] = $row['1'];
+    $arrReturn['Number'] = $row['2'];
+    $arrReturn['NameFr'] = $row['3'];
+    $arrReturn['NameUs'] = $row['4'];
+    $arrReturn['Description'] = $row['5'];
+    $arrReturn['Picture'] = $row['6'];
     return $arrReturn;
 }
 // Fonction d'extraction des infos d'un épisode par son numéro de saison et d'épisode
@@ -890,6 +910,44 @@ function fct_CheckAppearanceById($intId){
         $i++;
     }
     return $arrReturn;
+}
+// Fonction d'extraction de tous les personnages d'un épisode
+//       Paramètres  :
+//             intId : id de l'épisode sélectionné
+//  Valeur de retour :
+//         arrReturn : tableau des infos des personnages de l'épisode
+//                  ou
+//  strNoAppearances : message 'Pas d'invité'
+function fct_SelectAppearancesFromEpisodeById($intId){
+    $strRequest = "SELECT * FROM `fri_appearence` "
+                . "WHERE `app_Episode`='" . $intId . "';";
+    $resLink = fct_RequestExec($strRequest);
+    $resLink->data_seek(0);
+    $row = $resLink->fetch_row();
+    $arrAppearances['Id'] = $row['0'];
+    $arrAppearances['Episode'] = $row['1'];
+    $arrAppearances['Character1'] = $row['2'];
+    $arrAppearances['Character2'] = $row['3'];
+    $arrAppearances['Character3'] = $row['4'];
+    $arrAppearances['Character4'] = $row['5'];
+    $arrAppearances['Character5'] = $row['6'];
+    $arrAppearances['Character6'] = $row['7'];
+    $arrAppearances['Character7'] = $row['8'];
+    $arrAppearances['Character8'] = $row['9'];
+    if ( $arrAppearances['Id'] != "" ) {
+        $arrReturn['1'] = fct_SelectCharacterById($arrAppearances['Character1']);
+        for ( $i = 1 ; $i < 9 ; $i++ ) {
+            $strCharacterLabel = "Character" . $i;
+            $intCharacterId = $arrAppearances[$strCharacterLabel];
+            if ( $intCharacterId != "" ) {
+                $arrReturn[$i] = fct_SelectCharacterById($intCharacterId);
+            }
+        }
+        return $arrReturn;
+    } else {
+        $strNoAppearances = "Pas d'invité";
+        return $strNoAppearances;
+    }
 }
 // Fonction d'extraction de tous les personnages de la base
 //       Paramètres  : none
