@@ -233,8 +233,12 @@ function fct_selectNotAskedQuestions($arrAlreadyAsked){
         $arrReturn[$i]['seaEpisodes'] = $row['31'];
         $arrReturn[$i]['seaDiffStart'] = $row['32'];
         $arrReturn[$i]['seaDiffEnd'] = $row['33'];
-        $arrReturn[$i]['seaDvdFr'] = $row['34'];
-        $arrReturn[$i]['seaColor'] = $row['35'];
+        $arrReturn[$i]['seaFr2Start'] = $row['33'];
+        $arrReturn[$i]['seaFr2End'] = $row['34'];
+        $arrReturn[$i]['seaDvdFr'] = $row['35'];
+        $arrReturn[$i]['seaColor'] = $row['36'];
+        $arrReturn[$i]['seaWiki'] = $row['37'];
+        $arrReturn[$i]['seaText'] = $row['38'];
         $i++;
     }
     return $arrReturn;
@@ -284,8 +288,12 @@ function fct_SelectOneQuestionById($intId){
     $arrReturn['seaEpisodes'] = $row['31'];
     $arrReturn['seaDiffStart'] = $row['32'];
     $arrReturn['seaDiffEnd'] = $row['33'];
-    $arrReturn['seaDvdFr'] = $row['34'];
-    $arrReturn['seaColor'] = $row['35'];
+    $arrReturn['seaFr2Start'] = $row['34'];
+    $arrReturn['seaFr2End'] = $row['35'];
+    $arrReturn['seaDvdFr'] = $row['36'];
+    $arrReturn['seaColor'] = $row['37'];
+    $arrReturn['seaWiki'] = $row['38'];
+    $arrReturn['seaText'] = $row['39'];
     return $arrReturn;
 }
 // Fonction d'inserction des infos d'une proposition de question
@@ -514,8 +522,12 @@ function fct_SelectAllSeasons(){
         $arrReturn[$i]['EpisodesNumber'] = $row['1'];
         $arrReturn[$i]['DiffusionStart'] = $row['2'];
         $arrReturn[$i]['DiffusionEnd'] = $row['3'];
-        $arrReturn[$i]['DvdFrance'] = $row['4'];
-        $arrReturn[$i]['Color'] = $row['5'];
+        $arrReturn[$i]['Fr2Start'] = $row['4'];
+        $arrReturn[$i]['Fr2End'] = $row['5'];
+        $arrReturn[$i]['DvdFr'] = $row['6'];
+        $arrReturn[$i]['Color'] = $row['7'];
+        $arrReturn[$i]['Wiki'] = $row['8'];
+        $arrReturn[$i]['Text'] = $row['9'];
         $i++;
     }
     return $arrReturn;
@@ -597,8 +609,12 @@ function fct_SelectAllQuestions(){
         $arrReturn[$i]['seaEpisodes'] = $row['30'];
         $arrReturn[$i]['seaDiffStart'] = $row['31'];
         $arrReturn[$i]['seaDiffEnd'] = $row['32'];
-        $arrReturn[$i]['seaDvdFr'] = $row['33'];
-        $arrReturn[$i]['seaColor'] = $row['34'];
+        $arrReturn[$i]['seaFr2Start'] = $row['33'];
+        $arrReturn[$i]['seaFr2End'] = $row['34'];
+        $arrReturn[$i]['seaDvdFr'] = $row['35'];
+        $arrReturn[$i]['seaColor'] = $row['36'];
+        $arrReturn[$i]['seaWiki'] = $row['37'];
+        $arrReturn[$i]['seaText'] = $row['38'];
         $i++;
     }
     return $arrReturn;
@@ -648,8 +664,12 @@ function fct_SelectQuestionsFromLevel($intLevel){
         $arrReturn[$i]['seaEpisodes'] = $row['30'];
         $arrReturn[$i]['seaDiffStart'] = $row['31'];
         $arrReturn[$i]['seaDiffEnd'] = $row['32'];
-        $arrReturn[$i]['seaDvdFr'] = $row['33'];
-        $arrReturn[$i]['seaColor'] = $row['34'];
+        $arrReturn[$i]['seaFr2Start'] = $row['33'];
+        $arrReturn[$i]['seaFr2End'] = $row['34'];
+        $arrReturn[$i]['seaDvdFr'] = $row['35'];
+        $arrReturn[$i]['seaColor'] = $row['36'];
+        $arrReturn[$i]['seaWiki'] = $row['37'];
+        $arrReturn[$i]['seaText'] = $row['38'];
         $i++;
     }
     return $arrReturn;
@@ -701,8 +721,12 @@ function fct_SelectQuestionsFromEpisode($intEpisode){
         $arrReturn[$i]['seaEpisodes'] = $row['31'];
         $arrReturn[$i]['seaDiffStart'] = $row['32'];
         $arrReturn[$i]['seaDiffEnd'] = $row['33'];
-        $arrReturn[$i]['seaDvdFr'] = $row['34'];
-        $arrReturn[$i]['seaColor'] = $row['35'];
+        $arrReturn[$i]['seaFr2Start'] = $row['34'];
+        $arrReturn[$i]['seaFr2End'] = $row['35'];
+        $arrReturn[$i]['seaDvdFr'] = $row['36'];
+        $arrReturn[$i]['seaColor'] = $row['37'];
+        $arrReturn[$i]['seaWiki'] = $row['38'];
+        $arrReturn[$i]['seaText'] = $row['39'];
         $i++;
     }
     if ( $arrReturn['1']['Id'] != "" ) {

@@ -7,7 +7,7 @@
  * 				Contexte :	 Css 3.0
  *              Fonction :   page de styles d'affichage CSS
  *   Date mise en oeuvre :   26/11/2019
- *          Dernière MàJ :   02/12/2019
+ *          Dernière MàJ :   03/12/2019
  *************************************************************************************************/
 /*
 Palette
@@ -674,7 +674,7 @@ Palette
 	align-items: center;
 }
 /***** ***** ***** Page : liste des épisodes ***** ***** *****/
-#fopepi_title{
+#fopepi_title,#fopsea_title{
 	background-color: hsl(31, 25%, 65%) !important;
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e2d9cf", endColorstr="#bca68f");
@@ -698,18 +698,27 @@ Palette
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;
 }
-#fopepi_title label{
+#fopepi_title label,#fopsea_title label{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-#fopepi_main{
+#fopepi_main,#fopsea_main{
 	background-color: #61777D;
 	border: 2px outset #000;
 	border-bottom-left-radius: 45px;
 	box-shadow: 2px 2px 4px #000;
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;
+}
+#fopsea_main{
+	padding-top: 20px;
+}
+.timelabel{
+	font-family: "KomikaDisplay";
+	font-size: 28px;
+	color: #C1C1C1;
+	text-shadow: 1px 1px 2px #000;
 }
 [id*="season_liste"]{
 	margin-bottom: 20px;
@@ -722,7 +731,7 @@ Palette
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;
 }
-#fopepi_media{
+#fopepi_media,#fopsea_media{
 	display: flex;
 	justify-content: space-around;
 	align-items: stretch;
@@ -823,6 +832,89 @@ Palette
 	-moz-box-shadow: 2px 2px 4px #000;
 	-webkit-box-shadow: 2px 2px 4px #000;
 }
+/***** ***** ***** Liste : saisons ***** ***** *****/
+.sea_details label{
+	text-align: center;
+	font-family: "NoteThis";
+	font-size: 30px;
+	font-weight: bold;
+	letter-spacing: 0.09em;
+	color: #000;
+	text-shadow: 1px 1px 2px #C1C1C1;
+}
+.sea_details div{
+	text-align: center;
+	font-family: "Desyrel";
+	font-size: 32px;
+	letter-spacing: 0.09em;
+	color: #C1C1C1;
+	text-shadow: 2px 2px 3px #000;
+}
+.sea_details div span{
+	color: #000;
+	text-shadow: 1px 1px 2px #C1C1C1;
+}
+.sea_description{
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	background-color: #61697D;
+	border: 1px inset #333;
+	border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+.sea_textlabel{
+	padding-left: 50px;
+	background-color: hsl(31, 25%, 65%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e2d9cf", endColorstr="#bca68f");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#e2d9cf), to(#bca68f));
+	background-image: -moz-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -ms-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e2d9cf), color-stop(100%, #bca68f));
+	background-image: -webkit-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -o-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: linear-gradient(#e2d9cf, #bca68f);
+	border-color: #bca68f #bca68f hsl(31, 25%, 60%);
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+	-webkit-font-smoothing: antialiased;
+	color: #000 !important;
+	letter-spacing: 0.15em;
+	border: 1px inset #333;
+	border-top-right-radius: 45px;
+}
+.sea_para{
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: justify;
+	font-family: "Desyrel";
+	font-size: 22px;
+	letter-spacing: 0.09em;
+	color: #000;
+	text-shadow: none;
+}
+.sea_para::first-letter{
+	font-size: xx-large;
+	color: #C1C1C1;
+	text-shadow: 1px 1px 2px #000;
+}
+.sea_wikilink{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.sea_wikilink a{
+	font-family: "NoteThis";
+	font-size: 28px;
+	font-weight: bold;
+	letter-spacing: 0.09em;
+	color: #000;
+	text-shadow: 1px 1px 2px #C1C1C1;
+}
+.sea_wikilink a:hover{
+	font-size: 32px;
+	color: #C1C1C1;
+	text-shadow: 2px 2px 3px #000;
+}
 /***** ***** ***** Fiche : épisode ***** ***** *****/
 .fepiTitle{
 	display: flex;
@@ -919,17 +1011,20 @@ Palette
 }
 .cliste_item div a{
 	font-family: "Desyrel";
-	font-size: 34px;
+	font-size: 26px;
 	letter-spacing: 0.1em;
 	color: #333;
 }
 .cliste_item div a:hover{
-	font-size: 36px;
+	font-size: 28px;
 	font-weight: 100;
 	color: #C1C1C1;
 	text-shadow: 2px 2px 4px #000;
 }
-/***** ***** ***** Questions de l' épisode : labels de catégories***** ***** *****/
+/***** ***** ***** Questions de l'épisode : labels de catégories***** ***** *****/
+#questions_bloc{
+	margin-bottom: 15px;
+}
 [id*="que_itemrow"] label,.que_itemnum,.fears,.history,.literature,.relatives,#noquestion{
 	display: flex;
 	justify-content: center;

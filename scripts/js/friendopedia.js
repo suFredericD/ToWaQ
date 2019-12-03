@@ -67,7 +67,7 @@ var arrDisplayed =  new Array(false, false, false, false, false, false, false, f
 function fctDisplayEpisodeListe(intSeason){
     for ( i = 0 ; i < arrSections.length ; i++ ) {
         intIndex = i + 1;
-        strSeasonTitle = "Voir la liste des épisodes de la saison " + intIndex;
+        strSeasonTitle = "Voir les détails de la saison " + intIndex;
         strPictureCover = strSeasonCover + intIndex + ".jpg";
         strPictureSeason = "../media/pics/seasons/mid_" + intIndex + ".jpg";
         if ( i != intSeason ) {

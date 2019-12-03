@@ -8,11 +8,95 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page de construction des vues 'Epiosdes'
  *   Date mise en oeuvre :   01/12/2019
- *          Dernière MàJ :   02/12/2019
+ *          Dernière MàJ :   03/12/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 
 /***** *****    FONCTIONS   ***** *****/
+// Fonction de construction de la liste de toutes les saisons
+//       Paramètres  : none
+//  Valeur de retour : none
+function fctDisplaySeasonsList(){
+    $arrSeasons = fct_SelectAllSeasons();       // Tableau des informations des saisons
+    $intSeasons = count($arrSeasons);           // Nombre de saisons
+?>
+    <!-- -- -- -- -- Liste de toutes les saisons -- -- -- -- -->
+        <section class="row" id="fop_seasons">
+         <div class="col-xl-12" id="fopsea_title">
+          <div class="row">
+           <label class="col-xl-8">Toutes les saisons</label>
+           <label class="col-xl-4"><?php echo $intSeasons;?></label>
+          </div>
+         </div>
+<!-- -- -- -- -- Section : principale -- -- -- -- -->
+         <section class="col-xl-8" id="fopsea_main">
+<?php
+    for ( $i = 1 ; $i <= $intSeasons ; $i++ ) {
+        $strSeasonClass = "col-xl-4 season" . $i;
+        $strBlocId = "season_bloc" . $i;
+        $strLabelId = "season" . $i;
+        $strListeId = "season_liste" . $i;
+        $strLabelDescription = "Voir les détails de la saison " . $i;       // Attribut title du bouton de la saison
+        $strWikiLink = $arrSeasons[$i]['Wiki'];                             // Lien Wikipedia
+        $strWikiLabel = "Consulter Wikipedia : saison " . $i;               // Label du lien wikipédia
+        $arrParagraphs = preg_split("/<br>/", $arrSeasons[$i]['Text']);     // Split de la description en paragraphes
+        $intParagraphs = count($arrParagraphs);                             // Nombre de paragraphres
+        $datDiffusionUsStart = new DateTime($arrSeasons[$i]['DiffusionStart']);
+        $datDiffusionUsEnd = new DateTime($arrSeasons[$i]['DiffusionEnd']);
+        $strDiffusionUs = $datDiffusionUsStart->format("Y") . " - " . $datDiffusionUsEnd->format("Y");
+?>
+<!-- -- -- -- -- Bloc : saison n°<?php echo $i;?> -- -- -- -- -->
+          <article class="row" id="<?php echo $strBlocId;?>">
+           <label class="<?php echo $strSeasonClass;?>" id="<?php echo $strLabelId;?>" title="<?php echo $strLabelDescription;?>">Saison&nbsp;<?php echo $i;?></label>
+           <div class="offset-xl-1 col-xl-10" id="<?php echo $strListeId;?>">
+            <div class="row sea_details">
+             <div class="col-xl-7"></div>
+             <label class="offset-xl-1 col-xl-5">Nombre d'épisodes</label>
+             <div class="col-xl-6"><?php echo $arrSeasons[$i]['EpisodesNumber'];?></div>
+             <div class="offset-xl-1 col-xl-1"><span class="fa fa-chalkboard-teacher fa-lg"></span></div>
+             <label class="col-xl-5">US</label>
+             <div class="col-xl-4"><?php echo $strDiffusionUs;?></div>
+             <div class="offset-xl-1 col-xl-1"><span class="fa fa-compact-disc fa-lg"></span></div>
+             <label class="col-xl-5">Sortie France</label>
+             <div class="col-xl-4"><?php echo $arrSeasons[$i]['DvdFr'];?></div>
+<!-- -- -- -- -- Bloc : description saison n°<?php echo $i;?> -- -- -- -- -->
+             <div class="offset-xl-1 col-xl-10 sea_description">
+              <div class="row">
+               <label class="col-xl-12 sea_textlabel">Ce qui s'est passé...</label>
+               <div class="col-xl-12">
+<?php   for ( $j = 0 ; $j < $intParagraphs ; $j++ ) {
+?>
+<!-- -- -- -- -- Description saison <?php echo $i;?> : paragraphe <?php echo $j;?> -- -- -- -- -->
+                <p class="sea_para"><?php echo $arrParagraphs[$j];?></p>
+<?php   }?>
+               </div>
+              </div>
+             </div>
+             <div class="offset-xl-1 col-xl-10 sea_wikilink">
+              <a href="<?php echo $strWikiLink;?>" target="_blank"><?php echo $strWikiLabel;?></a>
+             </div>
+            </div>
+           </div>
+          </article>
+<?php
+    }?>
+<!-- -- -- -- -- Fin : section principale -- -- -- -- -->
+         </section>
+<!-- -- -- -- -- Section : media -- -- -- -- -->
+         <section class="col-xl-4" id="fopsea_media">
+          <div class="row">
+           <div class="offset-xl-1 col-xl-10" id="media_picture">
+            <img class="img-fluid img-thumbnail" src="../media/pics/backgrounds/start_01.gif" alt="Photo d'illustration">
+           </div>
+           <div class="offset-xl-1 col-xl-10" id="media_cover">
+            <img class="img-fluid" src="../media/pics/backgrounds/Friends_logo_02.jpg" alt="Photo d'illustration">
+           </div>
+          </div>
+         </section>
+<!-- -- -- -- -- Fin : liste des saisons -- -- -- -- -->
+        </section>
+<?php
+}
 // Fonction de construction de la liste de tous les épisodes
 //       Paramètres  : none
 //  Valeur de retour : none
@@ -40,11 +124,14 @@ function fctDisplayEpisodeList(){
         $strLabelId = "season" . $i;
         $strListeId = "season_liste" . $i;
         $strLabelDescription = "Voir la liste des épisodes";
+        $datDiffUsStart = new DateTime($arrSeasons[$i]['DiffusionStart']);
 ?>
           <article class="row" id="<?php echo $strBlocId;?>">
            <label class="<?php echo $strSeasonClass;?>" id="<?php echo $strLabelId;?>" title="<?php echo $strLabelDescription;?>">Saison&nbsp;<?php echo $i;?></label>
            <div class="offset-xl-1 col-xl-10" id="<?php echo $strListeId;?>">
             <div class="row">
+             <div class="offset-xl-1 col-xl-7 timelabel">Première diffusion US</div>
+             <div class="col-xl-4 timelabel"><?php echo $datDiffUsStart->format("Y");?></div>
 <?php
         for ( $j = 1 ; $j <= $arrSeasons[$i]['EpisodesNumber'] ; $j++ ) {
             $strEpisodeLinkAlt = "Voir la fiche de « " . $arrEpiSeason[$j]['Title'] . " »";
@@ -52,7 +139,6 @@ function fctDisplayEpisodeList(){
              <div class="col-xl-1 epiNumber"><?php echo $j;?></div>
 <?php
             } else {?>
-             <div class="col-xl-7"></div>
              <div class="col-xl-1 epiNumber"><?php echo $j;?></div>
 <?php
             }?>
@@ -212,7 +298,11 @@ function fctDisplayEpisodeFiche($intId){
          </section>
 <!-- -- -- -- -- Section : media -- -- -- -- -->
          <section class="col-xl-4" id="fopepi_media">
-          <img class="img-fluid" src="../media/pics/seasons/<?php echo $strEpisodePicture;?>" alt="Couverture du dvd de la saison <?php echo $arrEpisode['Season'];?>">
+          <div class="row">
+           <div class="offset-xl-1 col-xl-10">
+            <img class="img-fluid" src="../media/pics/seasons/<?php echo $strEpisodePicture;?>" alt="Couverture du dvd de la saison <?php echo $arrEpisode['Season'];?>">
+           </div>
+          </div>
          </section>
 <!-- -- -- -- -- Fin : vue 'Fiche' -- -- -- -- -->
         </section>
