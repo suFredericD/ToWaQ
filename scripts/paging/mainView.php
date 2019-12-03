@@ -19,7 +19,7 @@
 //     strPlayerName : nom du joueur
 //      intGameScore : score actuel
 //  Valeur de retour : none
-function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNumber, $strPlayerName, $intGameScore){
+function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNumber, $strPlayerName, $intGameScore, $intRight, $intWrong){
     $intCategories = count($arrCategories);
     $intNextAsk = $intAskNumber + 1;
     switch ($strPartie) {      // Controller : type de partie
@@ -104,7 +104,6 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
                 </div>
             </article>
         </section>
-
 <!-- -- -- -- Section 'question' -- -- -- -->
         <section id="secAsk" class="row">
 <!-- -- -- -- Bloc 'présentation' -- -- -- -->
@@ -124,12 +123,9 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
                     </div>
                 </div>
 <!-- -- -- -- row 'episode' -- -- -- -->
-                <div id="seasonRow" class="row">
+                <div id="episodeRow" class="row">
                     <label for="aiEpisode" class="col-xl-4">&Eacute;pisode <?php echo $arrQuestion['EpisodeNumber'];?></label>
-                    <div class="col-xl-8">
-                        <div id="aiTitleFr" class="col-xl-12"><?php echo $arrQuestion['EpisodeNameFr'];?></div>
-                        <div id="aiTitleUs" class="col-xl-12"><?php echo $arrQuestion['EpisodeNameUs'];?></div>
-                    </div>
+                    <div class="col-xl-8"><?php echo $arrQuestion['EpisodeNameFr'];?></div>
                 </div>
             </article>
 <!-- -- -- -- Bloc 'media' -- -- -- -->
@@ -145,7 +141,11 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
             </article>
 <!-- -- -- -- Bloc 'texte de la question' -- -- -- -->
             <article id="askText" class="col-xl-5">
-                <p><?php echo $arrQuestion['Text'];?></p>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p><?php echo $arrQuestion['Text'];?></p>
+                    </div>
+                </div>
             </article>
 <!-- -- -- -- Bloc 'question' -- -- -- -->
             <article id="askForReal" class="offset-xl-1 col-xl-10">
@@ -171,6 +171,8 @@ function fctDisplayGameView($arrQuestion, $arrCategories, $strPartie, $intAskNum
             <input type="number" id="score" name="score" value="<?php echo $intGameScore;?>" hidden>
             <input type="number" id="asknum" name="asknum" value="<?php echo $intAskNumber;?>" hidden>
             <input type="number" id="askid" name="askid" value="<?php echo $arrQuestion['Id'];?>" hidden>
+            <input type="number" id="ansright" name="ansright" value="<?php echo $intRight;?>" hidden>
+            <input type="number" id="answrong" name="answrong" value="<?php echo $intWrong;?>" hidden>
         </form>
     </section>
 <?php

@@ -8,7 +8,7 @@
  *              Contexte :   JavaScript
  *              Fonction :   script de dynamisation de la page de jeu
  *   Date mise en oeuvre :   23/11/2019
- *          Dernière MàJ :   30/11/2019
+ *          Dernière MàJ :   03/12/2019
  *********************************************************************************************/
 /* *** *** *** DECLARATIONS *** *** *** */
 // Type de partie
@@ -21,12 +21,18 @@ switch (strPartie){
     case "defifriends":
         intMaxItems = 20;
         break;
+    case "defiscore":
+        intMaxItems = 0;
 }
 // Blocs d'affichage des réponse
 const divAnswer1 = document.getElementById("answer1");
 const divAnswer2 = document.getElementById("answer2");
 const divAnswer3 = document.getElementById("answer3");
 const divAnswer4 = document.getElementById("answer4");
+// Récupération de l'élément caché : nombre de bonnes réponses
+const inpAnswerRight = document.getElementById("ansright");
+// Récupération de l'élément caché : nombre de mauvaises réponses
+const inpAnswerWrong = document.getElementById("answrong"); 
 // Statut de la question est cours : réponse possible
 var strState = "on";
 // Numéro de la saison de la question courante
@@ -39,7 +45,8 @@ var divCurrentSeason = document.getElementsByClassName(strSelectedSeasonClass)[0
 divCurrentSeason.style.border = "4px inset #000";
 divCurrentSeason.style.fontSize = "xx-large";
 divCurrentSeason.style.color = "#000";
-divCurrentSeason.style.textShadow = "2px 2px 4px #999";
+divCurrentSeason.style.textShadow = "2px 2px 4px #C1C1C1";
+divCurrentSeason.style.boxShadow = "2px 2px 4px #000";
 
 /* *** *** *** FONCTIONS *** *** *** */
 //  Fonction de changement de la classe de la réponse sélectionnée
@@ -97,7 +104,6 @@ function fctSeeGoodAnswer(divSelectedAnswer){
     var strPlayerAnswer = divSelectedAnswer.innerHTML
     // Récupération de l'image à afficher après réponse
     var strPicAnswerFile = document.getElementById("picAnswer").innerHTML;
-    console.log("strPicAnswerFile : " + strPicAnswerFile);
     if ( strPicAnswerFile != "" ) {
         // Sélection de l'élément à modifier
         var strAnswerPicPath = "../media/pics/askPics/" + strPicAnswerFile;
@@ -105,46 +111,54 @@ function fctSeeGoodAnswer(divSelectedAnswer){
         imgQuestionPicture.src = strAnswerPicPath;
     }
     // Création du bloc d'affichage des infos du résultat
-    var divResponseMessage = document.createElement("div");
-    divResponseMessage.className = "row";
+    var divResponseBloc = document.createElement("div");
+    divResponseBloc.id = "response_bloc";
+    divResponseBloc.className = "col-xl-12";
+    var rowResponseBloc = document.createElement("div");
+    rowResponseBloc.className = "row";
     // Création des blocs d'affichage du résultat et du score
     var divResult = document.createElement("div");
     var divResultText = document.createElement("div");
-    divResult.className = "col-xl-4";
-    divResultText.className = "col-xl-8";
+    divResult.className = "col-xl-12";
+    divResultText.className = "col-xl-12";
     // Création des paragraphes d'affichage des infos
-    var paraResponseResultMsg = document.createElement("p");
-    var paraResponseScore = document.createElement("p");
-    var paraResponseResultText = document.createElement("p");
-    paraResponseResultMsg.className = "col-xl-12";
+    var paraResponseResultMsg = document.createElement("div");
+    var paraResponseScore = document.createElement("div");
+    var paraResponseResultText = document.createElement("div");
+    paraResponseResultMsg.className = "col-xl-6";
     paraResponseResultText.id = "resultText";
     paraResponseResultText.className = "col-xl-12";
-    paraResponseScore.className = "col-xl-12";
+    paraResponseScore.className = "col-xl-6";
     // Controller : traitement de la réponse du joueur
     if ( strPlayerAnswer != strGoodAnswer ) {
-        divResponseMessage.className = "offset-xl-1 col-xl-10 responseBad";
+        divResponseBloc.className = "col-xl-12 responseBad";
         paraResponseResultMsg.className += " perdu";
         paraResponseResultMsg.innerHTML = "Perdu !";
         paraResponseResultText.innerHTML = document.getElementById("badText").innerHTML;
         paraResponseScore.innerHTML = "Score + 0";
         intScoreBonus = 0;
+        inpAnswerWrong.value = Number(inpAnswerWrong.value) + 1;
     } else {
-        divResponseMessage.className = "offset-xl-1 col-xl-10 responseGood";
+        divResponseBloc.className = "col-xl-12 responseGood";
         paraResponseResultMsg.className += " bravo";
         paraResponseResultMsg.innerHTML = "Bravo !";
         paraResponseResultText.innerHTML = document.getElementById("goodText").innerHTML;
         paraResponseScore.innerHTML = "Score + 1";
         intScoreBonus = 1;
+        inpAnswerRight.value = Number(inpAnswerRight.value) + 1;
     }
-    
     // Insertion du bloc d'affichage du résultat
-    divResponseMessage.appendChild(divResult);
-    divResponseMessage.appendChild(divResultText);
+    divResponseBloc.appendChild(rowResponseBloc);
+    rowResponseBloc.appendChild(divResult);
+    rowResponseBloc.appendChild(divResultText);
     divResult.appendChild(paraResponseResultMsg);
     divResult.appendChild(paraResponseScore);
     divResultText.appendChild(paraResponseResultText);
+    // Modification police du texte de la question
+    var parQuestionText = document.getElementById("askText").getElementsByClassName('row')[0].getElementsByTagName('div')[0];
+    parQuestionText.getElementsByTagName('p')[0].style.fontSize = "16px";
     // Insertion du bloc d'affichage du résultat complet
-    document.getElementById("secAsk").append(divResponseMessage);
+    document.getElementById("askText").getElementsByClassName('row')[0].append(divResponseBloc);
     // Calcul et affichage du nouveau score
     var intNewScore = intCurrentScore + intScoreBonus;
     document.getElementById("gameScore").innerHTML = intNewScore;
@@ -177,9 +191,16 @@ function fctSeeGoodAnswer(divSelectedAnswer){
     document.getElementById("frmAnswer").append(hidResult);
     // Création du bouton vers la question suivante
     var btnSubmit = document.createElement("input");
-    btnSubmit.className = "offset-xl-2 col-xl-8 nextQuestion";
     btnSubmit.type = "submit";
-    btnSubmit.value = "Question suivante     > > >";
+    if ( Number(document.getElementById("asknum").value) < Number(intMaxItems) ) {
+        btnSubmit.className = "offset-xl-4 col-xl-6 nextQuestion";
+        btnSubmit.value = "Question suivante     > > >";
+    } else {
+        btnSubmit.className = "offset-xl-2 col-xl-8 btngame_end";
+        btnSubmit.value = "Partie terminée !";
+        btnSubmit.setAttribute('title', "Vers l'écran de fin de partie");
+    }
+    
     document.getElementById("frmAnswer").prepend(btnSubmit);
 }
 /* *** *** *** EVENT LISTENERS *** *** *** */

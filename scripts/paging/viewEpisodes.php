@@ -234,7 +234,7 @@ function fctDisplayEpisodeFiche($intId){
             <div class="col-xl-12">
              <div class="row cliste_item">
               <div class="col-xl-2">
-               <img class="img-fluid img-thumbnail" src="../media/pics/persos/<?php echo $arrAppearances[$i]['Portrait'];?>" title="<?php echo $strCompleteName;?>" alt="<?php echo $strImgAlt;?>">
+               <img class="img-fluid img-thumbnail" src="../media/pics/persos/<?php echo $arrAppearances[$i]['Portrait'];?>" alt="<?php echo $strImgAlt;?>">
               </div>
               <div class="offset-xl-1 col-xl-9">
                <a href="<?php echo $strCharacterUrl;?>" title="<?php echo $strCharacterLinkText;?>"><?php echo $strCompleteName;?></a>

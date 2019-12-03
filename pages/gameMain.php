@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   page principale du jeu
  *   Date mise en oeuvre :   12/11/2019
- *          Dernière MàJ :   25/11/2019
+ *          Dernière MàJ :   03/12/2019
  *********************************************************************************/
 /***** *****    INCLUSIONS ET SCRIPTS   ***** *****/
 require("../scripts/admin/variables.php");                          // Variables globales du site
@@ -83,6 +83,16 @@ if ( isset($_POST['score'])) {
 } else {
     $intGameScore = 0;
 }
+if ( isset($_POST['ansright']) ) {
+    $intRight = $_POST['ansright'];
+} else {
+    $intRight = 0;
+}
+if ( isset($_POST['answrong']) ) {
+    $intWrong = $_POST['answrong'];
+} else {
+    $intWrong = 0;
+}
 // Controller : ajout de l'id de la question précédente dans le tableau des id des questions à bannir
 if ( isset($_POST['askid'])) {
     fct_UpdateGameTable($strPlayerName, $_POST['askid']);
@@ -111,15 +121,15 @@ $arrAskItem = fctSelectNextQuestion($strPlayerName);
 // Controller : fin de partie
 if  ( $intMaxItems > 0 ) {
     if ( $intAskNumber <= $intMaxItems ){
-        fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore);
+        fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore, $intRight, $intWrong);
     } else {
-        fctDisplayEndGame($arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore);
+        fctDisplayEndGame($arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore, $intRight, $intWrong);
     }
 } else {
     if ( $intGameScore < 20 ) {
-        fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore);
+        fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore, $intRight, $intWrong);
     } else {
-        fctDisplayEndGame($arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore);
+        fctDisplayEndGame($arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore, $intRight, $intWrong);
     }
 }
 ?>

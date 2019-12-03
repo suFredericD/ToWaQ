@@ -7,7 +7,7 @@
  * 				Contexte :	 Css 3.0
  *              Fonction :   page de styles d'affichage CSS
  *   Date mise en oeuvre :   22/11/2019
- *          Dernière MàJ :   24/11/2019
+ *          Dernière MàJ :   03/12/2019
  *************************************************************************************************/
 /* ** ** ** ** Section Hud ** ** ** ** */
 #secHud{
@@ -58,7 +58,7 @@
 }
 /* ** ** ** ** Section Question ** ** ** ** */
 #secAsk{
-    padding: 20px 20px 20px 20px;
+    padding: 0px 20px 20px 20px;
     border: 1px inset #75617D;
     box-shadow: 2px 2px 4px #000;
 }
@@ -108,23 +108,36 @@
 /* ** ** ** ** Classes du label de saison ** ** ** ** */
 #seasonRow,#episodeRow{
     opacity: 0.9;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: #61697D;
     border: 1px inset #75617D;
     box-shadow: 2px 2px 4px #000;
+    border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
 }
 #episodeRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-bottom: 10px;
+    font-family: "NoteThis";
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 0.085em;
+    color: #000;
+    text-shadow: 1px 1px 3px #C1C1C1;
 }
 [class*="season"]{
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: "Desyrel";
-    font-size: 22px;
+    font-size: 20px;
     color: #999;
     text-shadow: 1px 1px 3px #000;
+    border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
 }
 .season1{
     background-color: #1F3A81;
@@ -164,12 +177,27 @@
     background-color: #61697D;
     border: 1px inset #75617D;
     box-shadow: 2px 2px 4px #000;
+    border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+#askText div{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#askText div div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#response_bloc{
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 #askText p{
     padding: 20px 20px 0px 20px;
     font-family: "BlockLetterBalPen";
     font-size: 21px;
-    text-align: justify;
+    text-align: center;
     color: #C1C1C1;
     text-shadow: 1px 1px 3px #000;
 }
@@ -194,10 +222,12 @@
     -webkit-font-smoothing: antialiased;
     border: 1px inset #75617D;
     box-shadow: 2px 2px 4px #000;
+    border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
 }
 #askForReal p{
     font-family: "Desyrel";
-    font-size: 36px;
+    font-size: 32px;
     letter-spacing: 0.1em;
     text-align: center;
     color: #C1C1C1;
@@ -214,6 +244,8 @@
     padding: 10px 10px 10px 10px;
     border: 1px inset #75617D;
     box-shadow: 2px 2px 4px #000;
+    border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
 }
 /* ** ** ** ** Blocs de réponses ** ** ** ** */
 #frmAnswer{
@@ -223,6 +255,8 @@
     padding: 20px 0px 20px 0px;
     border: 1px inset #75617D;
     box-shadow: 2px 2px 4px #000;
+    border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
 }
 [id*="answer"]{
     display: flex;
@@ -235,10 +269,14 @@
     font-family: "KomikaDisplay";
     font-size: 22px;
     letter-spacing: 0.04em;
-    border-radius: 15px;
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
+    border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
     cursor: pointer;
+    transition-property: all;
+    transition-duration: 1550ms;
+}
+[id*="answer"]:hover{
+    border-radius: 25px;
 }
 .ansUnselected{
     color: #C1C1C1;
@@ -263,6 +301,15 @@
     box-shadow: 2px 2px 4px #999;
 }
 /* ** ** ** ** Blocs de résultat ** ** ** ** */
+#response_bloc{
+    padding: 20px 20px 20px 20px;
+}
+#response_bloc div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+}
 .responseGood,.responseBad{
     display: flex;
     justify-content: center;
@@ -280,6 +327,7 @@
     border-radius: 15px;
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
+    box-shadow: 2px 2px 4px #000;
 }
 .responseGood p,.responseBad p{
     display: flex;
@@ -305,24 +353,63 @@
     color: rgb(139, 6, 6);
 }
 /* ** ** ** ** Bouton : question siuvante ** ** ** ** */
-.nextQuestion{
-    height: 120px;
-    background-color: #61697D;
+.nextQuestion,.btngame_end{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: hsl(261, 19%, 56%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeecf2", endColorstr="#8879a4");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#eeecf2), to(#8879a4));
+	background-image: -moz-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -ms-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeecf2), color-stop(100%, #8879a4));
+	background-image: -webkit-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: -o-linear-gradient(top, #eeecf2, #8879a4);
+	background-image: linear-gradient(#eeecf2, #8879a4);
+	border-color: #8879a4 #8879a4 hsl(261, 19%, 46.5%);
+	-webkit-font-smoothing: antialiased;
     font-family: "KomikaDisplay";
-    font-size: 22px;
     letter-spacing: 0.04em;
-    color: #C1C1C1;
-    text-shadow: 1px 1px 2px #000;
+    color: #000 !important;
+    text-shadow: 1px 1px 2px #C1C1C1;
     border: 3px outset #75617D;
     border-radius: 15px;
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     box-shadow: 2px 2px 4px #000;
+    transition-property: all;
+    transition-duration: 1250ms;
+    -moz-transition-property: all;
+    -moz-transition-duration: 1250ms;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 1250ms;
+}
+.nextQuestion{
+    font-size: 22px;
 }
 .nextQuestion:hover{
-    background-color: #75617D;
     font-size: x-large;
-    color: #000;
+}
+.btngame_end{
+    font-size: 30px;
+}
+.btngame_end:hover{
+    font-size: xx-large;
+}
+.nextQuestion:hover,.btngame_end:hover{
+    background-color: hsl(31, 25%, 65%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e2d9cf", endColorstr="#bca68f");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#e2d9cf), to(#bca68f));
+	background-image: -moz-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -ms-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e2d9cf), color-stop(100%, #bca68f));
+	background-image: -webkit-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -o-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: linear-gradient(#e2d9cf, #bca68f);
+	border-color: #bca68f #bca68f hsl(31, 25%, 60%);
+	-webkit-font-smoothing: antialiased;
+    color: #000 !important;
     text-shadow: 1px 1px 2px #C1C1C1;
     border: 3px outset #61697D;
     box-shadow: 2px 2px 4px #999;
