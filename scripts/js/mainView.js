@@ -11,6 +11,8 @@
  *          Dernière MàJ :   03/12/2019
  *********************************************************************************************/
 /* *** *** *** DECLARATIONS *** *** *** */
+// Fond d'écran du jeu
+
 // Type de partie
 const strPartie = document.getElementById("optPartie").getAttribute('value');
 var intMaxItems = 0;
@@ -23,6 +25,7 @@ switch (strPartie){
         break;
     case "defiscore":
         intMaxItems = 0;
+        intMaxScore = 20;
 }
 // Blocs d'affichage des réponse
 const divAnswer1 = document.getElementById("answer1");
@@ -135,8 +138,13 @@ function fctSeeGoodAnswer(divSelectedAnswer){
         paraResponseResultMsg.className += " perdu";
         paraResponseResultMsg.innerHTML = "Perdu !";
         paraResponseResultText.innerHTML = document.getElementById("badText").innerHTML;
-        paraResponseScore.innerHTML = "Score + 0";
-        intScoreBonus = 0;
+        if ( intMaxItems > 0 ) {
+            paraResponseScore.innerHTML = "Score + 0";
+            intScoreBonus = 0;
+        } else {
+            paraResponseScore.innerHTML = "Score - 1";
+            intScoreBonus = -1;
+        }
         inpAnswerWrong.value = Number(inpAnswerWrong.value) + 1;
     } else {
         divResponseBloc.className = "col-xl-12 responseGood";
@@ -192,13 +200,25 @@ function fctSeeGoodAnswer(divSelectedAnswer){
     // Création du bouton vers la question suivante
     var btnSubmit = document.createElement("input");
     btnSubmit.type = "submit";
-    if ( Number(document.getElementById("asknum").value) < Number(intMaxItems) ) {
-        btnSubmit.className = "offset-xl-4 col-xl-6 nextQuestion";
-        btnSubmit.value = "Question suivante     > > >";
+    if ( intMaxItems > 0 ) {
+        if ( Number(document.getElementById("asknum").value) < Number(intMaxItems) ) {
+            btnSubmit.className = "offset-xl-4 col-xl-6 nextQuestion";
+            btnSubmit.value = "Question suivante     > > >";
+        } else {
+            btnSubmit.className = "offset-xl-2 col-xl-8 btngame_end";
+            btnSubmit.value = "Partie terminée !";
+            btnSubmit.setAttribute('title', "Vers l'écran de fin de partie");
+        }
     } else {
-        btnSubmit.className = "offset-xl-2 col-xl-8 btngame_end";
-        btnSubmit.value = "Partie terminée !";
-        btnSubmit.setAttribute('title', "Vers l'écran de fin de partie");
+        console.log(Number(document.getElementById("gameScore").innerHTML));
+        if ( Number(document.getElementById("gameScore").innerHTML) < Number(intMaxScore) ) {
+            btnSubmit.className = "offset-xl-4 col-xl-6 nextQuestion";
+            btnSubmit.value = "Question suivante     > > >";
+        } else {
+            btnSubmit.className = "offset-xl-2 col-xl-8 btngame_end";
+            btnSubmit.value = "Partie terminée !";
+            btnSubmit.setAttribute('title', "Vers l'écran de fin de partie");
+        }
     }
     
     document.getElementById("frmAnswer").prepend(btnSubmit);

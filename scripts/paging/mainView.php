@@ -8,7 +8,7 @@
  *              Contexte :   Php 7.3
  *              Fonction :   vue principale du jeu
  *   Date mise en oeuvre :   22/11/2019
- *          Dernière MàJ :   30/11/2019
+ *          Dernière MàJ :   03/12/2019
  *************************************************************************************************/
 // Fonction d'affichage d'une question
 //       Paramètres  :

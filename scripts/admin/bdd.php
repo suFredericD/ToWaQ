@@ -479,6 +479,7 @@ function fct_SelectAllPlayers(){
 //         arrReturn : tableau des informations d'un joueur
 function fct_SelectOnePlayerById($intId){
     $strRequest = "SELECT * FROM `fri_Players` "
+                . "INNER JOIN `player_stats` ON `pls_Player`=`pla_Id` "
                 . "WHERE `pla_Id`='" . $intId . "';";
     $resLink = fct_RequestExec($strRequest);
     $resLink->data_seek(0);
@@ -488,6 +489,23 @@ function fct_SelectOnePlayerById($intId){
     $arrReturn['FirstName'] = $row['2'];
 	$arrReturn['LastName'] = $row['3'];
     $arrReturn['Mail'] = $row['4'];
+    $arrReturn['Games'] = $row['7'];
+    $arrReturn['Wins'] = $row['8'];
+    $arrReturn['looses'] = $row['9'];
+    $arrReturn['Level1B'] = $row['10'];
+    $arrReturn['Level1G'] = $row['11'];
+    $arrReturn['Level2B'] = $row['12'];
+    $arrReturn['Level2G'] = $row['13'];
+    $arrReturn['Level3B'] = $row['14'];
+    $arrReturn['Level3G'] = $row['15'];
+    $arrReturn['Cat1B'] = $row['16'];
+    $arrReturn['Cat1G'] = $row['17'];
+    $arrReturn['Cat2B'] = $row['18'];
+    $arrReturn['Cat2G'] = $row['19'];
+    $arrReturn['Cat3B'] = $row['20'];
+    $arrReturn['Cat3G'] = $row['21'];
+    $arrReturn['Cat4B'] = $row['22'];
+    $arrReturn['Cat4G'] = $row['23'];
     return $arrReturn;
 }
 // Fonction d'extraction des informations de tous les niveaux de difficulté

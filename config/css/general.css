@@ -124,10 +124,9 @@ Palette
 }
 /***** ***** ***** Balises HTML ***** ***** *****/
 body{
-	background-color: #61697D;
-}
-hr{
-
+	background-image: url('../../media/pics/backgrounds/greenw01.jpg');
+	background-size: cover;
+	background-color: transparent;
 }
 a,button{
 	transition-property: all;

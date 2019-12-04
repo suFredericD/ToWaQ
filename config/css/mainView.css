@@ -333,6 +333,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5px;
     text-align: justify;
 }
 .responseGood{
@@ -413,6 +414,157 @@
     text-shadow: 1px 1px 2px #C1C1C1;
     border: 3px outset #61697D;
     box-shadow: 2px 2px 4px #999;
+}
+/* ** ** ** ** Page : fin de partie ** ** ** ** */
+#game_end{
+    background-image: url('../../media/pics/backgrounds/greenw01.jpg');
+    background-size: cover;
+}
+#game_end label{
+    padding-left: 60px;
+    background-color: hsl(31, 25%, 65%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e2d9cf", endColorstr="#bca68f");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#e2d9cf), to(#bca68f));
+	background-image: -moz-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -ms-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e2d9cf), color-stop(100%, #bca68f));
+	background-image: -webkit-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: -o-linear-gradient(top, #e2d9cf, #bca68f);
+	background-image: linear-gradient(#e2d9cf, #bca68f);
+	border-color: #bca68f #bca68f hsl(31, 25%, 60%);
+	-webkit-font-smoothing: antialiased;
+    color: #000 !important;
+    font-family: "KomikaDisplay";
+    font-size: 30px;
+    text-shadow: 1px 1px 2px #C1C1C1;
+    border: 3px outset #61697D;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+}
+#gend_partie,#gend_player{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #75617D;
+    border: 3px inset #75617D;
+    box-shadow: 2px 2px 4px #000;
+    border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+#gend_score,#gend_playerstats{
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    background-color: #61697D;
+    border: 1px outset #75617D;
+    box-shadow: 2px 2px 4px #000;
+    border-top-right-radius: 45px;
+	border-bottom-left-radius: 45px;
+}
+#gend_playerstats .row{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.gend_gamelabels{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: "NoteThis";
+    font-size: 38px;
+    letter-spacing: 0.08em;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 2px #000;
+}
+.gend_labels{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "NoteThis";
+    font-size: 34px;
+    letter-spacing: 0.04em;
+    color: #C1C1C1;
+    text-shadow: 1px 1px 2px #000;
+}
+.gend_rublabels{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 60px;
+    background-color: #61777D;
+    font-family: "NoteThis";
+    font-size: 28px;
+    letter-spacing: 0.08em;
+    color: #000;
+    text-shadow: 1px 1px 2px #C1C1C1;
+    border: 1px outset #75617D;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+    box-shadow: 1px 1px 2px #000;
+}
+.gend_numbers,.gend_numbersbig{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Desyrel";
+    text-shadow: 1px 1px 2px #C1C1C1;
+}
+.gend_numbers{
+    font-size: 30px;
+}
+.gend_numbersbig{
+    font-size: 36px;
+}
+.meter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+.meter meter{
+    box-shadow: 1px 1px 2px #000;
+}
+.fa-balance-scale{
+    color: rgb(221, 146, 6);
+    text-shadow: 2px 2px 4px #000;
+}
+.fa-balance-scale-right{
+    color: rgb(15, 199, 15);
+    text-shadow: 2px 2px 4px #000;
+}
+.fa-balance-scale-left{
+    color: rgb(139, 6, 6);
+    text-shadow: 2px 2px 4px #000;
+}
+[id*="gend_catlabel"]{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: "Desyrel";
+    font-size: 20px;
+    font-weight: 100;
+    text-shadow: 1px 1px #C1C1C1;
+    border-top-right-radius: 45px;
+    border-bottom-left-radius: 45px;
+    box-shadow: 1px 1px 2px #000;
+}
+#gend_catlabel1{
+    background-color: #4BAEA0;
+}
+#gend_catlabel2{
+    background-color: #C2509F;
+}
+#gend_catlabel3{
+    background-color: #D2AD0F;
+}
+#gend_catlabel4{
+    background-color: #6D50C2;
 }
  /***** ***** ***** ***** ***** ***** ***** ***** *****/
 /* * *** ***** ***** Media queries ***** ***** *** * */

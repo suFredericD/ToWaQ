@@ -123,13 +123,13 @@ if  ( $intMaxItems > 0 ) {
     if ( $intAskNumber <= $intMaxItems ){
         fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore, $intRight, $intWrong);
     } else {
-        fctDisplayEndGame($arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore, $intRight, $intWrong);
+        fctDisplayEndGame($arrLevels);
     }
 } else {
     if ( $intGameScore < 20 ) {
         fctDisplayGameView($arrAskItem, $arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore, $intRight, $intWrong);
     } else {
-        fctDisplayEndGame($arrCategories, $strPartie, $intAskNumber,$strPlayerName, $intGameScore, $intRight, $intWrong);
+        fctDisplayEndGame($arrLevels);
     }
 }
 ?>
